@@ -1,0 +1,142 @@
+# Window Customization
+window:
+  decorations: none
+  dynamic_title: true
+  # padding:
+  #   x: 10
+  #   y: 10
+scrolling:
+  history: 10000
+  multiplier: 3
+background_opacity: .75
+window.dynamic_title: true
+
+# Font Customization
+font:
+  normal:
+    family: Fira Code
+    style: Medium
+  bold:
+    family: Fira Code
+  italic:
+    family: Fira Code
+  size: 6
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+  use_thin_strokes: false
+  debug:
+    persistent_logging: false
+draw_bold_text_with_bright_colors: false
+
+# # Colors (Doom One)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x282c34'
+#     foreground: '0xbbc2cf'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x282c34'
+#     red:     '0xff6c6b'
+#     green:   '0x98be65'
+#     yellow:  '0xecbe7b'
+#     blue:    '0x51afef'
+#     magenta: '0xc678dd'
+#     cyan:    '0x46d9ff'
+#     white:   '0xbbc2cf'
+
+# Base16 Default Dark 256 - alacritty color config
+# Chris Kempson (http://chriskempson.com)
+colors:
+  # Default colors
+  primary:
+    background: '0x181818'
+    foreground: '0xd8d8d8'
+
+  cursor:
+    text: '0x181818'
+    cursor: '0xd8d8d8'
+
+  # Normal colors
+  normal:
+    black:   '0x181818'
+    red:     '0xab4642'
+    green:   '0xa1b56c'
+    yellow:  '0xf7ca88'
+    blue:    '0x7cafc2'
+    magenta: '0xba8baf'
+    cyan:    '0x86c1b9'
+    white:   '0xd8d8d8'
+
+  # Bright colors
+  bright:
+    black:   '0x585858'
+    red:     '0xab4642'
+    green:   '0xa1b56c'
+    yellow:  '0xf7ca88'
+    blue:    '0x7cafc2'
+    magenta: '0xba8baf'
+    cyan:    '0x86c1b9'
+    white:   '0xf8f8f8'
+
+  indexed_colors:
+    - { index: 16, color: '0xdc9656' }
+    - { index: 17, color: '0xa16946' }
+    - { index: 18, color: '0x282828' }
+    - { index: 19, color: '0x383838' }
+    - { index: 20, color: '0xb8b8b8' }
+    - { index: 21, color: '0xe8e8e8' }
+
+# # Colors (Monokai Pro)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x2c2525'
+#     foreground: '0xfff1f3'
+
+#   cursor:
+#     text: '0x181818'
+#     cursor: '0xd8d8d8'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x2c2525'
+#     red:     '0xfd6883'
+#     green:   '0xadda78'
+#     yellow:  '0xf9cc6c'
+#     blue:    '0xf38d70'
+#     magenta: '0xa8a9eb'
+#     cyan:    '0x85dacc'
+#     white:   '0xfff1f3'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x72696a'
+#     red:     '0xfd6883'
+#     green:   '0xadda78'
+#     yellow:  '0xf9cc6c'
+#     blue:    '0xf38d70'
+#     magenta: '0xa8a9eb'
+#     cyan:    '0x85dacc'
+#     white:   '0xfff1f3'
+
+  selection:
+    text: '0xffffff'
+    background: '0xdc3232'
+    white:   '0xffffff'
+
+cursor:
+    style:
+        blinking: Never
+    unfocused_hollow: true
+
+key_bindings:
+  - { key: V,        mods: Alt, action: Paste            }
+  - { key: C,        mods: Alt, action: Copy             }
+
+
