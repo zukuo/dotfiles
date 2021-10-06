@@ -15,7 +15,7 @@ In order to setup ZSH you will need to do the following:
 
 ```bash
 # Install ZSH & plugins (this is different depending on your distro, below is for Arch Linux)
-sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions fzf fd
+sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions fzf fd exa
 
 # Copy dotfiles/.config/zsh to ~/.config/zsh (dotfiles is the location of the git repo)
 cp -r dotfiles/.config/zsh ~/.config/zsh
