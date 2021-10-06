@@ -63,14 +63,6 @@ set title
 set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab
 au FileType * set fo-=c fo-=r fo-=o
 
-
-"--------------------"
-" Pear Tree Settings
-"--------------------"
-let g:pear_tree_pairs = {
-            \ '`': {'closer': ''},
-            \ }
-
 "-----------------"
 " Theme Settings
 "-----------------"
@@ -112,6 +104,13 @@ nmap <leader>B :BraceyStop<CR>
 vnoremap > >gv
 vnoremap < <gv
 
+"--------------------"
+" Pear Tree Settings
+"--------------------"
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
+
 "----------------------------"
 " Nerd Tree & File Explorer
 "----------------------------"
@@ -152,7 +151,6 @@ if $TERM == 'linux'
    let g:airline_powerline_fonts = 0
    let g:webdevicons_enable = 0
 endif
-
 
 "-------------"
 " CoC Config
