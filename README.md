@@ -33,7 +33,7 @@ chsh -s $(which zsh)
 In order to setup Neovim you will need to do the following:
 
 ```bash
-# Install Neovim 
+# Install Neovim (and xclip if you're on linux)
 sudo pacman -S neovim
 
 # Copy dotfiles/.config/nvim to ~/.config/nvim
