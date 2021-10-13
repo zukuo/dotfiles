@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 ##                                ##
-##      Zukuo's ZSH Aliases  	  ##
+##      Zukuo's ZSH Aliases       ##
 ##   _____     _                  ##
 ##  |__  /   _| | ___   _  ___    ##
 ##    / / | | | |/ / | | |/ _ \   ##
@@ -56,4 +56,3 @@ alias wifi="nmtui"
 alias wget="wget --hsts-file $XDG_DATA_HOME/wget/wget-hsts"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias xbindkeys="xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/config"
-
