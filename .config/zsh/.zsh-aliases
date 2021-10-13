@@ -1,5 +1,5 @@
 ##                                ##
-##      Zukuo's ZSH Aliases  	  ##
+##      Zukuo's ZSH Aliases  	    ##
 ##   _____     _                  ##
 ##  |__  /   _| | ___   _  ___    ##
 ##    / / | | | |/ / | | |/ _ \   ##
@@ -15,11 +15,6 @@ alias buildblocks="rm -f blocks.h && make && sudo make clean install"
 alias buildflexi="rm -f config.h && rm -f patches.h && make && sudo make clean install"
 
 # Changing Directories
-alias cddwm="cd $HOME/suckless/rebase/dwm"
-alias cdst="cd $HOME/suckless/rebase/st"
-alias cddmenu="cd $HOME/suckless/rebase/dmenu"
-alias cdblocks="cd $HOME/suckless/dwmblocks"
-
 alias ..="cd .."
 alias ...="cd .. && cd .."
 alias cd..="cd .."
