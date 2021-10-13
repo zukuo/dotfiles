@@ -1,5 +1,5 @@
 ##                                ##
-##      Zukuo's ZSH Aliases  	    ##
+##      Zukuo's ZSH Aliases  	  ##
 ##   _____     _                  ##
 ##  |__  /   _| | ___   _  ___    ##
 ##    / / | | | |/ / | | |/ _ \   ##
@@ -7,33 +7,19 @@
 ##  /____\__,_|_|\_\\__,_|\___/   ##
 ##                                ##
 
-# Suckless Util
-alias fullclean="make clean && rm -f config.h && git reset --hard origin/master"
-alias fullbuild="make && sudo make clean install"
-alias fullslbuild="rm -f config.h && make && sudo make clean install"
-alias buildblocks="rm -f blocks.h && make && sudo make clean install"
-alias buildflexi="rm -f config.h && rm -f patches.h && make && sudo make clean install"
-
 # Changing Directories
 alias ..="cd .."
 alias ...="cd .. && cd .."
 alias cd..="cd .."
 alias cd...="cd .. && cd .."
 
-# Killing Programs
-alias restartblocks="killall dwmblocks && dwmblocks &"
-alias ka="killall"
-alias killx="killall xinit"
-
-# Starting Programs
-alias propertree="sudo python $HOME/Git/ProperTree/ProperTree.command"
-
 # Git
-alias gb="git branch"
+alias gs="git status"
+alias ga="git add"
 alias gc="git commit"
-alias gcd="git checkout"
-alias gadd="git add"
-alias gapp="git apply"
+alias gp="git push"
+alias gb="git branch"
+alias gco="git checkout"
 alias gm="git merge"
 alias gr="git rebase"
 
@@ -60,11 +46,9 @@ alias la="exa -a --color=always --group-directories-first"
 alias grep='grep --color=auto'
 
 # Extra
+alias py="python3"
 alias pacman="sudo pacman"
 alias wifi="nmtui"
-
-alias mount-gdrive="rclone mount googledrive: $HOME/GoogleDrive &"
-alias umount-gdrive="fusermount -u $HOME/GoogleDrive"
 
 # Fixing XDG Locations For Programs
 alias wget="wget --hsts-file $XDG_DATA_HOME/wget/wget-hsts"
