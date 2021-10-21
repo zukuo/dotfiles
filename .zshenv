@@ -8,13 +8,13 @@ typeset -U PATH path
 path=("$HOME/.local/bin/" "$HOME/.local/bin/statusbar/" "$XDG_CONFIG_HOME/emacs/bin/" "$path[@]")
 export PATH
 
-# Defaults
+# Defaults - change accordingly to your prefrences
 export VISUAL="nvim"
 export EDITOR="nvim"
 export DIFFPROG="nvim -d"
 # export MANPAGER="nvim +Man!"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --ignore-file '$HOME/.gitignore'"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
@@ -24,7 +24,7 @@ export FZF_COMPLETION_TRIGGER="**"
 # Config
 # export MOZ_USE_XINPUT2=1
 
-# Disable files
+# Disable files for less
 export LESSHISTFILE="-"
 
 # Fixing some old vim junk (no longer needed)
