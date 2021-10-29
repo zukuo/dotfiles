@@ -26,7 +26,7 @@ cp dotfiles/.zshenv ~
 # Change to ZSH shell
 chsh -s $(which zsh)
 
-# Finished!
+# Now just log out and you will be finished!
 ```
 
 ## Neovim Setup
@@ -41,6 +41,10 @@ cp -r dotfiles/.config/nvim ~/.config/nvim
 
 # Create a directory for the Neovim plugins
 mkdir ~/.config/nvim/plugged
+
+# Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Launch Neovim and type the following inside
 :PlugInstall 
