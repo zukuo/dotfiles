@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 ##                                ##
 ##      Zukuo's ZSH Aliases  	  ##
 ##   _____     _                  ##
@@ -39,7 +37,7 @@ alias sv="sudo nvim"
 
 alias eV="nvim $XDG_CONFIG_HOME/nvim/init.vim"
 alias eZ="nvim $XDG_CONFIG_HOME/zsh/.zshrc"
-alias eA="nvim $XDG_CONFIG_HOME/zsh/.zsh-aliases"
+alias eA="nvim $XDG_CONFIG_HOME/zsh/aliases.zsh"
 alias Z="source $XDG_CONFIG_HOME/zsh/.zshrc"
 
 # Listing
@@ -61,4 +59,3 @@ alias wifi="nmtui"
 alias wget="wget --hsts-file $XDG_DATA_HOME/wget/wget-hsts"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias xbindkeys="xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/config"
-

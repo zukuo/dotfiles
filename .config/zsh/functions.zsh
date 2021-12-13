@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 ##                                ##
 ##      Zukuo's ZSH Functions  	  ##
 ##   _____     _                  ##
