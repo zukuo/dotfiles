@@ -24,6 +24,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'psliwka/vim-smoothie'
     Plug 'farmergreg/vim-lastplace'
     Plug 'matze/vim-move'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " WebDev
     " Plug 'SirVer/ultisnips'
@@ -44,6 +45,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'sainnhe/forest-night'
     Plug 'sainnhe/sonokai'
+    Plug 'dracula/vim'
     Plug 'JavaCafe01/javacafe.vim'
 
 call plug#end()
@@ -59,6 +61,8 @@ set nu rnu
 set nofoldenable
 set splitright
 set title
+set ignorecase
+set smartcase
 " set clipboard=unnamedplus
 set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab
 au FileType * set fo-=c fo-=r fo-=o
@@ -70,11 +74,13 @@ au FileType * set fo-=c fo-=r fo-=o
 "           set termguicolors
 " endif
 set termguicolors
-colorscheme gruvbox
+colorscheme sonokai
 let g:sonokai_style = 'shusia'
 let g:gruvbox_italic=1
 let g:srcery_transparent_background = 1
 set background=dark
+
+" Transparency
 " hi! Normal ctermbg=NONE guibg=NONE 
 " hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
@@ -89,8 +95,8 @@ nnoremap <silent> <A-Down> :wincmd j<CR>
 nnoremap <silent> <A-Left> :wincmd h<CR>
 nnoremap <silent> <A-Right> :wincmd l<CR>
 
-map <leader>y "*y
-map <leader>p "*p
+map <leader>y "+y
+map <leader>p "+p
 
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>t :vsplit +Explore<CR>
@@ -206,3 +212,24 @@ inoremap <silent><expr> <C-Space> coc#refresh()
 
 " " Apply AutoFix to problem on the current line.
 " nmap <leader>qf  <Plug>(coc-fix-current)
+
+"-------------------"
+" TreeSitter Config
+"-------------------"
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
