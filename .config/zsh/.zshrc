@@ -1,5 +1,5 @@
 ##                                ##
-##      Zukuo's ZSH Config        ##
+##      Zukuo's ZSH Config  	  ##
 ##   _____     _                  ##
 ##  |__  /   _| | ___   _  ___    ##
 ##    / / | | | |/ / | | |/ _ \   ##
@@ -173,4 +173,3 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh  # for some neat keybindings for fzf
-
