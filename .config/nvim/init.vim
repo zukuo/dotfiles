@@ -36,7 +36,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'romgrk/doom-one.vim'
     Plug 'srcery-colors/srcery-vim'
     Plug 'joshdick/onedark.vim'
-    Plug 'sainnhe/forest-night'
+    Plug 'sainnhe/everforest'
     Plug 'sainnhe/sonokai'
     Plug 'dracula/vim'
     Plug 'JavaCafe01/javacafe.vim'
@@ -189,7 +189,6 @@ inoremap <silent><expr> <C-Space> coc#refresh()
 "-------------------"
 " TreeSitter Config
 "-------------------"
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
