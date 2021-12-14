@@ -18,7 +18,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'scrooloose/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'tmsvg/pear-tree'
+    Plug 'steelsojka/pears.nvim'
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-commentary'
     Plug 'psliwka/vim-smoothie'
@@ -207,3 +207,4 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 lua require'colorizer'.setup()
+lua require "pears".setup()
