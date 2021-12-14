@@ -7,10 +7,4 @@ set -uo pipefail
 printf "\033[1;36mUpdating packages...\n"
 yay -Syyu
 
-# printf "\033[1;31mCleaning pacman...\n"
-# sudo pacman -Sc
-
-printf "\033[1;31mCleaning packages...\n"
-yay -Sc --noconfirm
-
 printf "\033[1;32mDone!\n"
