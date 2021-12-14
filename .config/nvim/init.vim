@@ -11,13 +11,13 @@
 " Plugins
 "---------"
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
-
-    " Basic
-    Plug 'ap/vim-css-color'
-    Plug 'bling/vim-airline'
-    Plug 'scrooloose/nerdtree'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	
+	" Basic
+	Plug 'ap/vim-css-color'
+	Plug 'bling/vim-airline'
+	Plug 'scrooloose/nerdtree'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'tmsvg/pear-tree'
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-commentary'
@@ -26,17 +26,10 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'matze/vim-move'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-    " WebDev
-    " Plug 'SirVer/ultisnips'
-    " Plug 'honza/vim-snippets'
-    Plug 'turbio/bracey.vim'
-
-    " Markdown Plugins
-    Plug 'junegunn/goyo.vim'
-    Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
-    " Make sure to install both nodejs & yarn
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+	" Markdown Plugins
+	Plug 'junegunn/goyo.vim'
+	Plug 'godlygeek/tabular'
+	Plug 'plasticboy/vim-markdown'
 
     " Themes
     Plug 'morhetz/gruvbox'
@@ -101,11 +94,6 @@ map <leader>p "+p
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>t :vsplit +Explore<CR>
 
-" Preview Binds
-nmap <leader>m <Plug>MarkdownPreviewToggle
-nmap <leader>b :Bracey<CR>
-nmap <leader>B :BraceyStop<CR>
-
 " keep visual mode after indent
 vnoremap > >gv
 vnoremap < <gv
@@ -128,14 +116,6 @@ let g:NERDTreeStatusline = ''
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Toggle
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-
-"-------------------"
-" Markdown Preview 
-"-------------------"
-" make sure to install xdg-utils
-let g:mkdp_refresh_slow = 1
-let g:mkdp_auto_close = 0
-let g:mkdp_markdown_css = '/home/eesa/.local/share/github-markdown.css'
 
 "------------------"
 " Snippets Config
