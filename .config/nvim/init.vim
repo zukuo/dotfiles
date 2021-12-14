@@ -13,7 +13,7 @@
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 	
     " Basic
-    Plug 'ap/vim-css-color'
+    Plug 'norcalli/nvim-colorizer.lua'
     Plug 'bling/vim-airline'
     Plug 'scrooloose/nerdtree'
     Plug 'ryanoasis/vim-devicons'
@@ -205,3 +205,5 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+lua require'colorizer'.setup()
