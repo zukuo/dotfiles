@@ -12,12 +12,12 @@
 "---------"
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 	
-	" Basic
-	Plug 'ap/vim-css-color'
-	Plug 'bling/vim-airline'
-	Plug 'scrooloose/nerdtree'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Basic
+    Plug 'ap/vim-css-color'
+    Plug 'bling/vim-airline'
+    Plug 'scrooloose/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'tmsvg/pear-tree'
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-commentary'
@@ -26,10 +26,10 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'matze/vim-move'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-	" Markdown Plugins
-	Plug 'junegunn/goyo.vim'
-	Plug 'godlygeek/tabular'
-	Plug 'plasticboy/vim-markdown'
+    " Markdown Plugins
+    Plug 'junegunn/goyo.vim'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
 
     " Themes
     Plug 'morhetz/gruvbox'
