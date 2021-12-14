@@ -117,13 +117,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Toggle
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
-"------------------"
-" Snippets Config
-"------------------"
-let g:UltiSnipsExpandTrigger="<C-Space>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 "--------------"
 " Goyo Config
 "--------------"
