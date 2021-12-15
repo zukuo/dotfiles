@@ -25,10 +25,6 @@ font:
   normal:
     family: Fira Code
     style: Medium
-  bold:
-    family: Fira Code
-  italic:
-    family: Fira Code
   size: 13
   offset:
     x: 0
