@@ -23,8 +23,8 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'glepnir/dashboard-nvim'
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'nvim-lualine/lualine.nvim'
     Plug 'psliwka/vim-smoothie'
-    Plug 'bling/vim-airline'
 
     " Formatting
     Plug 'steelsojka/pears.nvim'
@@ -201,16 +201,8 @@ inoremap <silent><expr> <C-Space> coc#refresh()
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
   highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
+    enable = true
   },
 }
 EOF
@@ -222,7 +214,10 @@ lua require'colorizer'.setup()
 lua require "pears".setup()
 lua require('gitsigns').setup()
 lua require'nvim-lastplace'.setup{}
+lua require'lualine'.setup()
 
+let g:dashboard_disable_statusline = 1
+let g:dashboard_default_executive = "fzf"
 let g:dashboard_custom_header =<< trim END
 =================     ===============     ===============   ========  ========
 \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
