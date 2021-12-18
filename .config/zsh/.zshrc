@@ -163,8 +163,8 @@ zstyle '*' single-ignored show
 ##########################
 
 # Load Personal Addons
-source $XDG_CONFIG_HOME/zsh/.zsh-aliases
-source $XDG_CONFIG_HOME/zsh/.zsh-functions
+source $XDG_CONFIG_HOME/zsh/aliases.zsh
+source $XDG_CONFIG_HOME/zsh/functions.zsh
 
 # Make sure to install -> zsh-syntax-highlighting (aur), zsh-autosuggestions (aur), zsh-history-substring-search (pacman), fzf (pacman)
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
