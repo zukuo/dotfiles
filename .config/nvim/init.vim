@@ -22,8 +22,8 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'glepnir/dashboard-nvim'
+    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'psliwka/vim-smoothie'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'bling/vim-airline'
 
     " Formatting
