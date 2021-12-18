@@ -8,8 +8,8 @@
 ##                                ##
 
 # Fuzzy Find Files
-se() { fd . $HOME/.local/bin/ --type f | fzf | xargs -r $EDITOR ; }
-ce() { fd . $XDG_CONFIG_HOME/ --type f -H -d 2 | fzf | xargs -r $EDITOR ; }
+se() { fd . $HOME/.local/bin/ --type f --type symlink | fzf | xargs -r $EDITOR ; }
+ce() { fd . $XDG_CONFIG_HOME/ --type f --type symlink -H -d 2 | fzf | xargs -r $EDITOR ; }
 vf() { fzf | xargs -r -I % $EDITOR % ; }
 
 # Get IP adress
