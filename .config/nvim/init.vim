@@ -13,18 +13,26 @@
 call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 	
     " Basic
-    Plug 'norcalli/nvim-colorizer.lua'
-    Plug 'bling/vim-airline'
+    Plug 'nvim-lua/plenary.nvim'
     Plug 'scrooloose/nerdtree'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'steelsojka/pears.nvim'
     Plug 'junegunn/fzf.vim'
-    Plug 'tpope/vim-commentary'
-    Plug 'psliwka/vim-smoothie'
-    Plug 'farmergreg/vim-lastplace'
-    Plug 'matze/vim-move'
+
+    " Eye Candy 
+    Plug 'norcalli/nvim-colorizer.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'lewis6991/gitsigns.nvim'
+    Plug 'psliwka/vim-smoothie'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'bling/vim-airline'
+
+    " Formatting
+    Plug 'steelsojka/pears.nvim'
+    Plug 'ethanholz/nvim-lastplace'
+    Plug 'tpope/vim-commentary'
+    Plug 'matze/vim-move'
+
+    " Completion
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Markdown Plugins
     Plug 'junegunn/goyo.vim'
@@ -206,5 +214,10 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+"---------------------"
+" Lua Plugins Config
+"---------------------"
 lua require'colorizer'.setup()
 lua require "pears".setup()
+lua require('gitsigns').setup()
+lua require'nvim-lastplace'.setup{}
