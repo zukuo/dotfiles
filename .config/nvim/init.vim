@@ -1,5 +1,5 @@
 "                                "
-"     Zukuo's NeoVim Config!     "
+"     Zukuo's Neovim Config!     "
 "   _____     _                  "
 "  |__  /   _| | ___   _  ___    "
 "    / / | | | |/ / | | |/ _ \   "
@@ -29,7 +29,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     " Formatting
     Plug 'steelsojka/pears.nvim'
     Plug 'ethanholz/nvim-lastplace'
-    Plug 'tpope/vim-commentary'
+    Plug 'b3nj5m1n/kommentary'
     Plug 'matze/vim-move'
 
     " Completion
@@ -218,6 +218,7 @@ lua require'lualine'.setup()
 
 let g:dashboard_disable_statusline = 1
 let g:dashboard_default_executive = "fzf"
+lua vim.g.dashboard_custom_footer = {"   ",}
 let g:dashboard_custom_header =<< trim END
 =================     ===============     ===============   ========  ========
 \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
