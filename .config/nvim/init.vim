@@ -27,7 +27,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'psliwka/vim-smoothie'
 
     " Formatting
-    Plug 'steelsojka/pears.nvim'
+    Plug 'windwp/nvim-autopairs'
     Plug 'ethanholz/nvim-lastplace'
     Plug 'b3nj5m1n/kommentary'
     Plug 'matze/vim-move'
@@ -207,14 +207,28 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+"----------------"
+" LuaLine Config
+"----------------"
+lua <<EOF
+require('lualine').setup({
+    options = {
+        section_separators = { left = "", right = ""},    -- e0b4 / e0b6 : https://www.nerdfonts.com/cheat-sheet
+        component_separators = { left = '', right = ''},  -- e0b5 / e0b7
+    },
+    sections = {
+        lualine_x = {"filetype"}
+    }
+})
+EOF
+
 "---------------------"
 " Lua Plugins Config
 "---------------------"
 lua require'colorizer'.setup()
-lua require "pears".setup()
+lua require('nvim-autopairs').setup{}
 lua require('gitsigns').setup()
 lua require'nvim-lastplace'.setup{}
-lua require'lualine'.setup()
 
 let g:dashboard_disable_statusline = 1
 let g:dashboard_default_executive = "fzf"
