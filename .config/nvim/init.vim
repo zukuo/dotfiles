@@ -10,7 +10,14 @@
 "---------"
 " Plugins
 "---------"
-call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
+" Install vim plug if not installed
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin(stdpath('data') . '/plugged')
 	
     " Basic
     Plug 'nvim-lua/plenary.nvim'
@@ -49,6 +56,7 @@ call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
     Plug 'sainnhe/sonokai'
     Plug 'dracula/vim'
     Plug 'JavaCafe01/javacafe.vim'
+    Plug 'catppuccin/nvim'
 
 call plug#end()
 
