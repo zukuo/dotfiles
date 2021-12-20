@@ -27,11 +27,9 @@ export FZF_COMPLETION_TRIGGER="**"
 # Disable files for less
 export LESSHISTFILE="-"
 
-# Fixing some old vim junk (no longer needed)
-# export VIMINIT='if !has('nvim') | source "$XDG_CONFIG_HOME/vim/vimrc" | endif'
-
 # Fixing paths
 export ZDOTDIR=$HOME/.config/zsh
+export MYVIMRC="$XDG_CONFIG_HOME"/nvim/init.vim
 export HISTFILE="$XDG_DATA_HOME"/zsh/history
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
