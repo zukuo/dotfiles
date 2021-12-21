@@ -28,7 +28,8 @@ alias gr="git rebase"
 
 # Vim
 alias vpc="nvim +PlugClean"
-alias vpi="nvim +PlugInstall"
+# alias vpi="nvim +PlugInstall"
+alias vpi="nvim -es -u $MYVIMRC -i NONE -c 'PlugInstall' -c 'qa'"
 
 # Editing
 alias v="nvim"
