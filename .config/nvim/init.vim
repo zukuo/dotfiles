@@ -97,6 +97,9 @@ set background=dark
 "------------------"
 " Custom Mappings
 "------------------"
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 nnoremap <silent> <leader><ENTER> :Goyo<CR>
 nnoremap <silent> <C-s> :w<CR>
 
