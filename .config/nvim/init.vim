@@ -74,6 +74,7 @@ set splitright
 set title
 set ignorecase
 set smartcase
+set hidden
 " set clipboard=unnamedplus
 set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab
 au FileType * set fo-=c fo-=r fo-=o
@@ -143,9 +144,6 @@ let g:goyo_width = 120
 "-------------"
 " CoC Config
 "-------------"
-
-"TextEdit might fail if hidden is not set.
-set hidden
 
 " Some servers have issues with backup files, see #649.
 set nobackup
