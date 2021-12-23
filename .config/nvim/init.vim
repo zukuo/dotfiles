@@ -31,6 +31,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'glepnir/dashboard-nvim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-lualine/lualine.nvim'
+    Plug 'sunjon/shade.nvim'
     Plug 'psliwka/vim-smoothie'
 
     " Formatting
@@ -217,6 +218,15 @@ require('lualine').setup({
     sections = {
         lualine_x = {"filetype"}
     }
+})
+EOF
+
+"--------------"
+" Shade Config
+"--------------"
+lua <<EOF
+require'shade'.setup({
+  overlay_opacity = 70,
 })
 EOF
 
