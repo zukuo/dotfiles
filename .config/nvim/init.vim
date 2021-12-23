@@ -54,9 +54,10 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'sainnhe/everforest'
     Plug 'sainnhe/sonokai'
-    Plug 'dracula/vim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'JavaCafe01/javacafe.vim'
     Plug 'catppuccin/nvim'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -80,12 +81,9 @@ au FileType * set fo-=c fo-=r fo-=o
 "-----------------"
 " Theme Settings
 "-----------------"
-" if has('termguicolors')
-"           set termguicolors
-" endif
 set termguicolors
-colorscheme sonokai
-let g:sonokai_style = 'shusia'
+colorscheme tokyonight
+autocmd ColorScheme dracula highlight DraculaComment cterm=italic gui=italic
 let g:gruvbox_italic=1
 let g:srcery_transparent_background = 1
 set background=dark
