@@ -51,7 +51,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'morhetz/gruvbox'
     Plug 'romgrk/doom-one.vim'
     Plug 'srcery-colors/srcery-vim'
-    Plug 'joshdick/onedark.vim'
+    Plug 'navarasu/onedark.nvim'
     Plug 'sainnhe/everforest'
     Plug 'sainnhe/sonokai'
     Plug 'dracula/vim', { 'as': 'dracula' }
@@ -98,6 +98,10 @@ set background=dark
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+nnoremap <leader><space> :nohlsearch<CR>
+
+nmap <leader>vr :source ~/.config/nvim/init.vim<cr>
+
 nnoremap <silent> <leader><ENTER> :Goyo<CR>
 nnoremap <silent> <C-s> :w<CR>
 
@@ -112,16 +116,12 @@ map <leader>p "+p
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <leader>t :vsplit +Explore<CR>
 
+" Make Y behave like the other capitals
+nnoremap Y y$
+
 " keep visual mode after indent
 vnoremap > >gv
 vnoremap < <gv
-
-"--------------------"
-" Pear Tree Settings
-"--------------------"
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
-let g:pear_tree_smart_backspace = 1
 
 "----------------------------"
 " Nerd Tree & File Explorer
@@ -139,15 +139,6 @@ nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " Goyo Config
 "--------------"
 let g:goyo_width = 120
-
-"--------------"
-" Vim-Airline
-"--------------"
-let g:airline_powerline_fonts = 1
-if $TERM == 'linux'
-   let g:airline_powerline_fonts = 0
-   let g:webdevicons_enable = 0
-endif
 
 "-------------"
 " CoC Config
