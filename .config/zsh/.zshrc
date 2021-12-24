@@ -24,11 +24,25 @@ source $XDG_CONFIG_HOME/zsh/themes/bira.zsh
 
 ### Beam Cursor
 ###############
-_fix_cursor() {
-   echo -ne '\e[5 q'
+fix_cursor() {
+    echo -ne '\e[5 q'
 }
+precmd_functions+=(fix_cursor)
 
-precmd_functions+=(_fix_cursor)
+### Change Term Title
+#####################
+fix_title() {
+    # title -> working dir
+    # print -Pn "\e]2;%n@%M: %~\a"
+
+    # title -> terminal name
+    term_name=$(neofetch term | awk '{print $2}')
+    if [[ ! $term_name =~ [[:upper:]] ]] then
+        term_name=${(C)term_name[1]}${term_name:1}
+    fi
+    print -Pn "\e]2;${term_name}\a"
+}
+precmd_functions+=(fix_title)
 
 ### History Config
 ##################
