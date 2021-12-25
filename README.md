@@ -2,65 +2,69 @@
 
 Here are a collection of my dotfiles, all mainly from linux. Which can be used on a range of systems, I've personally only ever used them for Arch Linux and MacOS.
 
-**The most important dots are:**
-- My ZSH config (shell)
-- My Neovim config (editor)
-- My Alacritty config (terminal)
+**Default Apps:**
+- `zsh` - shell
+- `neovim` - editor
+- `wezterm` - main terminal
+- `ranger` - file manager
+- `alacritty` & `iterm2` - alt terminals
 
-There may be some required apps in order to use the dots to the full potential, but they should be commented in the actual dots themselves.
+## Installation
+There are two ways to install my dotfiles, automatically using the `install.sh` script or manually.
 
-## ZSH Setup
+### Automated
+**⚠️ This script is not fully functional yet, so be careful using it! ⚠️**
 
-In order to setup ZSH you will need to do the following:
-
+To install my dotfiles, run the following commands to use the install script:
 ```bash
-# Install ZSH & plugins (this is different depending on your distro, below is for Arch Linux)
-sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions fzf fd exa
+# Clone Repo
+git clone --depth 1 https://github.com/zukuo/dotfiles.git ~/.dotfiles
 
-# Copy dotfiles/.config/zsh to ~/.config/zsh (dotfiles is the location of the git repo)
-cp -r dotfiles/.config/zsh ~/.config/zsh
+# Change Directory
+cd ~/.dotfiles/installer
 
-# Copy the dotfiles/.zshenv to ~ (dotfiles is the location of the git repo)
-cp dotfiles/.zshenv ~
-
-# Change to ZSH shell
-chsh -s $(which zsh)
-
-# Now just log out and you will be finished!
+# Run Install Script
+./install.sh
 ```
 
-## Neovim Setup
-In order to setup Neovim you will need to do the following:
+> **Note**: *please read the install script and make a backup of your current configs before running it.*
 
+### Manual
+
+#### Install Dependencies
+Use the following commands if you are on Arch Linux (will add one for MacOS in the future):
+
+**Main Packages (Arch)**
 ```bash
-# Install Neovim (and xclip if you're on linux)
-sudo pacman -S neovim
+sudo pacman -S zsh neovim wezterm alacritty ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip stow
+```
 
-# Copy dotfiles/.config/nvim to ~/.config/nvim
-cp -r dotfiles/.config/nvim ~/.config/nvim
+**Extra Packages (Arch)**
+```bash
+sudo yay -S nerd-fonts-jetbrains-mono nerd-fonts-fira-code ttf-cascadia-code ttf-joypixels ripgrep
+```
 
-# Create a directory for the Neovim plugins
-mkdir ~/.config/nvim/plugged
+> You don't need to install of the extra packages, they're more for eye candy
 
-# Install vim-plug
+#### Link Files using GNU Stow
+```bash
+stow ...
+```
+
+#### Change Shell to ZSH
+```bash
+chsh -s $(which zsh)
+```
+
+#### Install Neovim Plugins
+1. Install vim-plug:
+```bash
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# Launch Neovim and type the following inside
-:PlugInstall 
-
-# Done!
 ```
 
-## Alacritty Setup
-In order to setup Neovim you will need to do the following:
-
+2. Install plugins:
 ```bash
-# Install Alacritty
-sudo pacman -S alacritty
-
-# Copy dotfiles/.config/alacritty to ~/.config/alacritty
-cp -r dotfiles/.config/alacritty ~/.config/alacritty
-
-# Finished!
+nvim -es -u $MYVIMRC -i NONE -c 'PlugInstall' -c 'qa'
 ```
+> Give this command some time, as it can take a while to install all the plugins
