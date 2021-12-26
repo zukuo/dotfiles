@@ -36,7 +36,7 @@ fix_title() {
     # print -Pn "\e]2;%n@%M: %~\a"
 
     # title -> terminal name
-    term_name=$(neofetch term | awk '{print $2}')
+    term_name=$(neofetch --config none term | awk '{print $2}')
     if [[ ! $term_name =~ [[:upper:]] ]] then
         term_name=${(C)term_name[1]}${term_name:1}
     fi
@@ -69,6 +69,7 @@ man() {
 bindkey  "^[[H"   beginning-of-line # home
 bindkey  "^[[F"   end-of-line # end
 bindkey  "^[[3~"  delete-char # delete
+bindkey  "^[[3;5~" kill-word # ctrl+delete
 
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
@@ -83,6 +84,7 @@ backward-kill-dir () {
 }
 zle -N backward-kill-dir
 bindkey '^H' backward-kill-dir
+bindkey '^W' backward-kill-dir
 
 ### Auto/Tab Complete
 #####################
