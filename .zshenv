@@ -12,8 +12,8 @@ export PATH
 export VISUAL="nvim"
 export EDITOR="nvim"
 export DIFFPROG="nvim -d"
-# export MANPAGER="nvim +Man!"
-export TERMINAL="alacritty"
+export MANPAGER="nvim +Man!"
+export TERMINAL="wezterm"
 export BROWSER="brave"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --ignore-file '$HOME/.gitignore'"
