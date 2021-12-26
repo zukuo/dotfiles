@@ -36,7 +36,7 @@ Use the following commands if you are on Arch Linux (will add one for MacOS in t
 
 **Main Packages (Arch)**
 ```bash
-sudo pacman -S zsh neovim wezterm alacritty ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip stow
+sudo pacman -S zsh neovim wezterm alacritty ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip stow yarn
 ```
 
 **Extra Packages (Arch)**
