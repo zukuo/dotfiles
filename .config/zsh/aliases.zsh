@@ -49,7 +49,8 @@ alias ls="exa --color=always --group-directories-first --icons" # all files and 
 alias l="exa -al --color=always --group-directories-first --icons"
 alias la="exa -a --color=always --group-directories-first --icons"
 
-alias grep='grep --color=auto'
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
 
 # Extra
 alias py="python3"
