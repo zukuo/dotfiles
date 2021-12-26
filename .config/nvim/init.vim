@@ -47,6 +47,7 @@ call plug#begin(stdpath('data') . '/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
+    Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
 
     " Themes
     Plug 'morhetz/gruvbox'
