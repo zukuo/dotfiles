@@ -9,9 +9,13 @@
 
 # Changing Directories
 alias ..="cd .."
-alias ...="cd .. && cd .."
 alias cd..="cd .."
-alias cd...="cd .. && cd .."
+alias cd...="cd ../.."
+
+alias -g ...="../.."
+alias -g ....="../../.."
+
+alias dots="cd $HOME/Git/dotfiles"
 
 # Git
 alias gs="git status"

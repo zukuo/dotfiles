@@ -15,6 +15,7 @@ unsetopt correctall
 # stty -ixon
 [[ $- != *i* ]] && return
 setopt prompt_subst
+setopt autocd
 set -o emacs # fix key inputs
 
 ### Set Prompt
