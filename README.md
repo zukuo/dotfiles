@@ -47,6 +47,7 @@ sudo yay -S nerd-fonts-jetbrains-mono nerd-fonts-fira-code ttf-cascadia-code ttf
 > You don't need to install of the extra packages, they're more for eye candy
 
 #### Link Files using GNU Stow
+Create symlinks from the Git Repo to your home directory (WIP):
 ```bash
 stow ...
 ```
@@ -68,3 +69,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim -es -u $MYVIMRC -i NONE -c 'PlugInstall' -c 'qa'
 ```
 > Give this command some time, as it can take a while to install all the plugins
+
+#### Install Ranger Plugins
+```bash
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+```
