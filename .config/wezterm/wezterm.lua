@@ -35,8 +35,11 @@ return {
 
     -- Keybindings
     keys = {
+        -- Fix Copy & Paste
         {key="c", mods="ALT", action=wezterm.action{CopyTo="ClipboardAndPrimarySelection"}},
         {key="v", mods="ALT", action=wezterm.action{PasteFrom="Clipboard"}},
         {key="v", mods="ALT", action=wezterm.action{PasteFrom="PrimarySelection"}},
+        -- Fix Ctrl+Backspace
+        {key="\u{8}", mods="CTRL", action={SendKey={key="W", mods="CTRL"}}},
     }
 }
