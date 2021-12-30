@@ -12,7 +12,7 @@
 autoload -U colors && colors
 unsetopt correct
 unsetopt correctall 
-# stty -ixon
+stty -ixon
 [[ $- != *i* ]] && return
 setopt prompt_subst
 setopt autocd
