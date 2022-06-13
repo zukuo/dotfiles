@@ -1,0 +1,12 @@
+# Pixegami's Terminal Colorscheme - wezterm color config
+[colors]
+foreground = "#86ffaf"
+background = "#0c1c25"
+cursor_bg = "#86ffaf"
+cursor_border = "#86ffaf"
+cursor_fg = "#0c1c25"
+selection_bg = "#dc3232"
+selection_fg = "#f8f8f8"
+
+ansi = ['#152535', '#FF3C3C', '#49FF6D', '#FFBC51', '#3DB6F9', '#8E44AD', '#205C57', '#BDC3C7']
+brights = ['#26384B', '#FF3C4C', '#93FF91', '#FFD057', '#5BD7FF', '#9B59B6', '#16A085', '#FFFFFF']
