@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 # PATHS
 typeset -U PATH path
-path=("$HOME/.local/bin/" "$HOME/.local/bin/statusbar/" "$XDG_CONFIG_HOME/emacs/bin/" "$path[@]")
+path=("$HOME/.local/bin/" "/opt/homebrew/bin/" "$HOME/.local/bin/statusbar/" "$XDG_CONFIG_HOME/emacs/bin/" "$path[@]")
 export PATH
 
 # Defaults - change accordingly to your prefrences
