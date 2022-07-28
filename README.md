@@ -63,8 +63,8 @@ touch $XDG_DATA_HOME/zsh/history
 **3.** Install Plugins
 ```bash
 mkdir ~/.config/zsh/plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins
+git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins
+git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins
 ```
 
 #### Neovim
