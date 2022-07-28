@@ -60,6 +60,12 @@ chsh -s $(which zsh)
 ```bash
 touch $XDG_DATA_HOME/zsh/history
 ```
+**3.** Install Plugins
+```bash
+mkdir ~/.config/zsh/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins
+```
 
 #### Neovim
 **1.** Install vim-plug:
