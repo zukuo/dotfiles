@@ -5,38 +5,22 @@ Here are a collection of my dotfiles, all mainly from linux. Which can be used o
 **Default Apps:**
 - `zsh` - shell
 - `neovim` - editor
-- `wezterm` - main terminal
-- `ranger` - file manager
-- `alacritty` & `iterm2` - alt terminals
+- `wezterm` - linux terminal
+- `iterm2` - mac terminal
+- `ranger` - cli file manager
+- `yadm` - dotfiles manager
 
 ## Installation
-There are two ways to install my dotfiles, automatically using the `install.sh` script or manually.
+The way I install my dotfiles is by using `yadm` - which essentially git clones the entire dotfiles repo into your home directory. This allows for quite easy management and synchronisation between multiple systems.
 
-### Automated
-**⚠️ This script is not fully functional yet, so be careful using it! ⚠️**
+### 1. Install Dependencies
 
-To install my dotfiles, run the following commands to use the install script:
-```bash
-# Clone Repo
-git clone --depth 1 https://github.com/zukuo/dotfiles.git ~/.dotfiles
+Install any packages for your respected OS, in order to fully use the dotfiles.
 
-# Change Directory
-cd ~/.dotfiles/installer
-
-# Run Install Script
-./install.sh
-```
-
-> **Note**: *please read the install script and make a backup of your current configs before running it.*
-
-### Manual
-
-#### Install Dependencies
-Use the following commands if you are on Arch Linux (will add one for MacOS in the future):
-
+#### Linux
 **Main Packages (Arch)**
 ```bash
-sudo pacman -S zsh neovim wezterm alacritty ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip stow yarn nodejs
+sudo pacman -S zsh neovim wezterm ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip yadm yarn nodejs
 ```
 
 **Extra Packages (Arch)**
@@ -46,31 +30,51 @@ sudo yay -S nerd-fonts-jetbrains-mono nerd-fonts-fira-code ttf-cascadia-code ttf
 
 > You don't need to install of the extra packages, they're more for eye candy
 
-#### Link Files using GNU Stow
-Create symlinks from the Git Repo to your home directory (WIP):
+#### MacOS
+**Setup Homebrew**
 ```bash
-stow ...
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-#### Change Shell to ZSH
+**Main Packages**
+```bash
+brew install neovim exa yadm fzf fd node neofetch
+```
+
+### 2. Clone Dotfiles
+Using `yadm` we can clone the repo into our home directory.
+
+```bash
+yadm clone --depth 1 https://github.com/zukuo/dotfiles.git
+```
+
+### 3. Setup Apps
+Finally, some of the apps will need some tweaking before they are fully functional.
+
+#### ZSH
+**1.** Change Shell
 ```bash
 chsh -s $(which zsh)
 ```
+**2.** Create ZSH History File
+```bash
+touch $XDG_DATA_HOME/zsh/history
+```
 
-#### Install Neovim Plugins
-1. Install vim-plug:
+#### Neovim
+**1.** Install vim-plug:
 ```bash
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
-2. Install plugins:
+**2.** Install plugins:
 ```bash
 nvim -es -u $MYVIMRC -i NONE -c 'PlugInstall' -c 'qa'
 ```
 > Give this command some time, as it can take a while to install all the plugins
 
-#### Install Ranger Plugins
+#### Ranger
 ```bash
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 ```
