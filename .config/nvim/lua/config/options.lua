@@ -1,6 +1,3 @@
--- Set colorscheme
-vim.cmd("colorscheme tokyonight")
-
 -- Set tabs
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
@@ -19,7 +16,3 @@ vim.opt.termguicolors = true
 vim.opt.title = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
--- Disable new line comments
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")

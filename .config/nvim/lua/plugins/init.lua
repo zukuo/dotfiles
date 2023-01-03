@@ -1,9 +1,9 @@
 return {
     -- Eye Candy
-    "folke/tokyonight.nvim",
-    "psliwka/vim-smoothie",
+    { "folke/tokyonight.nvim", config = function() vim.cmd("colorscheme tokyonight") end },
     { "kyazdani42/nvim-web-devicons", config = function() require("nvim-web-devicons").setup() end },
     { "lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end },
+    "psliwka/vim-smoothie",
 
     -- Functionality
     "matze/vim-move",
