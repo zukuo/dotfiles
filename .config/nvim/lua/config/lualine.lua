@@ -127,6 +127,12 @@ ins_left {
 }
 
 ins_left {
+    'filetype',
+    colored = true,
+    icon_only = true,
+}
+
+ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
