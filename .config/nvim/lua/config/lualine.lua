@@ -1,5 +1,7 @@
 -- Eviline config for lualine modified for lazy
 -- Author: shadmansaleh, Credit: glepnir, Modded: zukuo
+local lualine = require("lualine")
+if not lualine then return end
 
 -- Color table for highlights
 -- stylua: ignore
@@ -216,12 +218,4 @@ ins_right {
 }
 
 -- Set up the package for lazy
-local M = {
-    "nvim-lualine/lualine.nvim",
-}
-
-function M.config()
-    require("lualine").setup(config)
-end
-
-return M
+lualine.setup(config)
