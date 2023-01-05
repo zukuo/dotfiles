@@ -2,28 +2,6 @@ local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
 -- Set header
---[[ dashboard.section.header.val = {
-    "=================     ===============     ===============   ========  ========",
-    "\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //",
-    "||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||",
-    "|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||",
-    "||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||",
-    "|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||",
-    "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
-    "|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||",
-    "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
-    "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
-    "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
-    "||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||",
-    "||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||",
-    "||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||",
-    "||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||",
-    "||.=='    _-'                                                     `' |  /==.||",
-    "=='    _-'                        Z E O V I M                         \\/   `==",
-    "\\   _-'                                                                `-_   /",
-    " `''                                                                      ``'  ",
-} ]]
-
 dashboard.section.header.val = {
     "⠀⠐⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢂⠆",
     "⠠⢵⡀⡑⠢⡀⡔⣄⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⡠⢢⢀⠔⢈⢀⡮⡄",
@@ -50,8 +28,7 @@ dashboard.section.header.val = {
 
 local function button(sc, txt, keybind, keybind_opts)
     local b = dashboard.button(sc, txt, keybind, keybind_opts)
-    b.opts.hl = "AlphaButton"
-    b.opts.hl_shortcut = "AlphaButtonShortcut"
+    b.opts.hl_shortcut = "Type"
     return b
 end
 
@@ -63,16 +40,19 @@ local function footer()
 end
 
 dashboard.section.buttons.val = {
+    button("e", "  New file", "<Cmd>ene <CR>"),
     button("SPC f b", "  File Browser"),
-    button("SPC f f", "  Find File"),
+    button("SPC f f", "  Find File", ":Telescope find_files<CR>"),
     button("SPC f o", "  Recent File", ":Telescope oldfiles<CR>"),
     button("q", "  Quit", "<Cmd>qa<CR>"),
 }
 
 dashboard.section.footer.val = footer()
-dashboard.section.footer.opts.hl = dashboard.section.header.opts.hl
+dashboard.section.footer.opts.hl = "Number"
+dashboard.section.header.opts.hl = "AlphaHeader"
 
-dashboard.config.layout[1].val = 8
+-- Set padding
+dashboard.config.layout[1].val = 1
 
 alpha.setup(dashboard.config)
 
