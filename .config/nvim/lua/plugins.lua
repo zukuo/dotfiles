@@ -6,7 +6,7 @@ return {
     { "kyazdani42/nvim-web-devicons", config = function() require("nvim-web-devicons").setup() end },
     { "lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end },
     { "norcalli/nvim-colorizer.lua", config = function() require("colorizer").setup() end },
-    { "glepnir/dashboard-nvim" },
+    { "goolord/alpha-nvim", config = function() require("config.alpha") end },
     { "psliwka/vim-smoothie" },
 
     -- Treesitter Syntax Highlighting
