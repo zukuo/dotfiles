@@ -59,14 +59,14 @@ local function footer()
     local plugins = require("lazy").stats().count
     local v = vim.version()
     local datetime = os.date " %d-%m-%Y   %H:%M:%S"
-    return string.format(" %d   v%d.%d.%d  %s", plugins, v.major, v.minor, v.patch, datetime)
+    return string.format(" %d   v%d.%d.%d  %s", plugins, v.major, v.minor, v.patch, datetime)
 end
 
 dashboard.section.buttons.val = {
-    button("SPC nn", "  File Browser"),
-    button("SPC ff", "  Find File"),
-    button("SPC hp", "  Update Plugins"),
-    button("q", "  Quit", "<Cmd>qa<CR>"),
+    button("SPC f b", "  File Browser"),
+    button("SPC f f", "  Find File"),
+    button("SPC f o", "  Recent File", ":Telescope oldfiles<CR>"),
+    button("q", "  Quit", "<Cmd>qa<CR>"),
 }
 
 dashboard.section.footer.val = footer()
