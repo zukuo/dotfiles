@@ -31,4 +31,4 @@ function M.setup()
     end
 end
 
-return M
+return M.setup()

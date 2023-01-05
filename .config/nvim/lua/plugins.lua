@@ -21,6 +21,6 @@ return {
     -- Functionality
     { "matze/vim-move" },
     { "b3nj5m1n/kommentary" },
-    { "windwp/nvim-autopairs", config = function() require("config.autopairs").setup() end },
+    { "windwp/nvim-autopairs", config = function() require("config.autopairs") end },
     { "ethanholz/nvim-lastplace", config = function() require("nvim-lastplace").setup() end },
 }
