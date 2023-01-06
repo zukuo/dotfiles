@@ -1,3 +1,6 @@
+-- Set leader
+vim.g.mapleader = " "
+
 -- Set tabs
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4

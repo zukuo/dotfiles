@@ -6,13 +6,22 @@ return {
     { "akinsho/bufferline.nvim", config = true },
     { "norcalli/nvim-colorizer.lua", config = true },
 
-    -- Treesitter
+    -- File Management
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         cmd = "TSUpdate",
         event = "BufReadPost",
         config = function() require("config.treesitter") end
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        },
+        cmd = "Telescope",
+        config = true
     },
 
     -- Startup Page
