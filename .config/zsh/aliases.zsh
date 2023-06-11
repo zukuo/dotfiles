@@ -30,6 +30,14 @@ alias gco="git checkout"
 alias gm="git merge"
 alias gr="git rebase"
 
+# Yadm
+alias ys="yadm status"
+alias ya="yadm add"
+alias yall="yadm add -A"
+alias yc="yadm commit"
+alias ycm="yadm commit -m"
+alias yp="yadm push"
+
 # Vim
 alias vpc="nvim +PlugClean"
 # alias vpi="nvim +PlugInstall"
@@ -60,6 +68,7 @@ alias diff="diff --color=auto"
 alias py="python3"
 alias pacman="sudo pacman"
 alias wifi="nmtui"
+# alias bbash="/opt/homebrew/bin/bash"
 
 # Fixing XDG Locations For Programs
 alias wget="wget --hsts-file $XDG_DATA_HOME/wget/wget-hsts"

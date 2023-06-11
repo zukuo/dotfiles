@@ -37,5 +37,5 @@ return {
     { "windwp/nvim-autopairs", config = function() require("config.autopairs") end },
 
     -- Git Utils
-    { "lewis6991/gitsigns.nvim", config = true },
+    { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
 }
