@@ -1,6 +1,11 @@
 return {
+
+    -- Colorschemes
+    { "rebelot/kanagawa.nvim" },
+    { "folke/tokyonight.nvim" },
+    { "loctvl842/monokai-pro.nvim" },
+
     -- Eye Candy
-    { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end },
     { "kyazdani42/nvim-web-devicons", config = true },
     { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
     { "akinsho/bufferline.nvim", config = true },
@@ -38,4 +43,10 @@ return {
 
     -- Git Utils
     { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
+
+    -- Set Colorscheme
+    { "LazyVim/LazyVim", opts = {
+        colorscheme = "monokai-pro",
+    } },
+
 }
