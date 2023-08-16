@@ -21,7 +21,7 @@ set -o emacs # fix key inputs
 ### Set Prompt
 ##############
 # source $XDG_CONFIG_HOME/zsh/themes/avahe.zsh
-source $XDG_CONFIG_HOME/zsh/themes/bira.zsh
+# source $XDG_CONFIG_HOME/zsh/themes/bira.zsh
 
 ### Beam Cursor
 ###############
@@ -96,9 +96,13 @@ source $XDG_CONFIG_HOME/zsh/functions.zsh
 source $XDG_CONFIG_HOME/zsh/tab-completion.zsh
 
 # Make sure to install -> zsh-syntax-highlighting (aur), zsh-autosuggestions (aur), zsh-history-substring-search (pacman), fzf (pacman)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-source /usr/share/fzf/completion.zsh
+# source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh  # for some neat keybindings for fzf
+
+### Starship Theme
+##################
+eval "$(starship init zsh)"
