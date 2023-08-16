@@ -10,6 +10,7 @@ return {
     { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
     { "akinsho/bufferline.nvim", config = true },
     { "norcalli/nvim-colorizer.lua", config = true },
+    { "lukas-reineke/indent-blankline.nvim" },
 
     -- File Management
     {
