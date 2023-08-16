@@ -6,9 +6,7 @@ return {
     -- Font Settings
     font = wezterm.font_with_fallback({
         {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
-        {family="JetBrainsMono Nerd Font", weight="Medium"},
-        {family="Liga SFMono Nerd Font", weight="Medium"},
-        {family="FiraCode Nerd Font", weight="Medium"},
+        {family="JetBrains Mono", weight="Medium"},
         {family="JoyPixels"},
     }),
     font_size = 15,
@@ -19,9 +17,9 @@ return {
     -- Color Setings
     color_scheme_dirs = {"colors"},
     color_scheme = "base16",
-    window_background_opacity = 0.9,
-    text_background_opacity = 0.5,
-    macos_window_background_blur = 50,
+    window_background_opacity = 0.75,
+    macos_window_background_blur = 30,
+    -- text_background_opacity = 0.5, -- causes powerline icons to appear funny
 
     -- GUI Settings
     cursor_blink_rate = 0,
