@@ -8,14 +8,10 @@ $git_branch\
 $git_status\
 [](fg:#4C566A bg:#86BBD8)\
 $c\
-$elixir\
-$elm\
 $golang\
 $haskell\
 $java\
-$julia\
 $nodejs\
-$nim\
 $rust\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
@@ -51,16 +47,6 @@ symbol = " "
 style = "bg:#06969A"
 format = '[ $symbol $context ]($style) $path'
 
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
 symbol = ""
 style = "bg:#4C566A"
@@ -85,18 +71,8 @@ symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[julia]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
