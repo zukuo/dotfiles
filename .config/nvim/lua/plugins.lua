@@ -9,7 +9,7 @@ return {
     { "kyazdani42/nvim-web-devicons", config = true },
     { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
     { "akinsho/bufferline.nvim", config = true },
-    { "norcalli/nvim-colorizer.lua", config = true },
+    { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
     { "lukas-reineke/indent-blankline.nvim" },
 
     -- File Management

@@ -33,7 +33,7 @@ alias gr="git rebase"
 # Yadm
 alias ys="yadm status"
 alias ya="yadm add"
-alias yall="yadm add -A"
+alias yall="yadm add -u"
 alias yc="yadm commit"
 alias ycm="yadm commit -m"
 alias yp="yadm push"

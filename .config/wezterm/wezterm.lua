@@ -11,8 +11,7 @@ return {
     }),
     font_size = 15,
     line_height = 1.5,
-    -- harfbuzz_features = {"calt=0", "clig=0", "liga=0"}, -- disable ligatures
-    -- cascadia code -> harfbuzz enables cursive & slashed 0 
+    freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
 
     -- Color Setings
     color_scheme_dirs = {"colors"},
@@ -36,12 +35,26 @@ return {
 
     -- Keybindings
     keys = {
+        -- Linux Keybinds:
         -- Fix Copy & Paste
         {key="c", mods="ALT", action=wezterm.action{CopyTo="ClipboardAndPrimarySelection"}},
         {key="v", mods="ALT", action=wezterm.action{PasteFrom="Clipboard"}},
         {key="v", mods="ALT", action=wezterm.action{PasteFrom="PrimarySelection"}},
         -- Fix Ctrl+Backspace
         {key="\u{8}", mods="CTRL", action={SendKey={key="W", mods="CTRL"}}},
-        -- TODO: Add fix for alt+bkspc on macs
+
+        -- MacOS Keybinds:
+        -- Fix Option + Arrow Key Combinations
+        {key="LeftArrow", mods="OPT", action={SendKey={key="b", mods="ALT"}}},
+        {key="RightArrow", mods="OPT", action={SendKey={key="f", mods="ALT"}}},
+        -- Fix Command + Arrow Key Combinations
+        {key="LeftArrow", mods="CMD", action={SendKey={key="Home"}}},
+        {key="RightArrow", mods="CMD", action={SendKey={key="End"}}},
+        {key="UpArrow", mods="CMD", action={SendKey={key="PageUp"}}},
+        {key="DownArrow", mods="CMD", action={SendKey={key="PageDown"}}},
+        -- Fix Option/Command + Backspace
+        {key="\u{8}", mods="OPT", action={SendKey={key="W", mods="CTRL"}}},
+        {key="\u{8}", mods="CMD", action={SendKey={key="U", mods="CTRL"}}},
+
     }
 }
