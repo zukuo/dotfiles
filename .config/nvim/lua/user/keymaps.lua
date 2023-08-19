@@ -1,10 +1,13 @@
 vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
 vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
 
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>p", "\"+p")
+-- Copy & Paste keybinds
+vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
+vim.keymap.set({"n", "v"}, '<leader>Y', "\"+Y")
+vim.keymap.set({"n", "v"}, "<leader>p", "\"+p")
 vim.keymap.set("n", "Y", "y$")
 
+-- Save using Ctrl+S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 vim.keymap.set("i", "<C-s>", vim.cmd.w)
 
