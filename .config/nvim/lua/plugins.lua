@@ -10,11 +10,12 @@ return {
     { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
     { "akinsho/bufferline.nvim", config = true },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
-    { "lukas-reineke/indent-blankline.nvim" },
+    { "lukas-reineke/indent-blankline.nvim", opts = { show_trailing_blankline_indent = false } },
 
     -- File Management
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
         build = ":TSUpdate",
         cmd = "TSUpdate",
         event = "BufReadPost",
