@@ -2,7 +2,9 @@
 # Modified Source: ChrisTitus - Bash Github
 
 format = """
-[](first)\
+ [](zero)\
+$os\
+[](bg:first fg:zero)\
 $username\
 [](bg:second fg:first)\
 $directory\
@@ -16,6 +18,7 @@ add_newline = true
 palette = "colors"
 
 [palettes.colors]
+zero = "#2A2A2A"
 first = "#353535"
 ffg = "#A1B56C" # first fg (green)
 second = "#4A4A4A"
@@ -23,11 +26,30 @@ gbfg = "#F7CA88" # git branch fg
 gsfg = "#F7CA88" # git status fg
 third = "#5A5A5A"
 
+# Swap with OS for zero'th module
+[hostname]
+ssh_only = false
+style = "fg:blue bg:zero"
+format = "[$hostname ]($style)"
+trim_at = "."
+disabled = true
+
+[os]
+format = "[ $symbol ]($style)"
+style = "fg:white bg:zero"
+disabled = false
+
+[os.symbols]
+Arch = " "
+Linux = " "
+Macos = " "
+Windows = " "
+
 [username]
 show_always = true
 style_user = "fg:ffg bg:first"
 style_root = "fg:ffg bg:first"
-format = '[$user ]($style)'
+format = '[ $user ]($style)'
 
 [directory]
 style = "fg:ffg bg:second"
