@@ -1,121 +1,47 @@
-# Source: ChrisTitus - Bash Github
-
-# Colors:
-#3B4252 - Username
-#434C5E - Directory
-#4C566A - Git Stats
-#86BBD8 - Lang Specs
-#06969A - Docker
-#33658A - Time
+# Zukuo's Custom Starship Prompt
+# Modified Source: ChrisTitus - Bash Github
 
 format = """
-[](#3B4252)\
+[](first)\
 $username\
-[](bg:#434C5E fg:#3B4252)\
+[](bg:second fg:first)\
 $directory\
-[](fg:#434C5E bg:#4C566A)\
+[](fg:second bg:third)\
 $git_branch\
+[](fg:third bg:fourth)\
 $git_status\
-[](fg:#4C566A bg:#86BBD8)\
-$c\
-$golang\
-$haskell\
-$java\
-$nodejs\
-$rust\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
-\n$character
+[](fg:fourth bg:#fourth) \
 """
 command_timeout = 5000
-# Disable the blank line at the start of the prompt
-# add_newline = false
+add_newline = true
+palette = "colors"
 
-# You can also replace your username with a neat symbol like  to save some space
+[palettes.colors]
+first = "#353535"
+ffg = "#A1B56C" # first fg (green)
+second = "#4A4A4A"
+gfg = "black" # git fg
+third = "#A1B56C"
+fourth = "#FFC34A"
+
 [username]
 show_always = true
-style_user = "bg:#3B4252"
-style_root = "bg:#3B4252"
+style_user = "fg:ffg bg:first"
+style_root = "fg:ffg bg:first"
 format = '[$user ]($style)'
 
 [directory]
-style = "bg:#434C5E"
+style = "fg:ffg bg:second"
 format = "[ $path ]($style)"
 truncation_length = 0
 truncate_to_repo = false
 
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol $context ]($style) $path'
-
+# Move powerline symbols into the format bit to make git symbols only appear in git repo
 [git_branch]
 symbol = ""
-style = "bg:#4C566A"
+style = "fg:gfg bg:third"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#4C566A"
-format = '[$all_status$ahead_behind ]($style)'
-
-[golang]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
-[time]
-disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[ $time ]($style)'
-
-# Generic Powerline Theme
-
-# format = """
-# [\uE0B6](fg:#1C4961)[$directory](bg:#1C4961)[\uE0B0](fg:#1C4961 bg:#2F79A1)$git_branch[\uE0B0](fg:#2F79A1 bg:#3A95C7)$git_status[\uE0B0](#3A95C7 bg:#40A9E0)$time[\uE0B0](#40A9E0 bg:none) $all$character """
-#
-# add_newline = true
-#
-# [directory]
-# style = "bg:#1C4961 fg:white"
-#
-# [git_branch]
-# format = "[ $symbol$branch ]($style)"
-# style = "bg:#2F79A1 fg:white"
-#
-# [git_status]
-# format = "[ $all_status$ahead_behind ]($style)"
-# style = "bg:#3A95C7 fg:white"
-#
-# [time]
-# disabled = false
-# format = "[ $time ]($style)"
-# style = "bg:#40A9E0 fg:white"
+style = "fg:gfg bg:fourth"
+format = '[ $all_status$ahead_behind ]($style)'
