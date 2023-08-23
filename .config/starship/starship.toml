@@ -8,9 +8,8 @@ $username\
 $directory\
 [](fg:second bg:third)\
 $git_branch\
-[](fg:third bg:fourth)\
 $git_status\
-[](fg:fourth bg:#fourth) \
+[](fg:third) \
 """
 command_timeout = 5000
 add_newline = true
@@ -20,9 +19,9 @@ palette = "colors"
 first = "#353535"
 ffg = "#A1B56C" # first fg (green)
 second = "#4A4A4A"
-gfg = "black" # git fg
-third = "#A1B56C"
-fourth = "#FFC34A"
+gbfg = "#F7CA88" # git branch fg
+gsfg = "#F7CA88" # git status fg
+third = "#5A5A5A"
 
 [username]
 show_always = true
@@ -36,12 +35,14 @@ format = "[ $path ]($style)"
 truncation_length = 0
 truncate_to_repo = false
 
-# Move powerline symbols into the format bit to make git symbols only appear in git repo
+# TODO: Make the git powerline modules only appear in a git directories
+#       Not sure if entirely possible yet, could move powerline symbols down...
+
 [git_branch]
 symbol = ""
-style = "fg:gfg bg:third"
+style = "fg:gbfg bg:third"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "fg:gfg bg:fourth"
-format = '[ $all_status$ahead_behind ]($style)'
+style = "fg:gsfg bg:third"
+format = '[$all_status$ahead_behind ]($style)'
