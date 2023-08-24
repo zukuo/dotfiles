@@ -25,6 +25,7 @@ second = "#4A4A4A"
 gbfg = "#F7CA88" # git branch fg
 gsfg = "#F7CA88" # git status fg
 third = "#5A5A5A"
+blue = "#7CAFC2"
 
 # Swap with OS for zero'th module
 [hostname]
@@ -40,7 +41,7 @@ style = "fg:white bg:zero"
 disabled = false
 
 [os.symbols]
-Arch = " "
+Arch = "[ ](fg:blue bg:zero)"
 Linux = " "
 Macos = " "
 Windows = " "

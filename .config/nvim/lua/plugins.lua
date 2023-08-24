@@ -42,6 +42,7 @@ return {
     { "numToStr/Comment.nvim", config = true },
     { "ethanholz/nvim-lastplace", config = true },
     { "windwp/nvim-autopairs", config = function() require("config.autopairs") end },
+    { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
 
     -- Git Utils
     { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
