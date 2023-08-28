@@ -11,7 +11,11 @@ return {
     }),
     font_size = 15,
     line_height = 1.5,
-    freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
+
+    -- Fix Font For Low-Res
+    -- freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
+    -- freetype_load_target = "Light",
+    -- freetype_render_target = "HorizontalLcd",
 
     -- Color Setings
     color_scheme_dirs = {"colors"},

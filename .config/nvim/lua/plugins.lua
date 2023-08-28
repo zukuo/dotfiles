@@ -44,6 +44,25 @@ return {
     { "windwp/nvim-autopairs", config = function() require("config.autopairs") end },
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
 
+    -- LSP & Completion
+    {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        dependencies = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+            {'onsails/lspkind.nvim'}, -- Icons
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'L3MON4D3/LuaSnip'},
+        },
+        config = function() require("config.lsp") end
+    },
+
     -- Git Utils
     { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
 
