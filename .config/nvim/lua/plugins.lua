@@ -10,13 +10,18 @@ return {
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", config = true },
-    { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
-    { "akinsho/bufferline.nvim", config = true },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
     { "lukas-reineke/indent-blankline.nvim", opts = { show_trailing_blankline_indent = false } },
+    { "RRethy/vim-illuminate" },
 
-    -- Git Utils
+    -- Fancy Line Bars
+    { "akinsho/bufferline.nvim", config = true },
+    { "utilyre/barbecue.nvim", dependencies = { "SmiteshP/nvim-navic" }, config = true },
+    { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
+
+    -- Utils
     { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
+    { "folke/neodev.nvim" },
 
     -- Startup Page
     { "goolord/alpha-nvim", config = function() require("config.alpha") end },
