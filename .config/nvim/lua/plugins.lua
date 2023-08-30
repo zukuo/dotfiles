@@ -35,6 +35,7 @@ return {
     { "ethanholz/nvim-lastplace", config = true },
     { "windwp/nvim-autopairs", config = function() require("config.autopairs") end },
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
+    { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("nvim-surround").setup({}) end },
 
     -- Treesitter (Syntax Highlighting)
     {

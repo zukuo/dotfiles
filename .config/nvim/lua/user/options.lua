@@ -14,6 +14,7 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+vim.opt.pumheight = 12 -- limit completion items (lsp)
 
 -- Misc
 -- vim.opt.spell = true
