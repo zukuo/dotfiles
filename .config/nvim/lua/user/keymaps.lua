@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
+-- vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
 vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
 
 -- Copy & Paste keybinds
@@ -24,3 +24,6 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+
+-- Telescope File Browser
+vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })

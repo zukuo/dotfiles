@@ -15,10 +15,18 @@ return {
     -- File Management
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+        dependencies = {
+            {
+                "nvim-treesitter/nvim-treesitter-textobjects",
+                init = function()
+                    require("lazy.core.loader").disable_rtp_plugin("nvim-treesitter-textobjects")
+                    load_textobjects = true
+                end,
+            },
+        },
         build = ":TSUpdate",
-        cmd = "TSUpdate",
-        event = "BufReadPost",
+        cmd = { "TSUpdateSync" },
+        event = { "BufReadPost", "BufNewFile" },
         config = function() require("config.treesitter") end
     },
     {
@@ -29,6 +37,11 @@ return {
         },
         cmd = "Telescope",
         config = true
+    },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+        config = function() require("telescope").load_extension "file_browser" end
     },
 
     -- Startup Page

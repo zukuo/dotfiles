@@ -1,4 +1,6 @@
-local lsp = require('lsp-zero').preset({})
+local lsp = require('lsp-zero').preset({
+    name = "recommended"
+})
 
 lsp.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
@@ -19,8 +21,8 @@ local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
     mapping = {
-        -- `Enter` key to confirm completion
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        -- Tab key to confirm completion
+        ['<Tab>'] = cmp.mapping.confirm({select = false}),
 
         -- Ctrl+Space to trigger completion menu
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -36,5 +38,8 @@ cmp.setup({
             maxwidth = 50, -- prevent the popup from showing more than provided characters
             ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
         })
+    },
+    completion = {
+        completeopt = 'menu,menuone,noinsert' -- auto selects first entry
     }
 })
