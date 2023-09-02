@@ -13,7 +13,8 @@ return {
     line_height = 1.5,
 
     -- Fix Font For Low-Res
-    -- freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
+    front_end = "WebGpu",
+    freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 
