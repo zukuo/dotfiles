@@ -37,7 +37,7 @@ return {
 
     -- Movement
     { "psliwka/vim-smoothie" },
-    { "matze/vim-move" },
+    { "fedepujol/move.nvim" },
 
     -- Editing
     { "numToStr/Comment.nvim", config = true },
@@ -95,7 +95,6 @@ return {
             {'neovim/nvim-lspconfig'},
             {'williamboman/mason.nvim'},
             {'williamboman/mason-lspconfig.nvim'},
-            {'onsails/lspkind.nvim'}, -- Icons
 
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
