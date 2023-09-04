@@ -86,20 +86,30 @@ return {
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            {
+                'neovim/nvim-lspconfig',
+                event = {'BufReadPre', 'BufNewFile'},
+                dependencies = {
+                    {'hrsh7th/cmp-nvim-lsp'},
+                    {'williamboman/mason.nvim'},
+                    {'williamboman/mason-lspconfig.nvim'},
+                }
+            },
 
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'rafamadriz/friendly-snippets'},
+            {
+                'hrsh7th/nvim-cmp',
+                event = 'InsertEnter',
+                dependencies = {
+                    -- Extra Completions
+                    {'hrsh7th/cmp-buffer'},
+                    {'hrsh7th/cmp-path'},
+                    -- Snippets
+                    {'L3MON4D3/LuaSnip'},
+                    {'saadparwaiz1/cmp_luasnip'},
+                    {'rafamadriz/friendly-snippets'},
+                }
+            },
         },
         config = function() require("config.lsp") end
     },
