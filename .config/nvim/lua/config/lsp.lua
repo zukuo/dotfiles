@@ -1,22 +1,27 @@
--- LSP Settings --
+--- LSP Settings ---
 local lsp = require('lsp-zero').preset({
     name = "recommended"
 })
 
 lsp.on_attach(function(client, bufnr)
-    -- see :help lsp-zero-keybindings
-    -- to learn the available actions
     lsp.default_keymaps({buffer = bufnr})
 end)
 
--- (Optional) Configure lua language server for neovim
+lsp.set_sign_icons({
+  error = '󰅙',
+  warn = '',
+  hint = '󰌵',
+  info = '󰋼'
+})
+
+-- Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.ensure_installed({'lua_ls', 'pyright', 'tsserver', 'eslint'})
 
 lsp.setup()
 
--- Completion Settings --
+--- Completion Settings ---
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
@@ -48,6 +53,10 @@ local cmp_kinds = {
     TypeParameter = '  ',
 }
 
+-- Load Friendly Snippets
+require('luasnip.loaders.from_vscode').lazy_load()
+
+-- Setup cmp
 cmp.setup({
     mapping = {
         -- Tab or Enter key to confirm completion
@@ -68,10 +77,12 @@ cmp.setup({
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
     },
+
     window = {
         -- Border the completion window
         completion = cmp.config.window.bordered(),
     },
+
     formatting = {
         format = function(entry, vim_item)
             -- Contactenate kind icons with kind type
@@ -79,6 +90,7 @@ cmp.setup({
             return vim_item
         end
     },
+
     completion = {
         completeopt = 'menu,menuone,noinsert' -- auto selects first entry
     }

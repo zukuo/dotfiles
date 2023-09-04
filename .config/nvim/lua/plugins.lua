@@ -43,14 +43,8 @@ return {
     { "numToStr/Comment.nvim", config = true },
     { "ethanholz/nvim-lastplace", config = true },
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
-    { "kylechui/nvim-surround", event = "VeryLazy", config = function() require("nvim-surround").setup({}) end },
-    -- { "windwp/nvim-autopairs", config = function() require("config.autopairs") end },
-    {
-        'altermo/ultimate-autopair.nvim',
-        event = {'InsertEnter','CmdlineEnter'},
-        branch = 'v0.5', -- more stable, v0.6 is latest
-        opts = {},
-    },
+    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
+    { "windwp/nvim-autopairs", config = function() require("config.autopairs") end }, -- ultimate autopair is an alt
 
     -- Treesitter (Syntax Highlighting)
     {
@@ -86,7 +80,7 @@ return {
         config = function() require("telescope").load_extension "file_browser" end
     },
 
-    -- LSP & Completion
+    -- LSP, Completion, & Snippets
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -99,7 +93,12 @@ return {
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+
+            -- Snippets
             {'L3MON4D3/LuaSnip'},
+            {'saadparwaiz1/cmp_luasnip'},
             {'rafamadriz/friendly-snippets'},
         },
         config = function() require("config.lsp") end
