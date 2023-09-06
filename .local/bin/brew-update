@@ -1,0 +1,10 @@
+#!/bin/bash
+set -uo pipefail
+
+printf "\033[1;36mUpdating homebrew...\n"
+brew update
+
+printf "\033[1;36mUpdating packages...\n"
+brew upgrade
+
+printf "\033[1;32mDone!\n"

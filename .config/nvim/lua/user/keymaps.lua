@@ -15,6 +15,11 @@ vim.keymap.set("i", "<C-s>", vim.cmd.w)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- Buffers
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
+
 -- Lazy keybinds
 vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<cr>")
 

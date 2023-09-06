@@ -30,21 +30,6 @@ fix_cursor() {
 }
 precmd_functions+=(fix_cursor)
 
-### Change Term Title
-#####################
-fix_title() {
-    # title -> working dir
-    # print -Pn "\e]2;%n@%M: %~\a"
-
-    # title -> terminal name
-    term_name=$(neofetch --config none term | awk '{print $2}')
-    if [[ ! $term_name =~ [[:upper:]] ]] then
-        term_name=${(C)term_name[1]}${term_name:1}
-    fi
-    print -Pn "\e]2;${term_name}\a"
-}
-precmd_functions+=(fix_title)
-
 ### History Config
 ##################
 HISTSIZE=1000

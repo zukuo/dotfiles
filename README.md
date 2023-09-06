@@ -33,7 +33,7 @@ Install any packages for your respected OS, in order to fully use the dotfiles.
 ######
 
 ```bash
-sudo yay -S zsh neovim wezterm ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip yadm yarn nodejs ttf-cascadia-code ttf-joypixels ttf-jetbrains-mono ripgrep
+sudo yay -S zsh neovim wezterm ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip yadm starship yarn nodejs ttf-cascadia-code ttf-joypixels ttf-jetbrains-mono ripgrep
 ```
 
 > You don't need to install all of the extra packages, they're more for eye candy (eg. fonts)
@@ -49,7 +49,7 @@ sudo yay -S zsh neovim wezterm ranger neofetch zsh-syntax-highlighting zsh-autos
 ```
 ##### 2. Install Packages
 ```bash
-brew install neovim exa yadm fzf fd node neofetch
+brew install neovim exa yadm fzf fd node neofetch starship
 ```
 ```bash
 brew install --cask wezterm raycast
@@ -80,9 +80,8 @@ touch $XDG_DATA_HOME/zsh/history
 ```
 ##### 3. Install Plugins
 ```bash
-mkdir ~/.config/zsh/plugins
-git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins
-git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins
+git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/plugins/zsh-syntax-highlighting/
+git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/plugins/zsh-autosuggestions/
 ```
 
 </details>

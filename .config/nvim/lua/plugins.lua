@@ -26,7 +26,7 @@ return {
     -- Utils
     { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
     { "folke/neodev.nvim" },
-    { "nvim-neo-tree/neo-tree.nvim" },
+    { "nvim-tree/nvim-tree.lua", opts = {} },
 
     -- Startup Page
     {
@@ -88,6 +88,7 @@ return {
             -- LSP Support
             {
                 'neovim/nvim-lspconfig',
+                cmd = 'LspInfo',
                 event = {'BufReadPre', 'BufNewFile'},
                 dependencies = {
                     {'hrsh7th/cmp-nvim-lsp'},
