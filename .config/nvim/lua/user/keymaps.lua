@@ -20,15 +20,19 @@ vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buff
 vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 
--- Lazy keybinds
+-- Lazy Package Manager
 vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<cr>")
 
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fgf", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- Telescope File Browser
 vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
+
+-- NvimTree
+vim.keymap.set("n", "<C-n>", "<cmd>:NvimTreeToggle<cr>", {})

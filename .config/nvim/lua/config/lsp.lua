@@ -78,14 +78,14 @@ cmp.setup({
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
     },
 
-    window = {
-        -- Border the completion window
-        completion = cmp.config.window.bordered(),
-    },
+    -- Enable for borders around lsp completion
+    -- window = {
+    --     completion = cmp.config.window.bordered(),
+    -- },
 
+    -- Contactenate kind icons with kind type
     formatting = {
         format = function(entry, vim_item)
-            -- Contactenate kind icons with kind type
             vim_item.kind = string.format(' %s%s', cmp_kinds[vim_item.kind], vim_item.kind)
             return vim_item
         end

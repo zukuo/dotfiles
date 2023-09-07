@@ -1,13 +1,13 @@
 return {
 
     -- Colorschemes
-    { "rebelot/kanagawa.nvim" },
     { "folke/tokyonight.nvim" },
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
+    { 'rose-pine/neovim', name = 'rose-pine', opts = { variant = 'moon' } },
 
     -- Set Colorscheme
-    { "LazyVim/LazyVim", opts = { colorscheme = "monokai-pro" } },
+    { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
     { "xiyaowong/transparent.nvim" },
 
     -- Eye Candy
@@ -44,7 +44,7 @@ return {
     { "ethanholz/nvim-lastplace", config = true },
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
-    { "windwp/nvim-autopairs", config = function() require("config.autopairs") end }, -- ultimate autopair is an alt
+    { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
 
     -- Treesitter (Syntax Highlighting)
     {

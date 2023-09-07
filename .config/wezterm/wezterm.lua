@@ -12,9 +12,10 @@ return {
     font_size = 15,
     line_height = 1.5,
 
-    -- Fix Font For Low-Res
+    -- Rendering
     front_end = "WebGpu",
     freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
+    max_fps = 200,
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 
