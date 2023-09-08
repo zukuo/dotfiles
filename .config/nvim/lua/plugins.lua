@@ -1,13 +1,12 @@
 return {
 
     -- Colorschemes
-    { "folke/tokyonight.nvim" },
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
     { 'rose-pine/neovim', name = 'rose-pine', opts = { variant = 'moon' } },
 
     -- Set Colorscheme
-    { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
+    { "LazyVim/LazyVim", opts = { colorscheme = "monokai-pro" } },
     { "xiyaowong/transparent.nvim" },
 
     -- Eye Candy
@@ -19,14 +18,15 @@ return {
     { 'stevearc/dressing.nvim', opts = {} },
 
     -- Fancy Line Bars
-    { "akinsho/bufferline.nvim", config = true },
-    { "utilyre/barbecue.nvim", dependencies = { "SmiteshP/nvim-navic" }, config = true },
-    { "nvim-lualine/lualine.nvim", config = function() require("config.lualine") end },
+    { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
+    { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
+    { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
 
     -- Utils
-    { "lewis6991/gitsigns.nvim", opts = { yadm = { enable = true } } },
-    { "folke/neodev.nvim" },
-    { "nvim-tree/nvim-tree.lua", opts = {} },
+    { "nmac427/guess-indent.nvim", opts = {} },
+    { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
+    { "folke/neodev.nvim", opts = {} },
+    { "nvim-tree/nvim-tree.lua", config = function() require("config.nvim-tree") end },
 
     -- Startup Page
     {
@@ -114,5 +114,6 @@ return {
         },
         config = function() require("config.lsp") end
     },
+    { "folke/trouble.nvim", opts = {} },
 
 }

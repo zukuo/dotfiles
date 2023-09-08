@@ -15,9 +15,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.pumheight = 12 -- limit completion items (lsp)
+vim.opt.laststatus = 3 -- only one statusbar per window
 
 -- Misc
--- vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.title = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
