@@ -6,42 +6,37 @@ return {
     { 'rose-pine/neovim', name = 'rose-pine', opts = { variant = 'moon' } },
 
     -- Set Colorscheme
-    { "LazyVim/LazyVim", opts = { colorscheme = "monokai-pro" } },
-    { "xiyaowong/transparent.nvim" },
+    { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
 
     -- Eye Candy
-    { "kyazdani42/nvim-web-devicons", config = true },
+    { "kyazdani42/nvim-web-devicons", opts = {} },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
     { "lukas-reineke/indent-blankline.nvim", opts = { show_trailing_blankline_indent = false } },
     { "RRethy/vim-illuminate" },
     { "rcarriga/nvim-notify" },
     { 'stevearc/dressing.nvim', opts = {} },
 
-    -- Fancy Line Bars
+    -- Fancy Overlays
     { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
-    { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
     { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
+    { "nvim-tree/nvim-tree.lua", event = "VeryLazy", config = function() require("config.nvim-tree") end },
+    { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
 
     -- Utils
     { "nmac427/guess-indent.nvim", opts = {} },
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "folke/neodev.nvim", opts = {} },
-    { "nvim-tree/nvim-tree.lua", config = function() require("config.nvim-tree") end },
 
     -- Startup Page
-    {
-        "goolord/alpha-nvim",
-        event = "VimEnter",
-        config = function() require("config.alpha") end
-    },
+    { "goolord/alpha-nvim", event = "VimEnter", config = function() require("config.alpha") end },
 
     -- Movement
     { "psliwka/vim-smoothie" },
     { "fedepujol/move.nvim" },
 
     -- Editing
-    { "numToStr/Comment.nvim", config = true },
-    { "ethanholz/nvim-lastplace", config = true },
+    { "numToStr/Comment.nvim", opts = {} },
+    { "ethanholz/nvim-lastplace", otps = {} },
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
     { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
@@ -72,7 +67,7 @@ return {
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         cmd = "Telescope",
-        config = true
+        opts = {}
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",

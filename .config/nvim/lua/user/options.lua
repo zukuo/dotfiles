@@ -14,6 +14,7 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+vim.opt.mousemoveevent = true
 vim.opt.pumheight = 12 -- limit completion items (lsp)
 vim.opt.laststatus = 3 -- only one statusbar per window
 
