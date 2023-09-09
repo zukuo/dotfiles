@@ -11,11 +11,8 @@
 alias ..="cd .."
 alias cd..="cd .."
 alias cd...="cd ../.."
-
 alias -g ...="../.."
 alias -g ....="../../.."
-
-alias dots="cd $HOME/Git/dotfiles"
 
 # Git
 alias gs="git status"
@@ -38,17 +35,11 @@ alias yc="yadm commit"
 alias ycm="yadm commit -m"
 alias yp="yadm push"
 
-# Vim
-alias vpc="nvim +PlugClean"
-# alias vpi="nvim +PlugInstall"
-alias vpi="nvim -es -u $MYVIMRC -i NONE -c 'PlugInstall' -c 'qa'"
-
 # Editing
 alias v="nvim"
 alias vim="nvim"
 alias sv="sudo nvim"
 
-alias eV="nvim $XDG_CONFIG_HOME/nvim/init.vim"
 alias eZ="nvim $XDG_CONFIG_HOME/zsh/.zshrc"
 alias eA="nvim $XDG_CONFIG_HOME/zsh/aliases.zsh"
 alias Z="source $XDG_CONFIG_HOME/zsh/.zshrc"

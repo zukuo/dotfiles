@@ -18,11 +18,6 @@ setopt prompt_subst
 setopt autocd
 set -o emacs # fix key inputs
 
-### Set Prompt
-##############
-# source $XDG_CONFIG_HOME/zsh/themes/avahe.zsh
-# source $XDG_CONFIG_HOME/zsh/themes/bira.zsh
-
 ### Beam Cursor
 ###############
 fix_cursor() {
@@ -32,8 +27,8 @@ precmd_functions+=(fix_cursor)
 
 ### History Config
 ##################
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE=$XDG_DATA_HOME/zsh/history
 
 ### Colors For Man & Tab
@@ -80,13 +75,9 @@ source $XDG_CONFIG_HOME/zsh/aliases.zsh
 source $XDG_CONFIG_HOME/zsh/functions.zsh
 source $XDG_CONFIG_HOME/zsh/tab-completion.zsh
 
-# Make sure to install -> zsh-syntax-highlighting (aur), zsh-autosuggestions (aur), zsh-history-substring-search (pacman), fzf (pacman)
+# Load Plugins
 source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# source /usr/share/fzf/completion.zsh
-# source /usr/share/fzf/key-bindings.zsh  # for some neat keybindings for fzf
 
 ### Starship Theme
 ##################

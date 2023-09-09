@@ -9,46 +9,45 @@
 
 # Fuzzy Find Files
 se() { fd . $HOME/.local/bin/ --type f --type symlink --follow | fzf | xargs -r $EDITOR ; }
-ce() { fd . $XDG_CONFIG_HOME/ --type f --type symlink --follow -H -d 2 | fzf | xargs -r $EDITOR ; }
-vf() { fzf | xargs -r -I % $EDITOR % ; }
+cce() { fd . $XDG_CONFIG_HOME/ --type f --type symlink --follow -H -d 2 | fzf | xargs -r $EDITOR ; }
+ce() { yadm list -a | sed "s|^|$HOME\/|" | fzf | xargs -r $EDITOR ; }
 
-# Get IP adress
-function my_ip()
-{
-   curl ifconfig.co
-}
+vf() { fd . | fzf | xargs -r -I % $EDITOR %; zle reset-prompt; }
+gf() { local dir; dir=$(fd . $HOME/Git $HOME/UoM --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
+
+# Bind Keys for Fuzzy
+zle -N gf
+bindkey "^g" gf
+
+zle -N vf
+bindkey "^p" vf
+
+# Get IP Address
+my_ip() { curl ifconfig.co }
 
 # Extract Files
 function extract {
- if [ -z "$1" ]; then
+  if [ -z "$1" ]; then
     # display usage if no parameters given
     echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
- else
+  else
     if [ -f $1 ] ; then
-        # NAME=${1%.*}
-        # mkdir $NAME && cd $NAME
-        case $1 in
-          *.tar.bz2)   tar xvjf ../$1    ;;
-          *.tar.gz)    tar xvzf ../$1    ;;
-          *.tar.xz)    tar xvJf ../$1    ;;
-          *.lzma)      unlzma ../$1      ;;
-          *.bz2)       bunzip2 ../$1     ;;
-          *.rar)       unrar x -ad ../$1 ;;
-          *.gz)        gunzip ../$1      ;;
-          *.tar)       tar xvf ../$1     ;;
-          *.tbz2)      tar xvjf ../$1    ;;
-          *.tgz)       tar xvzf ../$1    ;;
-          *.zip)       unzip ../$1       ;;
-          *.Z)         uncompress ../$1  ;;
-          *.7z)        7z x ../$1        ;;
-          *.xz)        unxz ../$1        ;;
-          *.exe)       cabextract ../$1  ;;
-          *)           echo "extract: '$1' - unknown archive method" ;;
-        esac
+      # NAME=${1%.*}
+      # mkdir $NAME && cd $NAME
+      case $1 in
+        *.tar.bz2)   tar xvjf ../$1    ;;
+        *.tar.gz)    tar xvzf ../$1    ;;
+        *.tar.xz)    tar xvJf ../$1    ;;
+        *.tar)       tar xvf ../$1     ;;
+        *.tbz2)      tar xvjf ../$1    ;;
+        *.tgz)       tar xvzf ../$1    ;;
+        *.zip)       unzip ../$1       ;;
+        *)           echo "extract: '$1' - unknown archive method" ;;
+      esac
     else
-        echo "$1 - file does not exist"
+      echo "$1 - file does not exist"
     fi
-fi
+  fi
 }
 
 # Creates an archive (*.tar.gz) from given directory

@@ -3,7 +3,7 @@ return {
     -- Colorschemes
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
-    { 'rose-pine/neovim', name = 'rose-pine', opts = { variant = 'moon' } },
+    { 'rose-pine/neovim', name = 'rose-pine', opts = { variant = 'moon', disable_float_background = true } },
 
     -- Set Colorscheme
     { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
@@ -12,9 +12,8 @@ return {
     { "kyazdani42/nvim-web-devicons", opts = {} },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
     { "lukas-reineke/indent-blankline.nvim", opts = { show_trailing_blankline_indent = false } },
-    { "RRethy/vim-illuminate" },
-    { "rcarriga/nvim-notify" },
     { 'stevearc/dressing.nvim', opts = {} },
+    { "RRethy/vim-illuminate" },
 
     -- Fancy Overlays
     { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
