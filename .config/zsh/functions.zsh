@@ -11,6 +11,7 @@
 se() { fd . $HOME/.local/bin/ --type f --type symlink --follow | fzf | xargs -r $EDITOR ; }
 cce() { fd . $XDG_CONFIG_HOME/ --type f --type symlink --follow -H -d 2 | fzf | xargs -r $EDITOR ; }
 ce() { yadm list -a | sed "s|^|$HOME\/|" | fzf | xargs -r $EDITOR ; }
+cf() { local dir; dir=$(yadm ls-tree -d -r main --name-only --full-tree | sed "s|^|$HOME\/|" | fzf) && cd $dir; unset dir ; }
 
 vf() { fd . --type f | fzf | xargs -r -I % $EDITOR %; zle reset-prompt; }
 gf() { local dir; dir=$(fd . $HOME/Git $HOME/UoM --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
@@ -18,7 +19,6 @@ gf() { local dir; dir=$(fd . $HOME/Git $HOME/UoM --type d -d 1 | fzf) && cd $dir
 # Bind Keys for Fuzzy
 zle -N gf
 bindkey "^g" gf
-
 zle -N vf
 bindkey "^p" vf
 
