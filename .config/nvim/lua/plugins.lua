@@ -3,7 +3,8 @@ return {
     -- Colorschemes
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
-    { 'rose-pine/neovim', name = 'rose-pine', opts = { variant = 'moon', disable_float_background = true } },
+    { 'rose-pine/neovim', name = 'rose-pine', config = function() require("config.colors") end },
+    { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
 
     -- Set Colorscheme
     { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },

@@ -1,7 +1,7 @@
--- Eviline config for lualine modified for lazy
--- Author: shadmansaleh, Credit: glepnir, Modded: zukuo
-local lualine = require("lualine")
-if not lualine then return end
+-- Eviline config for lualine
+-- Author: shadmansaleh
+-- Credit: glepnir
+local lualine = require('lualine')
 
 -- Color table for highlights
 -- stylua: ignore
@@ -73,7 +73,7 @@ local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
--- Inserts a component in lualine_x ot right section
+-- Inserts a component in lualine_x at right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
@@ -97,13 +97,13 @@ ins_left {
       n = colors.red,
       i = colors.green,
       v = colors.blue,
-      [''] = colors.blue,
+      [''] = colors.blue,
       V = colors.blue,
       c = colors.magenta,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
-      [''] = colors.orange,
+      [''] = colors.orange,
       ic = colors.yellow,
       R = colors.violet,
       Rv = colors.violet,
@@ -124,12 +124,6 @@ ins_left {
   -- filesize component
   'filesize',
   cond = conditions.buffer_not_empty,
-}
-
-ins_left {
-    'filetype',
-    colored = true,
-    icon_only = true,
 }
 
 ins_left {
@@ -206,7 +200,7 @@ ins_right {
 ins_right {
   'diff',
   -- Is it me or the symbol for modified us really weird
-  symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+  symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.orange },
@@ -223,5 +217,5 @@ ins_right {
   padding = { left = 1 },
 }
 
--- Set up the package for lazy
+-- Now don't forget to initialize lualine
 lualine.setup(config)
