@@ -18,14 +18,15 @@ return {
 
     -- Fancy Overlays
     { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
-    { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
+    -- { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
     { "nvim-tree/nvim-tree.lua", event = "VeryLazy", config = function() require("config.nvim-tree") end },
-    { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
+    -- { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
 
     -- Utils
     { "nmac427/guess-indent.nvim", opts = {} },
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "folke/neodev.nvim", opts = {} },
+    { "ThePrimeagen/harpoon", opts = {} },
 
     -- Startup Page
     { "goolord/alpha-nvim", event = "VimEnter", config = function() require("config.alpha") end },

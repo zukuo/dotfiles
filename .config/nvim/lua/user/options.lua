@@ -17,6 +17,7 @@ vim.opt.termguicolors = true
 vim.opt.mousemoveevent = true
 vim.opt.pumheight = 12 -- limit completion items (lsp)
 vim.opt.laststatus = 3 -- only one statusbar per window
+vim.opt.statusline = "%=%t%="
 
 -- Misc
 vim.opt.spell = false

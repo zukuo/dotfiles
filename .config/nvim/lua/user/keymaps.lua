@@ -24,15 +24,24 @@ vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<cr>")
 
 -- Telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fgf", builtin.git_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", telescope.find_files, {})
+vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
+vim.keymap.set("n", "<leader>fb", telescope.buffers, {})
+vim.keymap.set("n", "<leader>fh", telescope.help_tags, {})
 
 -- Telescope File Browser
 vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
+
+-- Harpoon
+local harpoon_mark = require("harpoon.mark")
+local harpoon_ui = require("harpoon.ui")
+vim.keymap.set("n", "<leader>ha", harpoon_mark.add_file)
+vim.keymap.set("n", "<leader>hh", harpoon_ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>h1", function() harpoon_ui.nav_file(1) end)
+vim.keymap.set("n", "<leader>h2", function() harpoon_ui.nav_file(2) end)
+vim.keymap.set("n", "<leader>h3", function() harpoon_ui.nav_file(3) end)
+vim.keymap.set("n", "<leader>h4", function() harpoon_ui.nav_file(4) end)
 
 -- NvimTree
 vim.keymap.set("n", "<C-n>", "<cmd>:NvimTreeToggle<cr>", {})
