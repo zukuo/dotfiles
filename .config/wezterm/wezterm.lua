@@ -1,12 +1,18 @@
 -- Zukuo's Wezterm Config
 local wezterm = require 'wezterm';
 
-return {
+local config = {}
 
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+config = {
     -- Font Settings
     font = wezterm.font_with_fallback({
+        {family="IBM Plex Mono", weight="Medium"},
         {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
-        {family="JetBrains Mono", weight="Medium"},
+        {family="JetBrains Mono", weight="DemiBold"},
         {family="JoyPixels"},
     }),
     font_size = 15,
@@ -15,23 +21,27 @@ return {
     -- Rendering
     front_end = "WebGpu",
     freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
-    max_fps = 200,
+    animation_fps = 240,
+    max_fps = 240,
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 
     -- Color Setings
     color_scheme_dirs = {"colors"},
     color_scheme = "base16",
-    window_background_opacity = 0.75,
+    window_background_opacity = 0.9,
     macos_window_background_blur = 30,
     -- text_background_opacity = 0.5, -- causes powerline icons to appear funny
 
     -- GUI Settings
     cursor_blink_rate = 0,
-    enable_tab_bar = false,
+    enable_tab_bar = true,
+    tab_bar_at_bottom = true,
     use_fancy_tab_bar = false,
+    tab_max_width = 100,
     enable_scroll_bar = false,
-    window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW", -- remove titlebar
+    adjust_window_size_when_changing_font_size = false,
+    window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW",
     window_padding = {
         left = 0,
         right = 0,
@@ -62,5 +72,12 @@ return {
         {key="\u{8}", mods="OPT", action={SendKey={key="W", mods="CTRL"}}},
         {key="\u{8}", mods="CMD", action={SendKey={key="U", mods="CTRL"}}},
 
+        -- TODO: Add better keybinds for splitting terminals
     }
 }
+
+-- Setup Custom Tabs & Statusline
+require("lua.tabs").custom_tabs(config)
+require("lua.status")
+
+return config
