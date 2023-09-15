@@ -17,12 +17,12 @@ wezterm.on('update-right-status', function(window, pane)
 
   table.insert(cells, hostname)
 
-  -- Date Cell
+  -- Date Cell (DD-MM-YY)
   local date = wezterm.strftime '%d-%m-%y'
   table.insert(cells, date)
 
-  -- Time Cell
-  local time = wezterm.strftime '%l:%M %p'
+  -- Time Cell (13:45)
+  local time = wezterm.strftime '%H:%M'
   table.insert(cells, time)
 
   -- Battery Cell
