@@ -15,7 +15,12 @@ wezterm.on('update-right-status', function(window, pane)
     hostname = hostname:sub(1, dot - 1)
   end
 
-  table.insert(cells, hostname)
+  local domain = pane:get_domain_name()
+  if domain == 'local' then
+    table.insert(cells, hostname)
+  else
+    table.insert(cells, domain)
+  end
 
   -- Date Cell (DD-MM-YY)
   local date = wezterm.strftime '%d-%m-%y'
