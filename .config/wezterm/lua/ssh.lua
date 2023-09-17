@@ -5,7 +5,7 @@ local wezterm = require 'wezterm'
 
 local module = {}
 
-function module.ssh(config)
+function module.setup(config)
     local ssh_domains = {}
     for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
       table.insert(ssh_domains, {

@@ -77,10 +77,10 @@ config = {
 }
 
 -- Setup WezSSH
-require("lua.ssh").ssh(config)
+require("lua.ssh").setup(config)
 
 -- Setup Custom Tabs & Statusline
-require("lua.tabs").custom_tabs(config)
+require("lua.tabs").setup(config)
 require("lua.status")
 
 return config
