@@ -3,11 +3,11 @@ return {
     -- Colorschemes
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
-    { 'rose-pine/neovim', name = 'rose-pine', config = function() require("config.colors") end },
+    { "rose-pine/neovim", name = "rose-pine", config = function() require("config.colors") end },
     { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
 
     -- Set Colorscheme
-    { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
+    { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine-moon" } },
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
@@ -18,14 +18,21 @@ return {
 
     -- Fancy Overlays
     { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
-    -- { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
-    { "nvim-tree/nvim-tree.lua", event = "VeryLazy", config = function() require("config.nvim-tree") end },
+    { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
+    -- { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.expressline") end },
     -- { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
+    -- { "j-hui/fidget.nvim", tag = "legacy", event = "LspAttach", opts = { text = { spinner = "moon" } } },
 
     -- Utils
-    { "nmac427/guess-indent.nvim", opts = {} },
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
+    { "akinsho/toggleterm.nvim", opts = { direction = "float" } },
+    { "sindrets/diffview.nvim", event = "VeryLazy", opts = {} },
+    { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} },
+    -- { "roobert/tailwindcss-colorizer-cmp.nvim", opts = { color_square_width = 2 }, },
+
+    -- File Management
+    { "stevearc/oil.nvim", opts = {} },
     { "ThePrimeagen/harpoon", opts = {} },
 
     -- Startup Page
@@ -36,7 +43,7 @@ return {
     { "fedepujol/move.nvim" },
 
     -- Editing
-    { "numToStr/Comment.nvim", opts = {} },
+    { "numToStr/Comment.nvim", opts = { ignore = '^$' } },
     { "ethanholz/nvim-lastplace", otps = {} },
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
@@ -60,7 +67,7 @@ return {
         config = function() require("config.treesitter") end
     },
 
-    -- Telescope & File Browser
+    -- Telescope
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
@@ -69,11 +76,6 @@ return {
         },
         cmd = "Telescope",
         opts = {}
-    },
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        config = function() require("telescope").load_extension "file_browser" end
     },
 
     -- LSP, Completion, & Snippets
@@ -110,6 +112,8 @@ return {
         },
         config = function() require("config.lsp") end
     },
+
+    -- Diagnostics
     { "folke/trouble.nvim", opts = {} },
 
 }

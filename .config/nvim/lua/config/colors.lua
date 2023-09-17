@@ -1,5 +1,4 @@
 require("rose-pine").setup({
-    variant = 'moon',
 	highlight_groups = {
 		TelescopeBorder = { fg = "highlight_high", bg = "none" },
 		TelescopeNormal = { bg = "none" },
@@ -7,5 +6,6 @@ require("rose-pine").setup({
 		TelescopeResultsNormal = { fg = "subtle", bg = "none" },
 		TelescopeSelection = { fg = "text", bg = "base" },
 		TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+		IndentBlanklineChar = { fg = "overlay", bg = "none" },
 	},
 })

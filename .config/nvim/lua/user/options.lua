@@ -21,6 +21,6 @@ vim.opt.statusline = "%=%t%="
 
 -- Misc
 vim.opt.spell = false
-vim.opt.title = true
+vim.opt.title = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

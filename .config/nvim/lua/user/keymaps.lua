@@ -1,4 +1,3 @@
--- vim.keymap.set("n", "<leader>e", vim.cmd.Explore)
 vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
 
 -- Copy & Paste keybinds
@@ -21,7 +20,7 @@ vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buff
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 
 -- Lazy Package Manager
-vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<cr>")
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
 
 -- Telescope
 local telescope = require("telescope.builtin")
@@ -29,9 +28,6 @@ vim.keymap.set("n", "<leader>ff", telescope.find_files, {})
 vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
 vim.keymap.set("n", "<leader>fb", telescope.buffers, {})
 vim.keymap.set("n", "<leader>fh", telescope.help_tags, {})
-
--- Telescope File Browser
-vim.api.nvim_set_keymap("n", "<leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
 -- Harpoon
 local harpoon_mark = require("harpoon.mark")
@@ -43,5 +39,8 @@ vim.keymap.set("n", "<leader>h2", function() harpoon_ui.nav_file(2) end)
 vim.keymap.set("n", "<leader>h3", function() harpoon_ui.nav_file(3) end)
 vim.keymap.set("n", "<leader>h4", function() harpoon_ui.nav_file(4) end)
 
--- NvimTree
-vim.keymap.set("n", "<C-n>", "<cmd>:NvimTreeToggle<cr>", {})
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- ToggleTerm
+vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<cr>", {})
