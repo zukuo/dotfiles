@@ -36,7 +36,7 @@ local config = {
     },
         lualine_x = { 'diagnostics', 'get_lsp()' },
         lualine_y = {},
-        lualine_z = { { 'branch', icon=' ' } }
+        lualine_z = { { 'branch', icon=' ' } }
     },
 
     inactive_sections = {
