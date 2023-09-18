@@ -138,11 +138,10 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
 
   title = wezterm.truncate_right(title, max_width - 2)
 
-  -- TODO: Make the tab bar background as gaps
-  --       between each powerline tab
+  -- TODO: Put tab numbers in powerline symbols (like tokyo-night tmux)
   return {
     { Background = { Color = leading_bg } },
-    { Foreground = { Color = leading_fg } },
+    { Foreground = { Color = TAB_BAR_BG } },
     { Text = check_start_arrow() },
 
     { Attribute = { Intensity = "Half" } },
@@ -155,7 +154,7 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     { Foreground = { Color = foreground } },
     { Text = " " .. title .. " " },
 
-    { Background = { Color = trailing_bg } },
+    { Background = { Color = TAB_BAR_BG } },
     { Foreground = { Color = trailing_fg } },
     { Text = SOLID_RIGHT_ARROW },
   }
