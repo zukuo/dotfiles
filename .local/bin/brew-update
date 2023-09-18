@@ -1,10 +1,19 @@
 #!/bin/bash
 set -uo pipefail
 
-printf "\033[1;36mUpdating homebrew...\n"
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+ORANGE="\033[0;33m"
+CYAN="\033[0;36m"
+NC="\033[0m"
+
+printf "${CYAN}Updating homebrew...${NC}\n"
 brew update
 
-printf "\033[1;36mUpdating packages...\n"
+printf "${CYAN}Updating packages...${NC}\n"
 brew upgrade
 
-printf "\033[1;32mDone!\n"
+printf "${ORANGE}Cleaning up...${NC}\n"
+brew cleanup
+
+printf "${GREEN}Done!${NC}\n"
