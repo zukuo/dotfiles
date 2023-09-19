@@ -21,8 +21,8 @@ config = {
     -- Rendering
     front_end = "WebGpu",
     freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
-    animation_fps = 240,
     max_fps = 240,
+    -- animation_fps = 240,
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 

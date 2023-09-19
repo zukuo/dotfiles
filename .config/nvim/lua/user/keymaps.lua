@@ -5,6 +5,7 @@ vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
 vim.keymap.set({"n", "v"}, '<leader>Y', "\"+Y")
 vim.keymap.set({"n", "v"}, "<leader>p", "\"+p")
 vim.keymap.set("n", "Y", "y$")
+vim.keymap.set("v", "p", "\"_dP")
 
 -- Save using Ctrl+S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
