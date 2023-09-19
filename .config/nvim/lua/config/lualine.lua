@@ -52,6 +52,43 @@ local config = {
 -- If using rose-pine colorscheme, use alt theme
 if (vim.g.colors_name == 'rose-pine') then
     config.options.theme = 'rose-pine-alt'
+
+-- Monokai Pro Custom Setup - change colors and arrangement
+elseif (vim.g.colors_name == 'monokai-pro') then
+    local colors = require('monokai-pro.colorscheme').colors
+    local monokai_pro_alt = require('lualine.themes.monokai-pro')
+
+    colors.base.black = "#3A353A"
+
+    monokai_pro_alt.normal = {
+        a = { bg = colors.base.black , fg = colors.base.yellow, gui = "bold" },
+        b = { bg = colors.base.black, fg = colors.base.dimmed2 },
+        c = { bg = colors.base.black , fg = colors.base.dimmed2, gui = "italic" },
+    }
+
+    monokai_pro_alt.insert = {
+        a = { bg = colors.base.black, fg = colors.base.green, gui = "bold" },
+    }
+
+    monokai_pro_alt.command = {
+        a = { bg = colors.base.black, fg = colors.base.red, gui = "bold" },
+    }
+
+    monokai_pro_alt.visual = {
+        a = { bg = colors.base.black, fg = colors.base.magenta, gui = "bold" },
+    }
+
+    monokai_pro_alt.replace = {
+        a = { bg = colors.base.black, fg = colors.base.cyan, gui = "bold" },
+    }
+
+    monokai_pro_alt.inactive = {
+        a = { bg = colors.base.black, fg = colors.base.dimmed3, gui = "bold" },
+        b = { bg = colors.base.black, fg = colors.base.dimmed3 },
+        c = { bg = colors.base.black, fg = colors.base.dimmed3, gui = "italic" },
+    }
+
+    config.options.theme = monokai_pro_alt
 end
 
 lualine.setup(config)
