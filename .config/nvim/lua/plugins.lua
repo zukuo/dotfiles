@@ -15,18 +15,15 @@ return {
     { "lukas-reineke/indent-blankline.nvim", opts = { show_trailing_blankline_indent = false } },
     { 'stevearc/dressing.nvim', opts = {} },
     { "RRethy/vim-illuminate" },
+    -- { "HiPhish/rainbow-delimiters.nvim" },
 
     -- Fancy Overlays
     { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
     { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
-    -- { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.expressline") end },
     -- { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
-    -- { "j-hui/fidget.nvim", tag = "legacy", event = "LspAttach", opts = { text = { spinner = "moon" } } },
 
     -- Utils
-    { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "akinsho/toggleterm.nvim", opts = { direction = "float" } },
-    { "sindrets/diffview.nvim", event = "VeryLazy", opts = {} },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} },
     -- { "roobert/tailwindcss-colorizer-cmp.nvim", opts = { color_square_width = 2 }, },
@@ -48,6 +45,20 @@ return {
     { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
     { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
+
+    -- Git Utils
+    { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
+    { "sindrets/diffview.nvim", event = "VeryLazy", opts = {} },
+    {
+        "NeogitOrg/neogit",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "ibhagwan/fzf-lua",
+        },
+        opts = {}
+    },
 
     -- Treesitter (Syntax Highlighting)
     {

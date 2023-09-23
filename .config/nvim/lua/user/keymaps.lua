@@ -1,11 +1,18 @@
 vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
 
--- Copy & Paste keybinds
+-- Global Copy & Paste keybinds
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
 vim.keymap.set({"n", "v"}, '<leader>Y', "\"+Y")
 vim.keymap.set({"n", "v"}, "<leader>p", "\"+p")
-vim.keymap.set("n", "Y", "y$")
+
+-- Better Deleting
 vim.keymap.set("v", "p", "\"_dP")
+vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
+
+-- Better Copying
+vim.keymap.set("n", "Y", "y$")
+vim.keymap.set('v', 'y', 'myy`y')
+vim.keymap.set('v', 'Y', 'myY`y')
 
 -- Save using Ctrl+S
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
@@ -20,6 +27,9 @@ vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buff
 vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 
+-- Replace
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- Lazy Package Manager
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
 
@@ -29,6 +39,8 @@ vim.keymap.set("n", "<leader>ff", telescope.find_files, {})
 vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
 vim.keymap.set("n", "<leader>fb", telescope.buffers, {})
 vim.keymap.set("n", "<leader>fh", telescope.help_tags, {})
+vim.keymap.set("n", "<C-p>", telescope.git_files, {})
+vim.keymap.set('n', '<leader>ps', function() telescope.grep_string({ search = vim.fn.input("Grep > ") }) end)
 
 -- Harpoon
 local harpoon_mark = require("harpoon.mark")
