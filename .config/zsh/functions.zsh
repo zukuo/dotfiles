@@ -13,7 +13,7 @@ cce() { local file; file=$(fd . $XDG_CONFIG_HOME/ --type f --type symlink --foll
 ce() { local file; file=$(yadm list -a | sed "s|^|$HOME\/|" | fzf) && $EDITOR $file; unset file ; }
 cf() { local dir; dir=$(yadm ls-tree -d -r main --name-only --full-tree | sed "s|^|$HOME\/|" | fzf) && cd $dir; unset dir ; }
 
-vf() { local file; file=$(fd . --type f | fzf) && $EDITOR $file; unset file; zle reset-prompt ; }
+vf() { local file; file=$(fd . --type f | fzf) && $EDITOR - $file; unset file; zle reset-prompt ; }
 gf() { local dir; dir=$(fd . $HOME/Git $HOME/UoM --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
 
 # Bind Keys for Fuzzy
