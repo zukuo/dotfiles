@@ -23,8 +23,8 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- Buffers
-vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-h>", "<cmd>bprev<cr>", { desc = "Prev buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 
 -- Replace
@@ -45,12 +45,12 @@ vim.keymap.set('n', '<leader>ps', function() telescope.grep_string({ search = vi
 -- Harpoon
 local harpoon_mark = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
-vim.keymap.set("n", "<leader>ha", harpoon_mark.add_file)
-vim.keymap.set("n", "<leader>hh", harpoon_ui.toggle_quick_menu)
-vim.keymap.set("n", "<leader>h1", function() harpoon_ui.nav_file(1) end)
-vim.keymap.set("n", "<leader>h2", function() harpoon_ui.nav_file(2) end)
-vim.keymap.set("n", "<leader>h3", function() harpoon_ui.nav_file(3) end)
-vim.keymap.set("n", "<leader>h4", function() harpoon_ui.nav_file(4) end)
+vim.keymap.set("n", "<leader>a", harpoon_mark.add_file)
+vim.keymap.set("n", "<C-e>", harpoon_ui.toggle_quick_menu)
+vim.keymap.set("n", "<C-h>", function() harpoon_ui.nav_file(1) end)
+vim.keymap.set("n", "<C-j>", function() harpoon_ui.nav_file(2) end)
+vim.keymap.set("n", "<C-k>", function() harpoon_ui.nav_file(3) end)
+vim.keymap.set("n", "<C-l>", function() harpoon_ui.nav_file(4) end)
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

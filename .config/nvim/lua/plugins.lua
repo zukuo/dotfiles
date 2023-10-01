@@ -5,6 +5,7 @@ return {
     { "sainnhe/gruvbox-material" },
     { "rose-pine/neovim", name = "rose-pine", config = function() require("config.colors") end },
     { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
+    { "navarasu/onedark.nvim", opts = { style = "warmer" } },
 
     -- Set Colorscheme
     { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine-moon" } },
@@ -18,8 +19,8 @@ return {
     -- { "HiPhish/rainbow-delimiters.nvim" },
 
     -- Fancy Overlays
-    { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
     { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
+    -- { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
     -- { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
 
     -- Utils

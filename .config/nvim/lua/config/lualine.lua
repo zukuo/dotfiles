@@ -89,6 +89,11 @@ elseif (vim.g.colors_name == 'monokai-pro') then
     }
 
     config.options.theme = monokai_pro_alt
+
+-- Anything else swap lsp info around
+else
+    config.sections.lualine_x = { 'diagnostics' }
+    config.sections.lualine_y = { 'get_lsp()' }
 end
 
 lualine.setup(config)
