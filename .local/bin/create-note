@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -e
+
+# Define Formatting
+RED=$'\e[0;31m'
+GREEN=$'\e[0;32m'
+ORANGE=$'\e[0;33m'
+BLUE=$'\e[0;34m'
+PURPLE=$'\e[0;35m'
+CYAN=$'\e[0;36m'
+NC=$'\e[0m'
+
+# Get Course Number
+printf "${CYAN}[1/5] ${ORANGE}Course Number: ${NC}"
+read coursenum
+
+# Get Note Title (Property)
+printf "${CYAN}[2/5] ${ORANGE}Note Title: ${NC}"
+read title
+
+# Get Filename for Note
+printf "${CYAN}[3/5] ${ORANGE}Note Filename: ${NC}"
+read notename
+
+# Get Week for Note
+printf "${CYAN}[4/5] ${ORANGE}Week Number: ${NC}"
+read weeknum
+
+# Check if Live
+read -p "${CYAN}[5/5] ${ORANGE}Is it a live lecture? (y/n)${NC} " yn
+
+# Set tags
+case $yn in
+    y ) tags="live-lecture";;
+    n ) tags="cs-notes";;
+    * ) exit 1;;
+esac
+
+# Get current date
+today=$(date +"%Y-%m-%d")
+
+# Create MD
+filename=${notename}.md
+
+# Check if exists
+if [ -f ${filename} ]; then
+    printf "${RED}File exists! Exiting...\n${NC}"
+    exit 0
+fi
+
+
+touch ${filename}
+
+cat << EOF >> ${filename}
+---
+title: Week ${weeknum} - ${title} (COMP${coursenum})
+date: ${today}
+tags: ${tags}, comp${coursenum}, week-${weeknum}
+---
+EOF
+
+printf "${GREEN}  Successfully created new '${filename}' note!\n${NC}"
