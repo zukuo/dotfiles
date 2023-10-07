@@ -1,65 +1,41 @@
 return {
 
     -- Colorschemes
-    { "loctvl842/monokai-pro.nvim" },
+    { "loctvl842/monokai-pro.nvim", priority = 1000 },
     { "sainnhe/gruvbox-material" },
-    { "rose-pine/neovim", name = "rose-pine", config = function() require("config.colors") end },
-    { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
-
-    -- Set Colorscheme
-    { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine-moon" } },
+    { "rose-pine/neovim", name = "rose-pine", priority = 1000, config = function() require("config.colors") end },
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
-    { "lukas-reineke/indent-blankline.nvim", opts = { show_trailing_blankline_indent = false } },
-    { 'stevearc/dressing.nvim', opts = {} },
+    { "lukas-reineke/indent-blankline.nvim", version = "2.20.8", opts = { show_trailing_blankline_indent = false } },
     { "RRethy/vim-illuminate" },
-    -- { "HiPhish/rainbow-delimiters.nvim" },
-
-    -- Fancy Overlays
     { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
     -- { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
-    -- { "utilyre/barbecue.nvim", event = "VeryLazy", dependencies = { "SmiteshP/nvim-navic" }, opts = {} },
 
     -- Utils
-    { "akinsho/toggleterm.nvim", opts = { direction = "float" } },
+    { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} },
-    -- { "roobert/tailwindcss-colorizer-cmp.nvim", opts = { color_square_width = 2 }, },
+
+    -- Editing
+    { "numToStr/Comment.nvim", opts = { ignore = '^$' } },
+    { "ethanholz/nvim-lastplace", opts = {} },
+    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
+    { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
 
     -- File Management
     { "stevearc/oil.nvim", opts = {} },
     { "ThePrimeagen/harpoon", opts = {} },
+    -- { "dzfrias/arena.nvim", event = "BufWinEnter", opts = {} },
+
+    -- Movement
+    { "declancm/cinnamon.nvim", opts = { default_delay = 5 } },
+    { "matze/vim-move" },
 
     -- Startup Page
     { "goolord/alpha-nvim", event = "VimEnter", config = function() require("config.alpha") end },
-
-    -- Movement
-    { "psliwka/vim-smoothie" },
-    { "fedepujol/move.nvim" },
-
-    -- Editing
-    { "numToStr/Comment.nvim", opts = { ignore = '^$' } },
-    { "ethanholz/nvim-lastplace", otps = {} },
-    { "VonHeikemen/searchbox.nvim", dependencies = { "MunifTanjim/nui.nvim" } },
-    { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
-    { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
-
-    -- Git Utils
-    { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
-    { "sindrets/diffview.nvim", event = "VeryLazy", opts = {} },
-    {
-        "NeogitOrg/neogit",
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-            "ibhagwan/fzf-lua",
-        },
-        opts = {}
-    },
 
     -- Treesitter (Syntax Highlighting)
     {
@@ -124,8 +100,5 @@ return {
         },
         config = function() require("config.lsp") end
     },
-
-    -- Diagnostics
-    { "folke/trouble.nvim", opts = {} },
 
 }

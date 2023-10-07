@@ -3,10 +3,9 @@ vim.keymap.set("n", "<leader><space>", vim.cmd.nohlsearch)
 -- Global Copy & Paste keybinds
 vim.keymap.set({"n", "v"}, "<leader>y", "\"+y")
 vim.keymap.set({"n", "v"}, '<leader>Y', "\"+Y")
-vim.keymap.set({"n", "v"}, "<leader>p", "\"+p")
 
 -- Better Deleting
-vim.keymap.set("v", "p", "\"_dP")
+vim.keymap.set({"x"}, "<leader>p", "\"_dP")
 vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 
 -- Better Copying
@@ -15,8 +14,7 @@ vim.keymap.set('v', 'y', 'myy`y')
 vim.keymap.set('v', 'Y', 'myY`y')
 
 -- Save using Ctrl+S
-vim.keymap.set("n", "<C-s>", vim.cmd.w)
-vim.keymap.set("i", "<C-s>", vim.cmd.w)
+vim.keymap.set({"n", "i"}, "<C-s>", vim.cmd.w)
 
 -- Reselect visual selection after indenting
 vim.keymap.set("v", "<", "<gv")
