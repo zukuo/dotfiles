@@ -11,6 +11,7 @@ config = {
     -- Font Settings
     font = wezterm.font_with_fallback({
         {family="IBM Plex Mono", weight="Medium"},
+        {family="Fira Code", weight="Medium"},
         {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
         {family="JetBrains Mono", weight="DemiBold"},
         {family="JoyPixels"},
@@ -19,10 +20,11 @@ config = {
     line_height = 1.5,
 
     -- Rendering
-    front_end = "WebGpu",
+    front_end = "OpenGL",
+    webgpu_power_preference = "HighPerformance",
     freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
     max_fps = 240,
-    -- animation_fps = 240,
+    animation_fps = 240,
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 
@@ -41,6 +43,7 @@ config = {
     tab_max_width = 100,
     enable_scroll_bar = false,
     adjust_window_size_when_changing_font_size = false,
+    -- hide_tab_bar_if_only_one_tab = true,
     window_decorations = "RESIZE | MACOS_FORCE_ENABLE_SHADOW",
     window_padding = {
         left = 0,
