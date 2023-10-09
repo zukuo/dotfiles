@@ -10,21 +10,21 @@ end
 config = {
     -- Font Settings
     font = wezterm.font_with_fallback({
-        {family="IBM Plex Mono", weight="Medium"},
-        {family="Fira Code", weight="Medium"},
-        {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
         {family="JetBrains Mono", weight="DemiBold"},
+        {family="Fira Code", weight="Medium"},
+        {family="IBM Plex Mono", weight="Medium"},
+        {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
         {family="JoyPixels"},
     }),
     font_size = 15,
-    line_height = 1.5,
+    line_height = 1.6,
 
     -- Rendering
     front_end = "OpenGL",
     webgpu_power_preference = "HighPerformance",
-    freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
     max_fps = 240,
     animation_fps = 240,
+    freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 
@@ -75,6 +75,7 @@ config = {
         {key="\u{8}", mods="OPT", action={SendKey={key="W", mods="CTRL"}}},
         {key="\u{8}", mods="CMD", action={SendKey={key="U", mods="CTRL"}}},
 
+        {key="b", mods="CMD", action=wezterm.action.EmitEvent "toggle-bar"},
         -- TODO: Add better keybinds for splitting terminals
     }
 }
@@ -85,5 +86,8 @@ require("lua.ssh").setup(config)
 -- Setup Custom Tabs & Statusline
 require("lua.tabs").setup(config)
 require("lua.status")
+
+-- Setup Overrides
+require("lua.overrides").setup(config)
 
 return config
