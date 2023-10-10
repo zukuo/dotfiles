@@ -75,8 +75,11 @@ config = {
         {key="\u{8}", mods="OPT", action={SendKey={key="W", mods="CTRL"}}},
         {key="\u{8}", mods="CMD", action={SendKey={key="U", mods="CTRL"}}},
 
+        -- Custom Events
         {key="b", mods="CMD", action=wezterm.action.EmitEvent "toggle-bar"},
+
         -- TODO: Add better keybinds for splitting terminals
+        -- {key="]", mods="CMD", action=wezterm.action.EmitEvent "next-font"},
     }
 }
 
