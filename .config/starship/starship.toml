@@ -42,6 +42,7 @@ disabled = false
 
 [os.symbols]
 Arch = "[ ](fg:blue bg:zero)"
+EndeavourOS = "[ ](fg:blue bg:zero)"
 Linux = " "
 Macos = " "
 Windows = " "

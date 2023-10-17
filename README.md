@@ -33,7 +33,7 @@ Install any packages for your respected OS, in order to fully use the dotfiles.
 ######
 
 ```bash
-sudo yay -S zsh neovim wezterm ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip yadm starship yarn nodejs ttf-cascadia-code ttf-joypixels ttf-jetbrains-mono ripgrep
+sudo yay -S zsh neovim wezterm ranger neofetch zsh-syntax-highlighting zsh-autosuggestions fzf fd exa xclip yadm starship yarn nodejs ttf-cascadia-code ttf-joypixels ttf-jetbrains-mono ripgrep ttf-nerd-fonts-symbols-mono npm
 ```
 
 > You don't need to install all of the extra packages, they're more for eye candy (eg. fonts)

@@ -20,7 +20,7 @@ vim.opt.laststatus = 3 -- only one statusbar per window
 vim.opt.statusline = "%=%t%="
 
 -- Misc
-vim.opt.spell = false
+vim.opt.spell = true
 vim.opt.title = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
