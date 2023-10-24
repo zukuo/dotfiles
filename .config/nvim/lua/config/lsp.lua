@@ -14,10 +14,18 @@ lsp.set_sign_icons({
   info = '󰋼'
 })
 
--- Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-lsp.ensure_installed({'lua_ls', 'pyright', 'tsserver', 'eslint'})
+--- Mason LSP Config Settings ---
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {'lua_ls', 'pyright', 'tsserver', 'eslint', 'gopls'},
+  handlers = {
+    lsp.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
+})
 
 lsp.setup()
 
@@ -58,7 +66,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 -- Setup cmp
 cmp.setup({
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
         -- Tab or Enter key to confirm completion
         ['<Tab>'] = cmp.mapping.confirm({select = false}),
         ['<CR>'] = cmp.mapping.confirm({select = false}),
@@ -76,7 +84,7 @@ cmp.setup({
         -- Navigate between snippet placeholder
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-    },
+    }),
 
     -- Enable for borders around lsp completion
     -- window = {

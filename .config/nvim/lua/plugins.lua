@@ -69,7 +69,7 @@ return {
     -- LSP, Completion, & Snippets
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         dependencies = {
             -- LSP Support
             {
