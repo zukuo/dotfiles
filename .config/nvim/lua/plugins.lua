@@ -13,6 +13,8 @@ return {
     { "RRethy/vim-illuminate" },
     { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
     -- { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
+    -- { "echasnovski/mini.tabline", opts = { show_icons = false } },
+    { "HiPhish/rainbow-delimiters.nvim", main = "rainbow-delimiters.setup", opts = {} },
 
     -- Utils
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },

@@ -24,6 +24,7 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<S-h>", "<cmd>bprev<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
+vim.keymap.set("n", "<leader>e", "<cmd>vsplit +Oil<cr>")
 
 -- Replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
