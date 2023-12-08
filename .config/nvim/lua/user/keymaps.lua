@@ -53,6 +53,3 @@ vim.keymap.set("n", "<C-l>", function() harpoon_ui.nav_file(4) end)
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
--- ToggleTerm
-vim.keymap.set("n", "<C-t>", "<cmd>ToggleTerm<cr>", {})

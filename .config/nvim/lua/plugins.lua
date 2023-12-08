@@ -5,6 +5,7 @@ return {
     { "sainnhe/gruvbox-material" },
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
     { "rose-pine/neovim", name = "rose-pine", priority = 1000, config = function() require("config.colors") end },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
@@ -20,6 +21,7 @@ return {
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} },
+    -- { "github/copilot.vim" },
 
     -- Editing
     { "numToStr/Comment.nvim", opts = { ignore = '^$' } },
@@ -79,9 +81,12 @@ return {
                 cmd = 'LspInfo',
                 event = {'BufReadPre', 'BufNewFile'},
                 dependencies = {
+                    -- CMP & Mason Installer
                     {'hrsh7th/cmp-nvim-lsp'},
                     {'williamboman/mason.nvim'},
                     {'williamboman/mason-lspconfig.nvim'},
+                    -- Language Specifics
+                    { "mfussenegger/nvim-jdtls", config = function() require("config.java") end },
                 }
             },
 

@@ -92,6 +92,10 @@ elseif (vim.g.colors_name == 'monokai-pro') then
 
 -- Anything else swap lsp info around
 else
+    config.options = {
+        component_separators = '',
+        section_separators = { left = '', right = '' },
+    }
     config.sections.lualine_x = { 'diagnostics' }
     config.sections.lualine_y = { 'get_lsp()' }
 end

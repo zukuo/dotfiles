@@ -6,6 +6,7 @@ local lsp = require('lsp-zero').preset({
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({buffer = bufnr})
     local opts = {buffer = bufnr}
+    -- Keybind for autoformatting with <leader>SPACE
     vim.keymap.set({'n', 'x'}, '<leader>=', function() vim.lsp.buf.format({async = false, timeout_ms = 10000}) end, opts)
 end)
 
@@ -22,10 +23,12 @@ require('mason-lspconfig').setup({
   ensure_installed = {'lua_ls', 'pyright', 'tsserver', 'eslint', 'gopls'},
   handlers = {
     lsp.default_setup,
+    -- Lua Setup
     lua_ls = function()
       local lua_opts = lsp.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
+    jdtls = lsp.noop,
   }
 })
 
