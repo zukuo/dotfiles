@@ -55,7 +55,7 @@ if (vim.g.colors_name == 'rose-pine') then
 
 -- Monokai Pro Custom Setup - change colors and arrangement
 elseif (vim.g.colors_name == 'monokai-pro') then
-    local colors = require('monokai-pro.colorscheme').colors
+    local colors = require('monokai-pro.colorscheme').get("pro")
     local monokai_pro_alt = require('lualine.themes.monokai-pro')
 
     colors.base.black = "#3A353A"

@@ -20,13 +20,23 @@ lsp.set_sign_icons({
 --- Mason LSP Config Settings ---
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'pyright', 'tsserver', 'eslint', 'gopls'},
+  ensure_installed = {'lua_ls', 'pyright', 'tsserver', 'eslint', 'gopls', 'clangd'},
   handlers = {
     lsp.default_setup,
     -- Lua Setup
     lua_ls = function()
       local lua_opts = lsp.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+    clangd = function()
+      require('lspconfig').clangd.setup({
+          on_attach = lsp.on_attach,
+          capabilities = require('cmp_nvim_lsp').default_capabilities(),
+          cmd = {
+              "clangd",
+              "--offset-encoding=utf-16",
+          },
+      })
     end,
     jdtls = lsp.noop,
   }

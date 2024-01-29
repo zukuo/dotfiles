@@ -21,7 +21,7 @@ function module.setup(config)
     -- Adjust line_height based on current font
     local current_font = config.font.font[1].family
     if (current_font == "Cascadia Code") then
-        config.line_height = config.line_height + 0.1
+        config.line_height = config.line_height + 0.2
     end
 
     -- TODO: Font Switcher Function

@@ -7,20 +7,19 @@ local module = {}
 
 local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 
--- TODO: Change colors at some point to tokyo-night tmux colors
-local TAB_BAR_BG = '#0b0022'
+local TAB_BAR_BG = '#201D21'
 
-local ACTIVE_TAB_BG = '#2b2042'
-local ACTIVE_TAB_FG = '#c0c0c0'
+local ACTIVE_TAB_BG = '#FFDC66'
+local ACTIVE_TAB_FG = '#2B2B2B'
 
-local INACTIVE_TAB_BG = '#1b1032'
-local INACTIVE_TAB_FG = '#808080'
+local INACTIVE_TAB_BG = '#3D353F'
+local INACTIVE_TAB_FG = '#A5A5A5'
 
-local HOVER_TAB_BG = '#3b3052'
-local HOVER_TAB_FG = '#909090'
+local HOVER_TAB_BG = '#877436'
+local HOVER_TAB_FG = '#2B2B2B'
 
-local NEW_TAB_BG = '#1b1032'
-local NEW_TAB_FG = '#808080'
+local NEW_TAB_BG = INACTIVE_TAB_BG
+local NEW_TAB_FG = INACTIVE_TAB_FG
 
 function module.setup(config)
   -- Custom Tab Colors

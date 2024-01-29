@@ -10,17 +10,17 @@ end
 config = {
     -- Font Settings
     font = wezterm.font_with_fallback({
+        {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
         {family="JetBrains Mono", weight="DemiBold"},
         {family="Fira Code", weight="Medium"},
         {family="IBM Plex Mono", weight="Medium"},
-        {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
         {family="JoyPixels"},
     }),
     font_size = 15,
     line_height = 1.6,
 
     -- Rendering
-    front_end = "OpenGL",
+    front_end = "WebGpu",
     webgpu_power_preference = "HighPerformance",
     max_fps = 240,
     animation_fps = 240,

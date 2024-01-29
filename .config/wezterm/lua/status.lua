@@ -40,10 +40,10 @@ wezterm.on('update-right-status', function(window, pane)
 
   -- Color palette for the backgrounds of each cell
   local colors = {
-    '#1b1032',
-    '#2b2042',
-    '#3b3052',
-    '#4B3D68',
+    '#191719',
+    '#211E22',
+    '#2B272C',
+    '#342F35',
   }
 
   -- Foreground color for the text across the fade

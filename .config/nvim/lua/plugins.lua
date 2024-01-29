@@ -21,7 +21,19 @@ return {
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} },
-    -- { "github/copilot.vim" },
+
+    -- Copilot
+    { "github/copilot.vim", config = function ()
+        vim.g.copilot_no_tab_map = true
+        vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    end },
+    -- { "zbirenbaum/copilot.lua", cmd = "Copilot", event = "InsertEnter", opts = { suggestions = { atuo_trigger = true } } },
+    -- { "Exafunction/codeium.vim", config = function ()
+    --     vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+    --     vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+    --     vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+    --     vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    -- end },
 
     -- Editing
     { "numToStr/Comment.nvim", opts = { ignore = '^$' } },
