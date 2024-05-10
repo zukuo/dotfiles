@@ -8,6 +8,7 @@ lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr}
     -- Keybind for autoformatting with <leader>SPACE
     vim.keymap.set({'n', 'x'}, '<leader>=', function() vim.lsp.buf.format({async = false, timeout_ms = 10000}) end, opts)
+    vim.keymap.set('n', '<leader>-', function() vim.lsp.buf.code_action() end, opts)
 end)
 
 lsp.set_sign_icons({

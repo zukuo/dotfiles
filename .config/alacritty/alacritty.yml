@@ -14,7 +14,6 @@ env:
 # Window Customization
 window:
   # decorations: none
-  dynamic_title: true
   # padding:
   #   x: 10
   #   y: 10

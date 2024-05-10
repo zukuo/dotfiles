@@ -38,6 +38,7 @@ vim.keymap.set("n", "<leader>ff", telescope.find_files, {})
 vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
 vim.keymap.set("n", "<leader>fb", telescope.buffers, {})
 vim.keymap.set("n", "<leader>fh", telescope.help_tags, {})
+vim.keymap.set("n", "<leader>fd", telescope.diagnostics, {})
 vim.keymap.set("n", "<C-p>", telescope.git_files, {})
 vim.keymap.set('n', '<leader>ps', function() telescope.grep_string({ search = vim.fn.input("Grep > ") }) end)
 
@@ -53,3 +54,6 @@ vim.keymap.set("n", "<C-l>", function() harpoon_ui.nav_file(4) end)
 
 -- Oil
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Trouble
+vim.keymap.set("n", "<leader>t", "<CMD>TroubleToggle<CR>", { desc = "Toggle trouble menu" })

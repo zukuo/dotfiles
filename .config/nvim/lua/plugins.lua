@@ -1,8 +1,8 @@
 return {
 
     -- Colorschemes
-    { "loctvl842/monokai-pro.nvim", priority = 1000 },
-    { "sainnhe/gruvbox-material" },
+    { "loctvl842/monokai-pro.nvim", priority = 1000, opts = {transparent_background=false} },
+    { "tjdevries/colorbuddy.nvim" },
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
     { "rose-pine/neovim", name = "rose-pine", priority = 1000, config = function() require("config.colors") end },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
@@ -10,21 +10,25 @@ return {
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
     { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
-    { "lukas-reineke/indent-blankline.nvim", version = "2.20.8", opts = { show_trailing_blankline_indent = false } },
+    -- { "lukas-reineke/indent-blankline.nvim", version = "2.20.8", opts = { show_trailing_blankline_indent = false } },
     { "RRethy/vim-illuminate" },
     { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
     -- { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
     -- { "echasnovski/mini.tabline", opts = { show_icons = false } },
-    { "HiPhish/rainbow-delimiters.nvim", main = "rainbow-delimiters.setup", opts = {} },
+    -- { "HiPhish/rainbow-delimiters.nvim", main = "rainbow-delimiters.setup", opts = {} },
 
     -- Utils
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} },
+    { "lervag/vimtex", init = function() end },
+    -- { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
+    -- TODO: Leetcode Plugin, Folding
 
     -- Copilot
     { "github/copilot.vim", config = function ()
         vim.g.copilot_no_tab_map = true
+        vim.g.copilot_enabled = false
         vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
     end },
     -- { "zbirenbaum/copilot.lua", cmd = "Copilot", event = "InsertEnter", opts = { suggestions = { atuo_trigger = true } } },
@@ -99,6 +103,7 @@ return {
                     {'williamboman/mason-lspconfig.nvim'},
                     -- Language Specifics
                     { "mfussenegger/nvim-jdtls", config = function() require("config.java") end },
+                    { "folke/trouble.nvim" },
                 }
             },
 

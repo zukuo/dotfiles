@@ -10,21 +10,22 @@ end
 config = {
     -- Font Settings
     font = wezterm.font_with_fallback({
+        {family="JetBrains Mono", weight="Regular"},
         {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
-        {family="JetBrains Mono", weight="DemiBold"},
         {family="Fira Code", weight="Medium"},
         {family="IBM Plex Mono", weight="Medium"},
         {family="JoyPixels"},
     }),
-    font_size = 15,
-    line_height = 1.6,
+    font_size = 14,
+    line_height = 1.4,
+    cursor_thickness = "150%",
 
     -- Rendering
     front_end = "WebGpu",
     webgpu_power_preference = "HighPerformance",
     max_fps = 240,
     animation_fps = 240,
-    freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
+    -- freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
     -- freetype_load_target = "Light",
     -- freetype_render_target = "HorizontalLcd",
 
@@ -77,6 +78,23 @@ config = {
 
         -- Custom Events
         {key="b", mods="CMD", action=wezterm.action.EmitEvent "toggle-bar"},
+        {key="P", mods="CMD", action=wezterm.action.ActivateCommandPalette},
+
+        {
+            key = "-",
+            mods = "CMD|SHIFT",
+            action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+        },
+        {
+            key = "w",
+            mods = "CMD",
+            action = wezterm.action.CloseCurrentPane { confirm = true },
+        },
+        {
+            key = ';',
+            mods = 'CMD',
+            action = wezterm.action.TogglePaneZoomState,
+        },
 
         -- TODO: Add better keybinds for splitting terminals
         -- {key="]", mods="CMD", action=wezterm.action.EmitEvent "next-font"},
