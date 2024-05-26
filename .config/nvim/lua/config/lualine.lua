@@ -95,7 +95,8 @@ else
     config.options = {
         component_separators = '',
         -- section_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
     }
     config.sections.lualine_x = { 'diagnostics' }
     config.sections.lualine_y = { 'get_lsp()' }

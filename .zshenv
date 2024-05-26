@@ -5,7 +5,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
 # PATHS
 typeset -U PATH path
-path=("$HOME/.local/bin/" "/Users/eesa/Library/Python/3.10/bin/" "/opt/homebrew/bin/" "$HOME/.local/bin/statusbar/" "$XDG_CONFIG_HOME/emacs/bin/" "/opt/homebrew/" "$path[@]")
+path=("$HOME/.local/bin/" "/Users/eesa/Library/Python/3.10/bin/" "/opt/homebrew/bin/" "$HOME/.local/bin/statusbar/" "$XDG_CONFIG_HOME/emacs/bin/" "/opt/homebrew/" "$HOME/.local/share/go/bin/" "$path[@]" "$HOME/.local/share/cargo/bin")
 export PATH
 
 # Defaults - change accordingly to your prefrences
@@ -40,4 +40,5 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml

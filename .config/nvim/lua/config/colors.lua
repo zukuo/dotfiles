@@ -21,5 +21,3 @@ require("rose-pine").setup({
 		RainbowDelimiterCyan = { fg = "foam" },
 	},
 })
-
-vim.cmd.colorscheme "monokai-pro"

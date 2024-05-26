@@ -1,42 +1,44 @@
 return {
 
     -- Colorschemes
-    { "loctvl842/monokai-pro.nvim", priority = 1000, opts = {transparent_background=false} },
-    { "tjdevries/colorbuddy.nvim" },
+    {
+        "tjdevries/colorbuddy.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme "gruvbuddy"
+        end,
+    },
+    { "loctvl842/monokai-pro.nvim" },
+    { "sainnhe/gruvbox-material" },
+    { "rose-pine/neovim", name = "rose-pine", config = function() require("config.colors") end },
+    { "folke/tokyonight.nvim", lazy = false, opts = {} },
+    { "catppuccin/nvim", name = "catppuccin" },
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
-    { "rose-pine/neovim", name = "rose-pine", priority = 1000, config = function() require("config.colors") end },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
-    { "NvChad/nvim-colorizer.lua", opts = { user_default_options = { tailwind = true } } },
-    -- { "lukas-reineke/indent-blankline.nvim", version = "2.20.8", opts = { show_trailing_blankline_indent = false } },
+    { "brenoprata10/nvim-highlight-colors", opts = { render = "virtual", virtual_symbol = "⬤", enable_tailwind = true } },
     { "RRethy/vim-illuminate" },
-    { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.lualine") end },
-    -- { "akinsho/bufferline.nvim", event = "VeryLazy", config = function() require("config.bufferline") end },
-    -- { "echasnovski/mini.tabline", opts = { show_icons = false } },
-    -- { "HiPhish/rainbow-delimiters.nvim", main = "rainbow-delimiters.setup", opts = {} },
+
+    { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.statusline") end },
+    -- { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.evil") end },
+    { "j-hui/fidget.nvim", opts = {} },
 
     -- Utils
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "nmac427/guess-indent.nvim", opts = {} },
-    { "folke/neodev.nvim", opts = {} },
-    { "lervag/vimtex", init = function() end },
-    -- { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
+    { "folke/neodev.nvim", opts = {} }, -- needed?
+
     -- TODO: Leetcode Plugin, Folding
+    -- TODO: Create folder for lsp -> lsp.haskell, lsp.java & only load these files in their filetypes
+    { 'mrcjkb/haskell-tools.nvim', version = '^3', lazy = false },
 
     -- Copilot
-    { "github/copilot.vim", config = function ()
-        vim.g.copilot_no_tab_map = true
-        vim.g.copilot_enabled = false
-        vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-    end },
-    -- { "zbirenbaum/copilot.lua", cmd = "Copilot", event = "InsertEnter", opts = { suggestions = { atuo_trigger = true } } },
-    -- { "Exafunction/codeium.vim", config = function ()
-    --     vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
-    --     vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
-    --     vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
-    --     vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    -- { "github/copilot.vim", config = function ()
+    --     vim.g.copilot_no_tab_map = true
+    --     vim.g.copilot_enabled = false
+    --     vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
     -- end },
 
     -- Editing
@@ -46,9 +48,8 @@ return {
     { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
 
     -- File Management
-    { "stevearc/oil.nvim", opts = {} },
+    { "stevearc/oil.nvim", opts = { view_options = { show_hidden = true } } },
     { "ThePrimeagen/harpoon", opts = {} },
-    -- { "dzfrias/arena.nvim", event = "BufWinEnter", opts = {} },
 
     -- Movement
     { "declancm/cinnamon.nvim", opts = { default_delay = 5 } },
@@ -71,7 +72,7 @@ return {
         },
         build = ":TSUpdate",
         cmd = { "TSUpdateSync" },
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "BufReadPost", "BufNewFile", "BufWritePost", "VeryLazy" },
         config = function() require("config.treesitter") end
     },
 
@@ -87,8 +88,10 @@ return {
     },
 
     -- LSP, Completion, & Snippets
+    -- switch to no lsp-zero or newest one (add haskell here)
     {
         'VonHeikemen/lsp-zero.nvim',
+        lazy = false,
         branch = 'v3.x',
         dependencies = {
             -- LSP Support

@@ -12,13 +12,13 @@ config = {
     font = wezterm.font_with_fallback({
         {family="JetBrains Mono", weight="Regular"},
         {family="Cascadia Code", weight="Regular", harfbuzz_features={"calt=1", "ss01=1", "ss19=1"}},
-        {family="Fira Code", weight="Medium"},
+        {family="Fira Code", weight="Regular"},
         {family="IBM Plex Mono", weight="Medium"},
         {family="JoyPixels"},
     }),
-    font_size = 14,
-    line_height = 1.4,
-    cursor_thickness = "150%",
+    font_size = 18, -- old 14
+    line_height = 1.3, -- old 1.6
+    cursor_thickness = "175%", -- old 100%
 
     -- Rendering
     front_end = "WebGpu",
@@ -31,7 +31,7 @@ config = {
 
     -- Color Setings
     color_scheme_dirs = {"colors"},
-    color_scheme = "base16",
+    color_scheme = "base16mod",
     window_background_opacity = 0.9,
     macos_window_background_blur = 30,
     -- text_background_opacity = 0.5, -- causes powerline icons to appear funny
@@ -80,6 +80,7 @@ config = {
         {key="b", mods="CMD", action=wezterm.action.EmitEvent "toggle-bar"},
         {key="P", mods="CMD", action=wezterm.action.ActivateCommandPalette},
 
+        -- Window Splits
         {
             key = "-",
             mods = "CMD|SHIFT",
