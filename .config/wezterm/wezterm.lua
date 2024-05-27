@@ -52,55 +52,10 @@ config = {
         top = 0,
         bottom = 0,
     },
-
-    -- Keybindings
-    keys = {
-        -- Linux Keybinds:
-        -- Fix Copy & Paste
-        {key="c", mods="ALT", action=wezterm.action{CopyTo="ClipboardAndPrimarySelection"}},
-        {key="v", mods="ALT", action=wezterm.action{PasteFrom="Clipboard"}},
-        {key="v", mods="ALT", action=wezterm.action{PasteFrom="PrimarySelection"}},
-        -- Fix Ctrl+Backspace
-        {key="\u{8}", mods="CTRL", action={SendKey={key="W", mods="CTRL"}}},
-
-        -- MacOS Keybinds:
-        -- Fix Option + Arrow Key Combinations
-        {key="LeftArrow", mods="OPT", action={SendKey={key="b", mods="ALT"}}},
-        {key="RightArrow", mods="OPT", action={SendKey={key="f", mods="ALT"}}},
-        -- Fix Command + Arrow Key Combinations
-        {key="LeftArrow", mods="CMD", action={SendKey={key="Home"}}},
-        {key="RightArrow", mods="CMD", action={SendKey={key="End"}}},
-        {key="UpArrow", mods="CMD", action={SendKey={key="PageUp"}}},
-        {key="DownArrow", mods="CMD", action={SendKey={key="PageDown"}}},
-        -- Fix Option/Command + Backspace
-        {key="\u{8}", mods="OPT", action={SendKey={key="W", mods="CTRL"}}},
-        {key="\u{8}", mods="CMD", action={SendKey={key="U", mods="CTRL"}}},
-
-        -- Custom Events
-        {key="b", mods="CMD", action=wezterm.action.EmitEvent "toggle-bar"},
-        {key="P", mods="CMD", action=wezterm.action.ActivateCommandPalette},
-
-        -- Window Splits
-        {
-            key = "-",
-            mods = "CMD|SHIFT",
-            action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-        },
-        {
-            key = "w",
-            mods = "CMD",
-            action = wezterm.action.CloseCurrentPane { confirm = true },
-        },
-        {
-            key = ';',
-            mods = 'CMD',
-            action = wezterm.action.TogglePaneZoomState,
-        },
-
-        -- TODO: Add better keybinds for splitting terminals
-        -- {key="]", mods="CMD", action=wezterm.action.EmitEvent "next-font"},
-    }
 }
+
+-- Setup Keybinds
+require("lua.keybinds").setup(config)
 
 -- Setup WezSSH
 require("lua.ssh").setup(config)

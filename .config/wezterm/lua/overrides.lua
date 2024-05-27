@@ -2,6 +2,7 @@
 -- Source: wez's docs (modified)
 -- Author: Zukuo
 local wezterm = require 'wezterm'
+local utils   = require 'lua.utils'
 
 local module = {}
 
@@ -25,7 +26,10 @@ function module.setup(config)
         config.line_height = config.line_height + 0.2
     end
 
-    -- TODO: Font Switcher Function
+    -- Adjust font_size based on OS
+    if utils.is_linux() then
+        config.font_size = config.font_size - 2
+    end
 
 end
 
