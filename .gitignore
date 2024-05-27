@@ -1,3 +1,4 @@
 .DS_Store
 .config/zsh/.zcompdump
 .config/ranger/plugins
+.config/nvim/lazy-lock.json

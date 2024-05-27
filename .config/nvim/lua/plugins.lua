@@ -29,6 +29,14 @@ return {
     { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "folke/neodev.nvim", opts = {} }, -- needed?
+    { "windwp/nvim-ts-autotag", opts = {
+        opts = {
+            enable_close = true,
+            enable_rename = true,
+            enable_close_on_slash = true,
+        }
+    } },
+    -- { "mlaursen/vim-react-snippets" },
 
     -- TODO: Leetcode Plugin, Folding
     -- TODO: Create folder for lsp -> lsp.haskell, lsp.java & only load these files in their filetypes
