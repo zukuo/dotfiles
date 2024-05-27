@@ -11,7 +11,7 @@ return {
     },
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
-    { "rose-pine/neovim", name = "rose-pine", config = function() require("config.colors") end },
+    { "rose-pine/neovim", name = "rose-pine", config = function() require("config.rose") end },
     { "folke/tokyonight.nvim", lazy = false, opts = {} },
     { "catppuccin/nvim", name = "catppuccin" },
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
@@ -36,7 +36,7 @@ return {
             enable_close_on_slash = true,
         }
     } },
-    -- { "mlaursen/vim-react-snippets" },
+    { "mlaursen/vim-react-snippets" },
 
     -- TODO: Leetcode Plugin, Folding
     -- TODO: Create folder for lsp -> lsp.haskell, lsp.java & only load these files in their filetypes
