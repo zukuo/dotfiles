@@ -48,25 +48,33 @@ function module.setup(config)
     else
         --== LINUX KEYBINDS ==--
 
+        local modkey = "ALT"
         config.keys = {
             -- Fix Copy & Paste
-            { key = "c",     mods = "ALT",  action = wezterm.action { CopyTo = "ClipboardAndPrimarySelection" } },
-            { key = "v",     mods = "ALT",  action = wezterm.action { PasteFrom = "Clipboard" } },
-            { key = "v",     mods = "ALT",  action = wezterm.action { PasteFrom = "PrimarySelection" } },
+            { key = "c",          mods = modkey, action = wezterm.action { CopyTo = "ClipboardAndPrimarySelection" } },
+            { key = "v",          mods = modkey, action = wezterm.action { PasteFrom = "Clipboard" } },
+            { key = "v",          mods = modkey, action = wezterm.action { PasteFrom = "PrimarySelection" } },
 
-            -- Fix Ctrl+Backspace
-            { key = "\u{8}", mods = "CTRL", action = { SendKey = { key = "W", mods = "CTRL" } } },
+            -- Fix Ctrl/Alt + Backspace
+            { key = "\u{8}",      mods = "CTRL", action = { SendKey = { key = "W", mods = "CTRL" } } },
+            { key = "\u{8}",      mods = "ALT",  action = { SendKey = { key = "U", mods = "CTRL" } } },
+
+            -- Fix Alt + Arrow Key Combinations
+            { key = "LeftArrow",  mods = "ALT",  action = { SendKey = { key = "Home" } } },
+            { key = "RightArrow", mods = "ALT",  action = { SendKey = { key = "End" } } },
+            { key = "UpArrow",    mods = "ALT",  action = { SendKey = { key = "PageUp" } } },
+            { key = "DownArrow",  mods = "ALT",  action = { SendKey = { key = "PageDown" } } },
 
             -- Fix New/Close Tabs
-            { key = "t",     mods = "CTRL", action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
-            { key = "w",     mods = "CTRL", action = wezterm.action.CloseCurrentTab { confirm = true } },
+            { key = "t",          mods = modkey, action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
+            { key = "w",          mods = modkey, action = wezterm.action.CloseCurrentTab { confirm = true } },
         }
 
         -- Change workspaces with Ctrl+[num]
         for i = 1, 8 do
             table.insert(config.keys, {
                 key = tostring(i),
-                mods = 'CTRL',
+                mods = modkey,
                 action = wezterm.action.ActivateTab(i - 1),
             })
         end
