@@ -40,9 +40,10 @@ vim.keymap.set("n", "<leader>fb", telescope.buffers, {})
 vim.keymap.set("n", "<leader>fh", telescope.help_tags, {})
 vim.keymap.set("n", "<leader>fd", telescope.diagnostics, {})
 vim.keymap.set("n", "<C-p>", telescope.git_files, {})
-vim.keymap.set("n", "<space>/", telescope.current_buffer_fuzzy_find)
-vim.keymap.set("n", "<space>gw", telescope.grep_string)
+vim.keymap.set("n", "<leader>/", telescope.current_buffer_fuzzy_find)
+vim.keymap.set("n", "<leader>gw", telescope.grep_string)
 vim.keymap.set('n', '<leader>ps', function() telescope.grep_string({ search = vim.fn.input("Grep > ") }) end)
+vim.keymap.set("n", "<leader>fs", telescope.lsp_document_symbols)
 
 -- Harpoon
 local harpoon_mark = require("harpoon.mark")
