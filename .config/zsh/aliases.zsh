@@ -48,9 +48,9 @@ alias Z="source $XDG_CONFIG_HOME/zsh/.zshrc"
 # alias ls="ls -hN --color=auto --group-directories-first"
 # alias l="ls -vla"
 # alias l="ls -lah --color=auto --group-directories-first"
-alias ls="exa --color=always --group-directories-first --icons" # all files and dirs in long format
-alias l="exa -al --color=always --group-directories-first --icons"
-alias la="exa -a --color=always --group-directories-first --icons"
+alias ls="eza --color=always --group-directories-first --icons" # all files and dirs in long format
+alias l="eza -al --color=always --group-directories-first --icons"
+alias la="eza -a --color=always --group-directories-first --icons"
 
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
