@@ -26,9 +26,20 @@ return {
     { "j-hui/fidget.nvim", opts = {} },
 
     -- Utils
-    { "lewis6991/gitsigns.nvim", opts = { numhl = true, yadm = { enable = true } } },
+    {
+        "lewis6991/gitsigns.nvim",
+        dependencies = { {
+            "seanbreckenridge/gitsigns-yadm.nvim",
+            opts = { shell_timeout_ms = 1000 }, },
+        },
+        opts = {
+            _on_attach_pre = function(_, callback)
+                require("gitsigns-yadm").yadm_signs(callback)
+            end,
+            numhl = true,
+        },
+    },
     { "nmac427/guess-indent.nvim", opts = {} },
-    { "folke/neodev.nvim", opts = {} }, -- needed?
     { "windwp/nvim-ts-autotag", opts = {
         opts = {
             enable_close = true,
@@ -43,14 +54,27 @@ return {
     { 'mrcjkb/haskell-tools.nvim', version = '^3', lazy = false },
 
     -- Copilot
-    -- { "github/copilot.vim", config = function ()
-    --     vim.g.copilot_no_tab_map = true
-    --     vim.g.copilot_enabled = false
-    --     vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-    -- end },
+    {
+        "github/copilot.vim",
+        enabled = false,
+        config = function ()
+            vim.g.copilot_no_tab_map = true
+            vim.g.copilot_enabled = false
+            vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+        end
+    },
 
     -- Editing
-    { "numToStr/Comment.nvim", opts = { ignore = '^$' } },
+    {
+        "numToStr/Comment.nvim",
+        config = function() require("config.comment") end,
+        event = "BufReadPre",
+        lazy = false,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "JoosepAlviste/nvim-ts-context-commentstring",
+        },
+    },
     { "ethanholz/nvim-lastplace", opts = {} },
     { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
     { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
@@ -60,8 +84,8 @@ return {
     { "ThePrimeagen/harpoon", opts = {} },
 
     -- Movement
-    { "declancm/cinnamon.nvim", opts = { default_delay = 5 } },
-    { "matze/vim-move" },
+    { "psliwka/vim-smoothie" },
+    { "matze/vim-move", event = "VeryLazy" },
 
     -- Startup Page
     { "goolord/alpha-nvim", event = "VimEnter", config = function() require("config.alpha") end },
@@ -114,7 +138,7 @@ return {
                     {'williamboman/mason-lspconfig.nvim'},
                     -- Language Specifics
                     { "mfussenegger/nvim-jdtls", config = function() require("config.java") end },
-                    { "folke/trouble.nvim" },
+                    { "folke/trouble.nvim", opts = {} },
                 }
             },
 

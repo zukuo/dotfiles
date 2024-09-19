@@ -58,4 +58,4 @@ vim.keymap.set("n", "<C-l>", function() harpoon_ui.nav_file(4) end)
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Trouble
-vim.keymap.set("n", "<leader>t", "<CMD>TroubleToggle<CR>", { desc = "Toggle trouble menu" })
+vim.keymap.set("n", "<leader>t", "<CMD>Trouble diagnostics toggle<CR>", { desc = "Toggle trouble menu" })
