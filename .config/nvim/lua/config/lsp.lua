@@ -21,7 +21,7 @@ lsp.set_sign_icons({
 --- Mason LSP Config Settings ---
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'pyright', 'tsserver', 'eslint', 'gopls', 'clangd'},
+  ensure_installed = {'lua_ls', 'pyright', 'ts_ls', 'eslint', 'gopls', 'clangd'},
   handlers = {
     lsp.default_setup,
     -- Lua Setup
