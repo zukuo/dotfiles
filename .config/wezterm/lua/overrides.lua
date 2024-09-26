@@ -29,6 +29,7 @@ function module.setup(config)
     -- Adjust font_size based on OS
     if utils.is_linux() then
         config.font_size = config.font_size - 2
+        config.window_decorations = "NONE"
     end
 
 end
