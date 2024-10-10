@@ -40,9 +40,9 @@ local function footer()
 end
 
 dashboard.section.buttons.val = {
-    button("f", "󰍉  Find File", ":Telescope find_files<CR>"),
+    button("f", "󰍉  Find Project", "<cmd>ProjectExplorer<cr>"),
     button("r", "  Recent File", ":Telescope oldfiles<CR>"),
-    button("e", "  File Browser", ":Telescope file_browser<CR>"),
+    button("e", "  File Browser", ":Telescope file_browser path=~ hidden=true<CR>"),
     button("n", "  New file", ":ene<CR>"),
     button("q", "  Quit", ":qa<CR>"),
 }

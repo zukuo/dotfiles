@@ -26,3 +26,8 @@ vim.opt.spell = false
 vim.opt.title = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+-- Neovide
+if vim.g.neovide then
+    require("user.neovide")
+end

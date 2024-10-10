@@ -6,7 +6,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme "gruvbuddy"
+            vim.cmd.colorscheme "tokyonight-night"
         end,
     },
     { "loctvl842/monokai-pro.nvim" },
@@ -38,6 +38,14 @@ return {
             end,
             numhl = true,
         },
+    },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+        },
+        config = true
     },
     { "nmac427/guess-indent.nvim", opts = {} },
     { "windwp/nvim-ts-autotag", opts = {
@@ -113,11 +121,58 @@ return {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope-file-browser.nvim" },
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+            { "pschmitt/telescope-yadm.nvim", config = function() require("telescope").load_extension("yadm_files") end },
         },
         cmd = "Telescope",
         opts = {}
     },
+
+    {
+        "Rics-Dev/project-explorer.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+        },
+        opts = {
+            paths = { "~/Git" },
+            newProjectPath = "~/Git/",
+            -- file_explorer = function(dir) require("oil").open(dir) end,
+            file_explorer = function(dir) require("telescope").extensions.file_browser.file_browser() end,
+        },
+        config = function(_, opts)
+            require("project_explorer").setup(opts)
+        end,
+        keys = {
+            { "<leader>fp", "<cmd>ProjectExplorer<cr>", desc = "Project Explorer" },
+        },
+        lazy = false,
+    },
+
+    -- My Custom Islamic Prayer Times Plugin
+    -- {
+    --     dir = "~/Git/prayertimes.nvim",
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim"
+    --     },
+    --     name = "prayertimes",
+    --     config = function() require("prayertimes").setup() end,
+    --     enabled = true,
+    --     opts = {}
+    -- },
+
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                -- See the configuration section for more details
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "luvit-meta/library", words = { "vim%.uv" } },
+            },
+        },
+    },
+    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
 
     -- LSP, Completion, & Snippets
     -- switch to no lsp-zero or newest one (add haskell here)
