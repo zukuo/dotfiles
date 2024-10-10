@@ -1,0 +1,12 @@
+live_config_reload = true
+
+[window]
+
+decorations = "Buttonless"
+opacity = 0.9
+blur = true
+
+[font]
+
+normal = { family = "JetbrainsMono Nerd Font", style = "Regular" }
+size = 16
