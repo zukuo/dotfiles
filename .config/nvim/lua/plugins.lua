@@ -149,17 +149,14 @@ return {
         lazy = false,
     },
 
-    -- My Custom Islamic Prayer Times Plugin
-    -- {
-    --     dir = "~/Git/prayertimes.nvim",
-    --     dependencies = {
-    --         "MunifTanjim/nui.nvim"
-    --     },
-    --     name = "prayertimes",
-    --     config = function() require("prayertimes").setup() end,
-    --     enabled = true,
-    --     opts = {}
-    -- },
+    -- Islamic Prayer Times
+    {
+        "zukuo/prayertimes.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        lazy = true,
+        opts = { location = { country = "GB", city = "Cambridge" } },
+        keys = { { "<leader>pt", "<cmd>Prayertimes<cr>", desc = "Show Prayer Times" } },
+    },
 
     {
         "folke/lazydev.nvim",
