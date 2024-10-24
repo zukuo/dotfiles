@@ -6,13 +6,13 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme "tokyonight-night"
+            vim.cmd.colorscheme "gruvbuddy"
         end,
     },
     { "loctvl842/monokai-pro.nvim" },
     { "sainnhe/gruvbox-material" },
     { "rose-pine/neovim", name = "rose-pine", config = function() require("config.rose") end },
-    { "folke/tokyonight.nvim", lazy = false, opts = {} },
+    { "folke/tokyonight.nvim", opts = { style = "night" } },
     { "catppuccin/nvim", name = "catppuccin" },
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
 
