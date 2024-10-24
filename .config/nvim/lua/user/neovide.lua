@@ -10,11 +10,15 @@ vim.g.neovide_hide_mouse_when_typing = true
 
 -- Allow clipboard copy paste in neovim (MacOS)
 vim.keymap.set('v', '<D-c>', '"+y')
-vim.keymap.set('n', '<D-v>', '"+P')
-vim.keymap.set('v', '<D-v>', '"+P')
+vim.keymap.set({ 'n', 'v' }, '<D-v>', '"+P')
 vim.keymap.set('c', '<D-v>', '<C-R>+')
 vim.keymap.set('i', '<D-v>', '<ESC>"+Pi')
 
+-- Cmd and Opt Delete
+vim.keymap.set('i', '<A-BS>', '<C-W>')
+vim.keymap.set('i', '<D-BS>', '<ESC>ld0i')
+
+-- Change UI Scale
 vim.keymap.set({ "n", "v" }, "<D-=>", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1 end)
 vim.keymap.set({ "n", "v" }, "<D-->", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1 end)
 vim.keymap.set({ "n", "v" }, "<D-0>", function() vim.g.neovide_scale_factor = 1 end)

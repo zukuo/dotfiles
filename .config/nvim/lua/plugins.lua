@@ -137,7 +137,6 @@ return {
         opts = {
             paths = { "~/Git" },
             newProjectPath = "~/Git/",
-            -- file_explorer = function(dir) require("oil").open(dir) end,
             file_explorer = function(dir) require("telescope").extensions.file_browser.file_browser() end,
         },
         config = function(_, opts)
