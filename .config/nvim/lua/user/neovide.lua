@@ -12,11 +12,12 @@ vim.g.neovide_hide_mouse_when_typing = true
 vim.keymap.set('v', '<D-c>', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<D-v>', '"+P')
 vim.keymap.set('c', '<D-v>', '<C-R>+')
-vim.keymap.set('i', '<D-v>', '<ESC>"+Pi')
+vim.keymap.set('i', '<D-v>', '<ESC>"+pa')
 
 -- Cmd and Opt Delete
+vim.keymap.set('i', '<C-BS>', '<C-W>')
 vim.keymap.set('i', '<A-BS>', '<C-W>')
-vim.keymap.set('i', '<D-BS>', '<ESC>ld0i')
+vim.keymap.set('i', '<D-BS>', '<C-U>')
 
 -- Change UI Scale
 vim.keymap.set({ "n", "v" }, "<D-=>", function() vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1 end)
