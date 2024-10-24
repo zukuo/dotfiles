@@ -6,7 +6,7 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme "gruvbuddy"
+            vim.cmd.colorscheme "tokyonight"
         end,
     },
     { "loctvl842/monokai-pro.nvim" },
@@ -18,7 +18,7 @@ return {
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
-    { "brenoprata10/nvim-highlight-colors", opts = { render = "virtual", virtual_symbol = "⬤", enable_tailwind = true } },
+    { "brenoprata10/nvim-highlight-colors", opts = { render = "virtual", virtual_symbol = "●", enable_tailwind = true } },
     { "RRethy/vim-illuminate" },
 
     { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.statusline") end },
