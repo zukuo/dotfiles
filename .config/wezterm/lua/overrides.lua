@@ -32,6 +32,9 @@ function module.setup(config)
         config.window_decorations = "NONE"
     end
 
+    -- Clean Problem Fields
+    config.tab_color_scheme = nil
+
 end
 
 return module

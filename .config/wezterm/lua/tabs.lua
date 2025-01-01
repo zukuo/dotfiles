@@ -1,27 +1,25 @@
 -- Config for colorizing tab bar
 -- Source: wez's docs, github discussion page #628 (modified)
 -- Author: Zukuo
-local wezterm = require 'wezterm'
+local wezterm = require('wezterm')
 
 local module = {}
 
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-
-local TAB_BAR_BG = '#201D21'
-
-local ACTIVE_TAB_BG = '#FFDC66'
-local ACTIVE_TAB_FG = '#2B2B2B'
-
-local INACTIVE_TAB_BG = '#3D353F'
-local INACTIVE_TAB_FG = '#A5A5A5'
-
-local HOVER_TAB_BG = '#877436'
-local HOVER_TAB_FG = '#2B2B2B'
-
-local NEW_TAB_BG = INACTIVE_TAB_BG
-local NEW_TAB_FG = INACTIVE_TAB_FG
-
 function module.setup(config)
+  -- Get Colorscheme Colors
+  local colors = require('lua.colors').colors[config.tab_color_scheme].tabs
+
+  TAB_BAR_BG = colors.TAB_BAR_BG
+  ACTIVE_TAB_BG = colors.ACTIVE_TAB_BG
+  ACTIVE_TAB_FG = colors.ACTIVE_TAB_FG
+  INACTIVE_TAB_BG = colors.INACTIVE_TAB_BG
+  INACTIVE_TAB_FG = colors.INACTIVE_TAB_FG
+  HOVER_TAB_BG = colors.HOVER_TAB_BG
+  HOVER_TAB_FG = colors.HOVER_TAB_FG
+  NEW_TAB_BG = INACTIVE_TAB_BG
+  NEW_TAB_FG = INACTIVE_TAB_FG
+  SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
+
   -- Custom Tab Colors
   config.colors = {
     tab_bar = {

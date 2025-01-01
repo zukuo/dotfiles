@@ -18,23 +18,19 @@ config = {
     }),
     font_size = 15,
     line_height = 1.3,
-    cursor_thickness = "175%", -- old 100%
+    cursor_thickness = "175%",
 
     -- Rendering
     front_end = "WebGpu",
     webgpu_power_preference = "HighPerformance",
     max_fps = 240,
     animation_fps = 240,
-    -- freetype_load_flags = "NO_HINTING", -- fix mac half loaded font (mainly cascadia code)
-    -- freetype_load_target = "Light",
-    -- freetype_render_target = "HorizontalLcd",
 
     -- Color Setings
-    color_scheme_dirs = {"colors"},
-    color_scheme = "base16mod",
-    window_background_opacity = 0.9,
-    macos_window_background_blur = 30,
-    -- text_background_opacity = 0.5, -- causes powerline icons to appear funny
+    color_scheme = 'Default Dark (base16)',
+    tab_color_scheme = 'monokaipro', -- 'monokaipro', 'tokyonight', 'base16'
+    window_background_opacity = 0.95,
+    macos_window_background_blur = 20,
 
     -- GUI Settings
     cursor_blink_rate = 0,
@@ -62,7 +58,7 @@ require("lua.ssh").setup(config)
 
 -- Setup Custom Tabs & Statusline
 require("lua.tabs").setup(config)
-require("lua.status")
+require("lua.status").setup(config)
 
 -- Setup Overrides
 require("lua.overrides").setup(config)
