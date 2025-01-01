@@ -40,7 +40,45 @@ M.colors = {
             HOVER_TAB_BG = '#565F89',
             HOVER_TAB_FG = '#1A1B26',
         }
-    }
+    },
+
+    -- Base16 Default Dark
+    ['base16'] = {
+        status = {
+            '#181818', -- Background (unchanged)
+            '#202020', -- Darker gray for contrast
+            '#303030', -- Darker than previous light gray
+            '#484848', -- Mid-tone gray, slightly darker
+        },
+        tabs = {
+            TAB_BAR_BG = '#181818',
+            ACTIVE_TAB_BG = '#383838',
+            ACTIVE_TAB_FG = '#A3BE8C',
+            INACTIVE_TAB_BG = '#282828',
+            INACTIVE_TAB_FG = '#B8B8B8',
+            HOVER_TAB_BG = '#383838',
+            HOVER_TAB_FG = '#D8D8D8',
+        }
+    },
+
+    -- Monochromatic Black & White
+    ['blackwhite'] = {
+        status = {
+            '#181818',
+            '#282828',
+            '#383838',
+            '#585858',
+        },
+        tabs = {
+            TAB_BAR_BG = '#181818',
+            ACTIVE_TAB_BG = '#D8D8D8',
+            ACTIVE_TAB_FG = '#181818',
+            INACTIVE_TAB_BG = '#282828',
+            INACTIVE_TAB_FG = '#B8B8B8',
+            HOVER_TAB_BG = '#383838',
+            HOVER_TAB_FG = '#D8D8D8',
+        }
+    },
 }
 
 return M

@@ -28,7 +28,7 @@ config = {
 
     -- Color Setings
     color_scheme = 'Default Dark (base16)',
-    tab_color_scheme = 'monokaipro', -- 'monokaipro', 'tokyonight', 'base16'
+    tab_color_scheme = 'base16', -- 'monokaipro', 'tokyonight', 'base16', 'blackwhite'
     window_background_opacity = 0.95,
     macos_window_background_blur = 20,
 
