@@ -10,6 +10,7 @@ return {
         end,
     },
     { "loctvl842/monokai-pro.nvim" },
+    { "Mofiqul/vscode.nvim" },
     { "sainnhe/gruvbox-material" },
     { "rose-pine/neovim", name = "rose-pine", config = function() require("config.rose") end },
     { "folke/tokyonight.nvim", opts = { style = "night" } },
@@ -29,7 +30,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         dependencies = { {
-            "seanbreckenridge/gitsigns-yadm.nvim",
+            "purarue/gitsigns-yadm.nvim",
             opts = { shell_timeout_ms = 1000 }, },
         },
         opts = {
