@@ -45,10 +45,10 @@ M.colors = {
     -- Base16 Default Dark
     ['base16'] = {
         status = {
-            '#181818', -- Background (unchanged)
-            '#202020', -- Darker gray for contrast
-            '#303030', -- Darker than previous light gray
-            '#484848', -- Mid-tone gray, slightly darker
+            '#181818',
+            '#202020',
+            '#303030',
+            '#484848',
         },
         tabs = {
             TAB_BAR_BG = '#181818',
