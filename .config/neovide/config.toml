@@ -1,0 +1,9 @@
+frame = "buttonless"
+title-hidden = true
+
+# [font]
+# normal = ["JetBrainsMono Nerd Font"]
+# size = 14
+
+# [font.features]
+# "JetBrainsMono Nerd Font" = ['+ss01', '+cv09', '+zero']
