@@ -17,7 +17,7 @@ Here are a collection of my dotfiles, all mainly from linux. Which can be used o
 
 ## Showcase
 <div align="center">
-    <img width="1680" alt="desktop" src="https://github.com/zukuo/dotfiles/assets/67321042/091041e4-61f0-4986-9a9b-fcb9ec4a6497">
+    <img width="1680" alt="desktop" src="https://github.com/user-attachments/assets/7d5ce487-a361-45de-9d21-c718d447babc">
 </div>
 
 ## Installation
