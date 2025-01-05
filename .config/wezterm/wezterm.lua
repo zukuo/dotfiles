@@ -16,7 +16,7 @@ config = {
         {family="IBM Plex Mono", weight="Medium"},
         {family="JoyPixels"},
     }),
-    font_size = 14,
+    font_size = 15,
     line_height = 1.3,
     cursor_thickness = "175%",
 
