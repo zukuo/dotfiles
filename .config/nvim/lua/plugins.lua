@@ -24,6 +24,7 @@ return {
 
     { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.statusline") end },
     -- { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.evil") end },
+    { 'stevearc/quicker.nvim', event = "FileType qf", opts = {} },
     { "j-hui/fidget.nvim", opts = {} },
 
     -- Utils
@@ -89,7 +90,8 @@ return {
     { 'altermo/ultimate-autopair.nvim', event = {'InsertEnter', 'CmdlineEnter'}, branch = 'v0.6', opts = {} },
 
     -- File Management
-    { "stevearc/oil.nvim", opts = { view_options = { show_hidden = true } } },
+    { "stevearc/oil.nvim", opts = { view_options = { show_hidden = true }, win_options = { signcolumn = "yes:1" } } },
+    { "refractalize/oil-git-status.nvim", config = true },
     { "ThePrimeagen/harpoon", opts = {} },
 
     -- Movement
@@ -131,22 +133,21 @@ return {
     },
 
     {
-        "Rics-Dev/project-explorer.nvim",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-        },
+        "coffebar/neovim-project",
         opts = {
-            paths = { "~/Git" },
-            newProjectPath = "~/Git/",
-            file_explorer = function(dir) require("telescope").extensions.file_browser.file_browser() end,
+            projects = { "~/Git/*" },
+            picker = { type = "telescope" },
+            last_session_on_startup = true,
+            dashboard_mode = true,
         },
-        config = function(_, opts)
-            require("project_explorer").setup(opts)
-        end,
-        keys = {
-            { "<leader>fp", "<cmd>ProjectExplorer<cr>", desc = "Project Explorer" },
+        init = function() vim.opt.sessionoptions:append("globals") end,
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "Shatur/neovim-session-manager" },
         },
+        keys = { { "<leader>fp", "<cmd>NeovimProjectDiscover history<cr>", desc = "Project Explorer" } },
         lazy = false,
+        priority = 100,
     },
 
     -- Islamic Prayer Times
