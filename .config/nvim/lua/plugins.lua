@@ -6,11 +6,12 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd.colorscheme "tokyonight"
+            vim.cmd.colorscheme "catppuccin-mocha"
         end,
     },
     { "loctvl842/monokai-pro.nvim" },
     { "Mofiqul/vscode.nvim" },
+    { "vague2k/vague.nvim" },
     { "sainnhe/gruvbox-material" },
     { "rose-pine/neovim", name = "rose-pine", config = function() require("config.rose") end },
     { "folke/tokyonight.nvim", opts = { style = "night" } },
@@ -22,8 +23,15 @@ return {
     { "brenoprata10/nvim-highlight-colors", opts = { render = "virtual", virtual_symbol = "●", enable_tailwind = true } },
     { "RRethy/vim-illuminate" },
 
-    { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.statusline") end },
+    -- { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.statusline") end },
     -- { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.evil") end },
+    {
+        "sschleemilch/slimline.nvim",
+        event = "VeryLazy",
+        dependencies = {'echasnovski/mini.icons'},
+        config = function() require("config.slimline") end
+    },
+
     { 'stevearc/quicker.nvim', event = "FileType qf", opts = {} },
     { "j-hui/fidget.nvim", opts = {} },
 
