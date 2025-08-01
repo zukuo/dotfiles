@@ -15,9 +15,10 @@ $git_status\
 """
 command_timeout = 5000
 add_newline = true
-palette = "colors"
+palette = "catppuccin_mocha"
 
-[palettes.colors]
+# Default Dark 256 Colors
+[palettes.defaultdark]
 zero = "#2A2A2A"
 first = "#353535"
 ffg = "#A1B56C" # first fg (green)
@@ -26,6 +27,17 @@ gbfg = "#F7CA88" # git branch fg
 gsfg = "#F7CA88" # git status fg
 third = "#5A5A5A"
 blue = "#7CAFC2"
+
+# Catppuccin Mocha Colors
+[palettes.catppuccin_mocha]
+zero = "#24273A"      # base
+first = "#313244"     # surface0
+ffg = "#a6e3a1"       # green (for first fg)
+second = "#45475a"    # surface1
+gbfg = "#f9e2af"      # yellow (git branch fg)
+gsfg = "#f9e2af"      # yellow (git status fg)
+third = "#585b70"     # surface2
+blue = "#89b4fa"      # blue
 
 # Swap with OS for zero'th module
 [hostname]
@@ -40,9 +52,12 @@ format = "[ $symbol ]($style)"
 style = "fg:white bg:zero"
 disabled = false
 
+# TODO: Test and see if arch logo is better blue or white
+
 [os.symbols]
 Arch = "[ ](fg:blue bg:zero)"
 EndeavourOS = "[ ](fg:blue bg:zero)"
+Ubuntu = "[󰕈 ](fg:purple bg:zero)"
 Linux = " "
 Macos = " "
 Windows = " "
