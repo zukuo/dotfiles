@@ -15,25 +15,16 @@ return {
     { "sainnhe/gruvbox-material" },
     { "rose-pine/neovim", name = "rose-pine", config = function() require("config.rose") end },
     { "folke/tokyonight.nvim", opts = { style = "night" } },
-    { "catppuccin/nvim", name = "catppuccin" },
+    { "catppuccin/nvim", name = "catppuccin", tag = "v1.11.0" }, -- update when TS is fixed
     { "navarasu/onedark.nvim", opts = { style = "warmer" } },
 
     -- Eye Candy
     { "kyazdani42/nvim-web-devicons", opts = {} },
     { "brenoprata10/nvim-highlight-colors", opts = { render = "virtual", virtual_symbol = "●", enable_tailwind = true } },
     { "RRethy/vim-illuminate" },
-
-    -- { "tjdevries/express_line.nvim", event = "VeryLazy", config = function() require("config.statusline") end },
-    -- { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = function() require("config.evil") end },
-    {
-        "sschleemilch/slimline.nvim",
-        event = "VeryLazy",
-        dependencies = {'echasnovski/mini.icons'},
-        config = function() require("config.slimline") end
-    },
-
     { 'stevearc/quicker.nvim', event = "FileType qf", opts = {} },
     { "j-hui/fidget.nvim", opts = {} },
+    { "sschleemilch/slimline.nvim", event = "VeryLazy", dependencies = {'echasnovski/mini.icons'}, config = function() require("config.slimline") end },
 
     -- Utils
     {
