@@ -2,6 +2,7 @@ require("slimline").setup({
     style = 'fg',
     bold = true,
     hl = {
+        base = 'NormalFloat', -- add different color to line
         secondary = 'Comment',
     },
     configs = {
