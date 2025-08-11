@@ -10,7 +10,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Set GUI options
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
@@ -29,5 +29,5 @@ vim.opt.smartcase = true
 
 -- Neovide
 if vim.g.neovide then
-    require("user.neovide")
+    require("core.neovide")
 end
