@@ -1,0 +1,8 @@
+adjust-cell-height = 20%
+custom-shader = ./shaders/cursor_smear.glsl
+macos-titlebar-style = hidden
+
+keybind = alt+backspace=text:\x17
+keybind = super+backspace=text:\x15
+
+theme = vague
