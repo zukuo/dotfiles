@@ -9,7 +9,7 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
-			-- Ruen when LSP attaches to a buffer
+			-- Run when LSP attaches to a buffer
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
