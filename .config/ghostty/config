@@ -5,4 +5,4 @@ macos-titlebar-style = hidden
 keybind = alt+backspace=text:\x17
 keybind = super+backspace=text:\x15
 
-theme = vague
+theme = defaultdark
