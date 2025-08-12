@@ -1,5 +1,17 @@
 return {
 	{
+		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+		-- used for completion, annotations and signatures of Neovim apis
+		'folke/lazydev.nvim',
+		ft = 'lua',
+		opts = {
+			library = {
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+			},
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -18,6 +30,7 @@ return {
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
+					-- TODO: change mappings to old ones
 					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 					map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 					map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
