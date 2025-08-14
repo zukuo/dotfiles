@@ -1,8 +1,24 @@
-adjust-cell-height = 20%
-custom-shader = ./shaders/cursor_smear.glsl
-macos-titlebar-style = hidden
+# Zukuo's Ghostty Config
+# vim: set ft=config:
 
+# Colors
+theme = defaultdark
+
+# Fonts
+font-family = Berkeley Mono
+adjust-cell-height = 20%
+# font-thicken = true
+# window-colorspace = display-p3
+
+# Decorations
+macos-titlebar-style = hidden
+mouse-hide-while-typing = true
+# window-padding-x = 10
+# window-padding-y = 10
+
+# Keybinds
 keybind = alt+backspace=text:\x17
 keybind = super+backspace=text:\x15
 
-theme = defaultdark
+# Neovide Like Cursor
+custom-shader = ./shaders/cursor_smear.glsl
