@@ -1,12 +1,14 @@
+[general]
 live_config_reload = true
 
 [window]
-
 decorations = "Buttonless"
-opacity = 0.9
-blur = true
+# opacity = 0.9
+# blur = true
 
 [font]
 
 normal = { family = "JetbrainsMono Nerd Font", style = "Regular" }
 size = 16
+# offset = { y = 5 }
+# glyph_offset = { y = 3 }
