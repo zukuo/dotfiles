@@ -80,6 +80,19 @@ function module.setup(config)
             })
         end
     end
+
+    -- Fix keys from tmux
+    table.insert(config.keys, {
+        key = 'h',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.SendString('\x1b[104;6u'),
+    })
+    table.insert(config.keys, {
+        key = 'l',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.SendString('\x1b[108;6u'),
+    })
+
 end
 
 return module
