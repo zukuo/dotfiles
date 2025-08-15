@@ -15,7 +15,7 @@ $git_status\
 """
 command_timeout = 5000
 add_newline = true
-palette = "catppuccin_mocha"
+palette = "defaultdark"
 
 # Default Dark 256 Colors
 [palettes.defaultdark]
