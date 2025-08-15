@@ -21,8 +21,8 @@ export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export FZF_COMPLETION_TRIGGER="**"
 # export FZF_ALT_C_COMMAND="fd -t d --hidden --follow --exclude \".git\" . $HOME"
 
-# Config
-# export MOZ_USE_XINPUT2=1
+# Personal
+export DEV_DIR="$HOME/Git/"
 
 # Disable files for less
 export LESSHISTFILE="-"

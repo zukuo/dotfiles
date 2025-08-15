@@ -59,6 +59,7 @@ alias diff="diff --color=auto"
 alias py="python3"
 alias pacman="sudo pacman"
 alias tmuxk="tmux kill-server"
+alias tms="tmux-sessionizer"
 alias wifi="nmtui"
 # alias bbash="/opt/homebrew/bin/bash"
 

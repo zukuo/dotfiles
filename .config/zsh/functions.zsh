@@ -12,6 +12,7 @@ se() { local file; file=$(fd . $HOME/.local/bin/ --type f --type symlink --follo
 cce() { local file; file=$(fd . $XDG_CONFIG_HOME/ --type f --type symlink --follow -H -d 2 | fzf) && $EDITOR $file; unset file ; }
 ce() { local file; file=$(yadm list -a | sed "s|^|$HOME\/|" | fzf) && $EDITOR $file; unset file ; }
 cf() { local dir; dir=$(yadm ls-tree -d -r main --name-only --full-tree | sed "s|^|$HOME\/|" | fzf) && cd $dir; unset dir ; }
+vp() { local dir; dir=$(git rev-parse --show-toplevel 2>/dev/null | sed "s;$HOME;~;" || pwd | sed "s;$HOME;~;") && $EDITOR "+NeovimProjectLoad ${dir}"; unset dir; }
 
 vf() { local file; file=$(fd . --type f | fzf) && $EDITOR - $file; unset file; zle reset-prompt ; }
 gf() { local dir; dir=$(fd . $HOME/Git --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
