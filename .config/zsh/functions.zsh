@@ -15,7 +15,7 @@ cf() { local dir; dir=$(yadm ls-tree -d -r main --name-only --full-tree | sed "s
 vp() { local dir; dir=$(git rev-parse --show-toplevel 2>/dev/null | sed "s;$HOME;~;" || pwd | sed "s;$HOME;~;") && $EDITOR "+NeovimProjectLoad ${dir}"; unset dir; }
 
 vf() { local file; file=$(fd . --type f | fzf) && $EDITOR - $file; unset file; zle reset-prompt ; }
-gf() { local dir; dir=$(fd . $HOME/Git --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
+gf() { local dir; dir=$(fd . ${DEV_DIR} --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
 
 # Bind Keys for Fuzzy
 zle -N gf

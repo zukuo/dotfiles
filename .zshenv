@@ -22,7 +22,7 @@ export FZF_COMPLETION_TRIGGER="**"
 # export FZF_ALT_C_COMMAND="fd -t d --hidden --follow --exclude \".git\" . $HOME"
 
 # Personal
-export DEV_DIR="$HOME/Git/"
+export DEV_DIR="$HOME/dev/"
 
 # Disable files for less
 export LESSHISTFILE="-"
