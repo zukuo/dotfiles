@@ -19,6 +19,10 @@ mouse-hide-while-typing = true
 # Keybinds
 keybind = alt+backspace=text:\x17
 keybind = super+backspace=text:\x15
+keybind = ctrl+shift+h=unbind
+keybind = ctrl+shift+j=unbind
+keybind = ctrl+shift+k=unbind
+keybind = ctrl+shift+l=unbind
 
 # Neovide Like Cursor
 custom-shader = ./shaders/cursor_smear.glsl
