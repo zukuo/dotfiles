@@ -8,6 +8,8 @@ vim.g.neovide_cursor_trail_size = 0.5
 vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 vim.g.neovide_hide_mouse_when_typing = true
 
+vim.g.neovide_show_border = true
+
 -- Allow clipboard copy paste in neovim (MacOS)
 vim.keymap.set('v', '<D-c>', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<D-v>', '"+P')
