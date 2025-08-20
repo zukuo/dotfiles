@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
+# Add/change any project folders
+DIRS=(
+    ${DEV_DIR}
+)
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # Add/change any project folders
     selected=$(
         {
-            fd . ${DEV_DIR} --type d -d 1;
+            fd . ${DIRS[@]} --type d -d 1;
             echo ${DEV_DIR};
         } | \
         sed "s|^$HOME/||" | \
