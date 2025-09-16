@@ -5,7 +5,8 @@
 theme = defaultdark
 
 # Fonts
-font-family = Berkeley Mono
+# font-family = Berkeley Mono
+# font-family = Hack
 adjust-cell-height = 20%
 # font-thicken = true
 # window-colorspace = display-p3
@@ -23,6 +24,3 @@ keybind = ctrl+shift+h=unbind
 keybind = ctrl+shift+j=unbind
 keybind = ctrl+shift+k=unbind
 keybind = ctrl+shift+l=unbind
-
-# Neovide Like Cursor
-custom-shader = ./shaders/cursor_smear.glsl
