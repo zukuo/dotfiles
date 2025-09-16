@@ -13,10 +13,22 @@ return {
 			on_highlights = function(hl, _)
 				hl.StatusLine.bg = "NONE"
 				hl.StatusLineNC.bg = "NONE"
+				vim.o.winborder = "rounded"
+				-- Override Visual highlight to not completely override syntax colors
+				vim.api.nvim_create_autocmd("ColorScheme", {
+					pattern = "vague",
+					callback = function()
+						vim.api.nvim_set_hl(0, "Visual", {
+							bg = "#333738",
+							blend = 20,
+							reverse = false,
+						})
+					end,
+				})
 			end,
 		},
 	},
-	{ "catppuccin/nvim", name = "catppuccin", tag = "v1.11.0" }, -- update when TS is fixed
+	{ "catppuccin/nvim", name = "catppuccin" },
 	{ "folke/tokyonight.nvim", opts = { style = "night" } },
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "loctvl842/monokai-pro.nvim" },

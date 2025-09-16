@@ -1,10 +1,10 @@
 return {
 	{
-		'folke/lazydev.nvim',
-		ft = 'lua',
+		"folke/lazydev.nvim",
+		ft = "lua",
 		opts = {
 			library = {
-				{ path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
 	},
@@ -131,7 +131,7 @@ return {
 			local servers = {
 				gopls = {},
 				pyright = {},
-				ts_ls = {},
+				vtsls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
