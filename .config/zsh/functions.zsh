@@ -25,10 +25,13 @@ vp() {
 
 vf() { local file; file=$(fd . --type f | fzf) && $EDITOR - $file; unset file; zle reset-prompt ; }
 gf() { local dir; dir=$(fd . ${DEV_DIR} --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
+jd() { local dir; dir=$(fd . --type d | fzf) && cd $dir; unset dir; zle reset-prompt ; }
 
 # Bind Keys for Fuzzy
 zle -N gf
 bindkey "^g" gf
+zle -N jd
+bindkey "^j" jd
 zle -N vf
 bindkey "^p" vf
 
