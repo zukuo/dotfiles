@@ -10,6 +10,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
 
 -- Better Copying
 vim.keymap.set("n", "Y", "y$")
+vim.keymap.set("n", "<C-,>", "<cmd>t.<cr>")
 -- vim.keymap.set('v', 'y', 'myy`y')
 -- vim.keymap.set('v', 'Y', 'myY`y')
 

@@ -4,9 +4,10 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("vague")
+			vim.cmd.colorscheme("gruber-darker")
 		end,
 	},
+	{ "blazkowolf/gruber-darker.nvim" },
 	{
 		"vague2k/vague.nvim",
 		opts = {
