@@ -21,19 +21,25 @@ vp() {
         project_root=$(pwd | sed "s;$HOME;~;")
     fi
     $EDITOR "+NeovimProjectLoad ${project_root}"
+    unset project_root
 }
 
 vf() { local file; file=$(fd . --type f | fzf) && $EDITOR - $file; unset file; zle reset-prompt ; }
 gf() { local dir; dir=$(fd . ${DEV_DIR} --type d -d 1 | fzf) && cd $dir; unset dir; zle reset-prompt ; }
 jd() { local dir; dir=$(fd . --type d | fzf) && cd $dir; unset dir; zle reset-prompt ; }
+pd() {
+    local dir project_root
+    project_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    dir=$(fd . $project_root --type d | fzf) && cd $dir
+    unset dir project_root
+    zle reset-prompt
+}
 
 # Bind Keys for Fuzzy
-zle -N gf
-bindkey "^g" gf
-zle -N jd
-bindkey "^j" jd
-zle -N vf
-bindkey "^p" vf
+zle -N gf; bindkey "^g" gf
+zle -N jd; bindkey "^j" jd
+zle -N vf; bindkey "^p" vf
+zle -N pd; bindkey "^n" pd
 
 # Get IP Address
 my_ip() { curl ifconfig.co }
