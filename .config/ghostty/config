@@ -3,10 +3,12 @@
 
 # Colors
 theme = defaultdark
+# background = 141415
 
 # Fonts
 # font-family = Berkeley Mono
-# font-family = Hack
+font-family = Iosevka
+font-feature = -calt
 adjust-cell-height = 20%
 # font-thicken = true
 # window-colorspace = display-p3
