@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
 # Add/change any project folders
-DIRS=(
+FIND_DIRS=(
     ${DEV_DIR}
+)
+
+SINGLE_DIRS=(
+    ${DEV_DIR}
+    ${HOME}/.config
 )
 
 if [[ $# -eq 1 ]]; then
@@ -10,8 +15,8 @@ if [[ $# -eq 1 ]]; then
 else
     selected=$(
         {
-            fd . ${DIRS[@]} --type d -d 1;
-            echo ${DEV_DIR};
+            fd . ${FIND_DIRS[@]} --type d -d 1;
+            printf "%s\n" "${SINGLE_DIRS[@]}"
         } | \
         sed "s|^$HOME/||" | \
         fzf
