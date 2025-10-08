@@ -27,14 +27,14 @@ function _G.get_branch_from_git()
   if gitsigns and gitsigns.head and gitsigns.head ~= '' then
     branch = gitsigns.head
   else
-    local handle = io.popen('git rev-parse --abbrev-ref HEAD 2>/dev/null')
-    if not handle then return '' end
-    branch = handle:read('*a'):gsub('\n', '') or ''
+    local handle = io.popen("git rev-parse --abbrev-ref HEAD 2>/dev/null")
+    if not handle then return "" end
+    branch = handle:read("*a"):gsub("\n", "") or ""
     handle:close()
   end
-  return "Git:" .. branch .. "        "
+  return (branch and branch ~= "") and ("Git:" .. branch .. "        ") or ""
 end
-vim.opt.statusline = '%<%f %h%m%r%= %{v:lua.get_branch_from_git()} %-14.(%l,%c%V%) %P'
+vim.opt.statusline = "%<%f %h%m%r%= %{v:lua.get_branch_from_git()} %-14.(%l,%c%V%) %P"
 
 -- Misc
 vim.opt.spelllang = "en_gb"
