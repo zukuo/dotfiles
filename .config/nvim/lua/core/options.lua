@@ -21,14 +21,20 @@ vim.opt.pumheight = 12 -- limit completion items (lsp)
 vim.opt.laststatus = 3 -- only one statusbar per window
 
 -- Set default status with git branch
-function _G.gitsigns_branch()
-  local branch = vim.b.gitsigns_head
-  if branch and branch ~= "" then
-    return "Git:" .. branch .. "        "
+function _G.get_branch_from_git()
+  local branch
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns and gitsigns.head and gitsigns.head ~= '' then
+    branch = gitsigns.head
+  else
+    local handle = io.popen('git rev-parse --abbrev-ref HEAD 2>/dev/null')
+    if not handle then return '' end
+    branch = handle:read('*a'):gsub('\n', '') or ''
+    handle:close()
   end
-  return ""
+  return "Git:" .. branch .. "        "
 end
-vim.opt.statusline = '%<%f %h%m%r%= %{v:lua.gitsigns_branch()} %-14.(%l,%c%V%) %P'
+vim.opt.statusline = '%<%f %h%m%r%= %{v:lua.get_branch_from_git()} %-14.(%l,%c%V%) %P'
 
 -- Misc
 vim.opt.spelllang = "en_gb"
