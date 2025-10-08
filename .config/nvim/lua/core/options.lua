@@ -24,11 +24,11 @@ vim.opt.laststatus = 3 -- only one statusbar per window
 function _G.gitsigns_branch()
   local branch = vim.b.gitsigns_head
   if branch and branch ~= "" then
-    return "(Git:" .. branch .. ")"
+    return "Git:" .. branch .. "        "
   end
   return ""
 end
-vim.opt.statusline = '%<%f %h%m%r %{v:lua.gitsigns_branch()}%= %-14.(%l,%c%V%) %P'
+vim.opt.statusline = '%<%f %h%m%r%= %{v:lua.gitsigns_branch()} %-14.(%l,%c%V%) %P'
 
 -- Misc
 vim.opt.spelllang = "en_gb"
