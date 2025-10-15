@@ -141,6 +141,13 @@ return {
 						},
 					},
 				},
+				arduino_language_server = {
+					cmd = {
+						"arduino-language-server",
+						"-cli-config",
+						vim.fn.expand("~/Library/Arduino15/arduino-cli.yaml"),
+					},
+				},
 			}
 
 			-- Ensure LSPs are installed (mason config)
@@ -149,7 +156,7 @@ return {
 				"stylua",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-			require("mason-lspconfig").setup({
+			require("mason-lspconfig").setup({ -- need to check if this is needed in the future
 				ensure_installed = {},
 				automatic_installation = false,
 				handlers = {
@@ -160,6 +167,11 @@ return {
 					end,
 				},
 			})
+
+			-- Fix settings of LSP not being applied
+			for server_name, config in pairs(servers) do
+				vim.lsp.config(server_name, config)
+			end
 		end,
 	},
 }
