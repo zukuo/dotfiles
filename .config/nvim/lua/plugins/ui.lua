@@ -7,9 +7,11 @@ return {
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
-		ft = {
-			"typescriptreact",
-			"html",
-		},
+		config = function()
+			require("rainbow-delimiters.setup").setup({
+				whitelist = { "tsx", "html" },
+			})
+		end,
+		ft = { "typescriptreact", "html" },
 	},
 }
