@@ -6,6 +6,8 @@ include ~/.config/sway/outputs
 include ~/.config/sway/workspaces
 # output * bg ~/Pictures/swirls.jpg fill
 
+# font Adwaita Mono 10
+
 ### Autostart
 exec wlsunset -l 52 -L 0.13
 
@@ -29,10 +31,8 @@ set $term ghostty
 set $menu wmenu-run
 
 ### Idle configuration
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 600 'systemctl suspend'
 
 ### Key bindings
 # Basics:
@@ -150,11 +150,11 @@ bindsym $mod+r mode "resize"
 bar {
     position top
     status_command i3status
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
 
 include /etc/sway/config.d/*
