@@ -8,7 +8,17 @@ return {
             { "pschmitt/telescope-yadm.nvim", config = function() require("telescope").load_extension("yadm_files") end },
         },
         cmd = "Telescope",
-        opts = {},
+        opts = {
+            defaults = {
+                mappings = {
+                    n = {
+                        ["dd"] = require("telescope.actions").delete_buffer,
+                        ["<c-d>"] = require("telescope.actions").delete_buffer,
+                    },
+                    i = { ["<c-d>"] = require("telescope.actions").delete_buffer },
+                },
+            },
+        },
         keys = {
             { "<leader>ff", "<cmd>Telescope find_files<cr>" },
             { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
