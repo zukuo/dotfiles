@@ -8,7 +8,11 @@ return {
 			},
 		},
 		opts = {
-			_on_attach_pre = function(_, callback)
+			_on_attach_pre = function(bufnr, callback)
+				local ignore_filetypes = { "gitcommit", "gitrebase" }
+				if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+					return
+				end
 				require("gitsigns-yadm").yadm_signs(callback)
 			end,
 			numhl = true,
@@ -20,6 +24,5 @@ return {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
 		},
-		config = true,
 	},
 }
