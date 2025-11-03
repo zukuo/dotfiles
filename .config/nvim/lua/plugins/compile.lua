@@ -9,15 +9,13 @@ return {
 		---@type CompileModeOpts
 		vim.g.compile_mode = {
 			baleia_setup = true,
-			-- to make `:Compile` replace special characters (e.g. `%`) in
-			-- the command (and behave more like `:!`), add:
-			-- bang_expansion = true,
+			bang_expansion = true, -- check this is fine
 		}
 	end,
 	keys = {
-		{ "<leader>cc", "<cmd>below Compile<cr>" },
-		{ "<leader>cr", "<cmd>below Recompile<cr>" },
+		{ "<leader>cs", "<cmd>below Compile<cr>" },
+		{ "<leader>cc", "<cmd>below Recompile<cr>" },
 		{ "<leader>cn", "<cmd>NextError<cr>" },
-		{ "<leader>cq", function() require("compile-mode").close_buffer() end },
+		{ "<leader>cq", function() require("compile-mode").close_buffer() end }, -- TODO: make it delete the buffer
 	},
 }
