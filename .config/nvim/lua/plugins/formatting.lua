@@ -19,7 +19,13 @@ return {
 			format_on_save = false,
 			formatters_by_ft = {
 				lua = { "stylua" },
+				c = { "clang_format" },
 			},
+			formatters = {
+				clang_format = {
+					args = { "--style={BasedOnStyle: webkit, IndentWidth: 4, PointerAlignment: Right}" }
+				}
+			}
 		},
 	},
 }
