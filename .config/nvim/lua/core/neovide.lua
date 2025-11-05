@@ -2,6 +2,11 @@ vim.o.guifont = "JetbrainsMono Nerd Font:h15:#h-none"
 
 vim.opt.linespace = 10
 
+vim.g.neovide_padding_top = 20
+vim.g.neovide_padding_bottom = 20
+vim.g.neovide_padding_right = 20
+vim.g.neovide_padding_left = 20
+
 vim.g.neovide_cursor_animation_length = 0.05
 vim.g.neovide_cursor_trail_size = 0.5
 

@@ -27,6 +27,9 @@ vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 vim.keymap.set("n", "<leader>e", "<cmd>vsplit +Oil<cr>")
 
+-- Fix :term escape functionality
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+
 -- Replace
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
