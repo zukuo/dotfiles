@@ -24,5 +24,8 @@ return {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
 		},
+        keys = {
+            { "<leader>nn", "<cmd>Neogit<cr>" },
+        },
 	},
 }
