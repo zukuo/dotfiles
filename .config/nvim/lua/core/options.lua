@@ -24,13 +24,9 @@ vim.opt.laststatus = 3 -- only one statusbar per window
 function _G.get_branch_from_git()
   local branch
   local gitsigns = vim.b.gitsigns_status_dict
+  -- TODO: fix so that you don't have to move for branch to show
   if gitsigns and gitsigns.head and gitsigns.head ~= '' then
     branch = gitsigns.head
-  else
-    local handle = io.popen("git rev-parse --abbrev-ref HEAD 2>/dev/null")
-    if not handle then return "" end
-    branch = handle:read("*a"):gsub("\n", "") or ""
-    handle:close()
   end
   return (branch and branch ~= "") and ("Git:" .. branch .. "        ") or ""
 end
