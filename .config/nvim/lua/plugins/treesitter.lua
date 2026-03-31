@@ -41,9 +41,6 @@ return {
 						return
 					end
 
-					-- TODO: Fix this so that when a new language is installed, it refreshes the buffers
-					--       (currently on update have to type :e to refresh)
-
 					-- Auto install language
 					if not vim.treesitter.language.add(language) then
 						local available = vim.g.ts_available or nvim_treesitter.get_available()
@@ -51,11 +48,19 @@ return {
 							vim.g.ts_available = available
 						end
 						if vim.tbl_contains(available, language) then
-							nvim_treesitter.install(language)
+							nvim_treesitter.install({ language }):await(function(err)
+								if err then
+									vim.notify("Treesitter install error for filetype: " .. filetype .. " err: " .. err)
+									return
+								end
+
+								pcall(vim.treesitter.start, buf, language)
+								vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+							end)
 						end
 					end
 
-					-- Enable language
+					-- Enable language -> TODO: check if redundant and can optimize?
 					if vim.treesitter.language.add(language) then
 						vim.treesitter.start(buf, language)
 						vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
