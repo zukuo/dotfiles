@@ -10,6 +10,7 @@ return {
 			local ensure_installed = {
 				"bash",
 				"c",
+				"cpp",
 				"diff",
 				"css",
 				"html",
