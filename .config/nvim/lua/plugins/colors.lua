@@ -34,4 +34,15 @@ return {
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "loctvl842/monokai-pro.nvim" },
 	{ "sainnhe/gruvbox-material" },
+	{ "Mofiqul/vscode.nvim" },
+	{ "0xleodevv/oc-2.nvim" },
+	{
+		"nkxxll/ghostty-default-style-dark.nvim",
+		opts = {
+			on_highlights = function(hl, _)
+				hl.StatusLine.bg = "NONE"
+				hl.StatusLineNC.bg = "NONE"
+			end,
+		},
+	},
 }
