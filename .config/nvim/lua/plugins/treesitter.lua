@@ -1,24 +1,74 @@
 return {
-	{
+	{ -- IMPORTANT: Make sure to install tree-sitter-cli and using nvim 0.12+
 		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile", "BufWritePost", "VeryLazy" },
 		build = ":TSUpdate",
-		main = "nvim-treesitter.configs",
-		event = { "BufReadPost", "BufNewFile", "BufWritePost", "VeryLazy" }, -- TODO: check if should have
-		opts = {
-			ensure_installed = { "html", "css", "javascript", "python", "c", "json", "vim", "lua" },
-			auto_install = true,
-            indent = { enable = true }, -- TODO: check if works with conform
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
-		},
+		branch = "main",
+		config = function()
+			local nvim_treesitter = require("nvim-treesitter")
+
+			local ensure_installed = {
+				"bash",
+				"c",
+				"diff",
+				"css",
+				"html",
+				"lua",
+				"luadoc",
+				"markdown",
+				"markdown_inline",
+				"query",
+				"vim",
+				"vimdoc",
+				"javascript",
+				"typescript",
+				"tsx",
+				"rust",
+				"zig",
+				"go",
+				"json",
+				"yaml",
+			}
+			nvim_treesitter.install(ensure_installed)
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					local buf, filetype = args.buf, args.match
+
+					-- Check language exists
+					local language = vim.treesitter.language.get_lang(filetype)
+					if not language then
+						return
+					end
+
+					-- TODO: Fix this so that when a new language is installed, it refreshes the buffers
+					--       (currently on update have to type :e to refresh)
+
+					-- Auto install language
+					if not vim.treesitter.language.add(language) then
+						local available = vim.g.ts_available or nvim_treesitter.get_available()
+						if not vim.g.ts_available then
+							vim.g.ts_available = available
+						end
+						if vim.tbl_contains(available, language) then
+							nvim_treesitter.install(language)
+						end
+					end
+
+					-- Enable language
+					if vim.treesitter.language.add(language) then
+						vim.treesitter.start(buf, language)
+						vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					end
+				end,
+			})
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
-			require("nvim-treesitter.configs").setup({
+			require("nvim-treesitter-textobjects").setup({
 				textobjects = {
 					move = {
 						enable = true,

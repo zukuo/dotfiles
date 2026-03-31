@@ -18,7 +18,7 @@ return {
 			{ "<leader>tq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
 		},
 	},
-	{
+	{ -- TODO: Update with latest from kickstart or similar
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -42,6 +42,7 @@ return {
 					map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 					map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 					map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					-- TODO: add go to file and change gr to g && add gf goto file
 					map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 					map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
 					map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
@@ -130,7 +131,7 @@ return {
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local servers = {
 				gopls = {},
-				pyright = {},
+				basedpyright = {},
 				vtsls = {},
 				lua_ls = {
 					settings = {
@@ -168,10 +169,14 @@ return {
 				},
 			})
 
-			-- Fix settings of LSP not being applied
+			-- Fix settings of LSP not being applied -- TODO: check if needed anymore / replace mason
 			for server_name, config in pairs(servers) do
 				vim.lsp.config(server_name, config)
 			end
+			-- vim.lsp.enable("gdscript") -- TODO: godot
+
+			-- Color Highlighting -> TODO: remove plugin and use this instead (v0.12)
+			vim.lsp.document_color.enable(false)
 		end,
 	},
 }
