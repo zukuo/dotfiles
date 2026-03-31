@@ -71,45 +71,56 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		branch = "main",
+		init = function()
+			-- Disable built-in ftplugin mappings to avoid conflicts
+			vim.g.no_plugin_maps = true
+		end,
 		config = function()
+			local select = require("nvim-treesitter-textobjects.select")
+			local move = require("nvim-treesitter-textobjects.move")
+			local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
+
 			require("nvim-treesitter-textobjects").setup({
-				textobjects = {
-					move = {
-						enable = true,
-						set_jumps = true,
-						goto_next_start = {
-							["[f"] = "@function.outer",
-							["]["] = "@class.outer",
-						},
-						goto_previous_start = {
-							["]f"] = "@function.outer",
-							["[["] = "@class.outer",
-						},
-						goto_previous_end = {
-							["[F"] = "@function.outer",
-							["[]"] = "@class.outer",
-						},
+				select = {
+					lookahead = true,
+					selection_modes = {
+						["@parameter.outer"] = "v",
+						["@function.outer"] = "V",
+						["@class.outer"] = "<c-v>",
 					},
-					select = {
-						enable = true,
-						lookahead = true,
-						keymaps = {
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-							["ac"] = "@class.outer",
-							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-							["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-						},
-						selection_modes = {
-							["@parameter.outer"] = "v",
-							["@function.outer"] = "V",
-							["@class.outer"] = "<c-v>",
-						},
-						include_surrounding_whitespace = false,
-					},
+					include_surrounding_whitespace = false,
+				},
+				move = {
+					set_jumps = true,
 				},
 			})
+
+			-- Select
+			vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer", "textobjects") end)
+			vim.keymap.set({ "x", "o" }, "if", function() select.select_textobject("@function.inner", "textobjects") end)
+			vim.keymap.set({ "x", "o" }, "ac", function() select.select_textobject("@class.outer", "textobjects") end)
+			vim.keymap.set({ "x", "o" }, "ic", function() select.select_textobject("@class.inner", "textobjects") end, { desc = "Select inner part of a class region" })
+			vim.keymap.set({ "x", "o" }, "as", function() select.select_textobject("@local.scope", "locals") end, { desc = "Select language scope" })
+
+			-- Move
+			vim.keymap.set({ "n", "x", "o" }, "][", function() move.goto_next_start("@function.outer", "textobjects") end)
+			vim.keymap.set({ "n", "x", "o" }, "]]", function() move.goto_next_start("@class.outer", "textobjects") end)
+			vim.keymap.set({ "n", "x", "o" }, "][", function() move.goto_next_end("@class.outer", "textobjects") end)
+			vim.keymap.set({ "n", "x", "o" }, "]f", function() move.goto_previous_start("@function.outer", "textobjects") end)
+			vim.keymap.set({ "n", "x", "o" }, "[[", function() move.goto_previous_start("@class.outer", "textobjects") end)
+			vim.keymap.set({ "n", "x", "o" }, "[F", function() move.goto_previous_end("@function.outer", "textobjects") end)
+			vim.keymap.set({ "n", "x", "o" }, "[]", function() move.goto_previous_end("@class.outer", "textobjects") end)
+
+			-- Repeatable moves with ; and ,
+			vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+			vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+			-- Make f, F, t, T repeatable with ; and , as well
+			vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+			vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+			vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+			vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 		end,
 	},
 }
