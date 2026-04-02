@@ -9,8 +9,7 @@ return {
 				pre_hook = prehook, -- for typescript react commenting
 			})
 		end,
-		event = "BufReadPre",
-		lazy = false,
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"JoosepAlviste/nvim-ts-context-commentstring",
@@ -18,6 +17,7 @@ return {
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
+		event = "VeryLazy",
 		config = function()
 			require("ts_context_commentstring").setup({
 				enable_autocmd = false,
